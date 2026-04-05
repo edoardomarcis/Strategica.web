@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__mcp-registry__search_mcp_registry",
+      "Bash(npx skills:*)",
+      "Read(//usr/local/bin/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(export PATH=\"$PATH:/usr/local/bin:/opt/homebrew/bin:/usr/bin\")",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(mkdir -p ~/.claude/skills/frontend-design)",
+      "Bash(cp /Users/edoardomarcis/Downloads/frontend-design/SKILL.md ~/.claude/skills/frontend-design/SKILL.md)",
+      "Bash(cp /Users/edoardomarcis/Downloads/frontend-design/LICENSE.txt ~/.claude/skills/frontend-design/LICENSE.txt)",
+      "Bash(git --version)",
+      "Bash(gh --version)"
+    ]
+  }
+}
