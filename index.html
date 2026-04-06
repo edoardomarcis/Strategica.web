@@ -912,6 +912,167 @@ footer {
 .g-l    { opacity: 0; transform: translateX(-36px); }
 .g-r    { opacity: 0; transform: translateX(36px); }
 
+/* ══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET  ≤ 900px
+══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  /* NAV */
+  nav { padding: 0 28px; }
+  .nav-links { display: none; }
+
+  /* HERO */
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-left {
+    padding: 96px 28px 56px;
+  }
+  .hero-right { display: none; }
+
+  /* METRICS */
+  .metrics-band {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 56px 28px;
+    gap: 40px 0;
+  }
+  .metric-item { padding: 0 20px; text-align: left; }
+  .metric-item:nth-child(2) { border-right: none; }
+  .metric-item:nth-child(3) { border-right: 1px solid rgba(212,200,180,0.5); padding-left: 0; }
+  .metric-item:nth-child(4) { border-right: none; }
+  .metric-item:first-child { padding-left: 0; }
+
+  /* LOGOS */
+  .logos-band-header { padding: 32px 28px 20px; }
+
+  /* PROBLEM */
+  .problem {
+    padding: 72px 28px 64px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 0;
+  }
+  .problem-header { grid-column: 1; margin-bottom: 40px; }
+  .iceberg-col    { grid-column: 1; grid-row: 2; justify-content: center; margin-bottom: 48px; }
+  .problem-right  { grid-column: 1; grid-row: 3; }
+  .problem-quote  { grid-column: 1; }
+  .iceberg-svg    { width: 65%; max-width: 280px; }
+
+  /* APPROACH */
+  .approach { padding: 72px 28px; }
+  .approach-header {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .approach-diagram { overflow: visible; }
+  .venn-svg { max-width: 320px; }
+  .steps-bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .step-card--feature { grid-column: 1 / -1 !important; grid-row: auto !important; }
+  .step-card-04       { grid-column: auto !important; grid-row: auto !important; }
+  .step-decor-cell    { grid-column: auto !important; grid-row: auto !important; }
+
+  /* SERVICES */
+  .services { padding: 72px 28px; }
+  .services-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  /* TARGET BAND */
+  .target-band { padding: 72px 28px; }
+  .target-cta { flex-direction: column; gap: 16px; }
+
+  /* WHY */
+  .why {
+    padding: 72px 28px;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 80px 28px;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .cta-right p { max-width: none; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+  .footer-nav { flex-wrap: wrap; gap: 20px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE  ≤ 540px
+══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 540px) {
+  body { font-size: 17px; }
+
+  /* NAV */
+  nav { padding: 0 20px; height: 56px; }
+  .nav-cta { padding: 8px 16px; font-size: 9px; }
+
+  /* HERO */
+  .hero-left { padding: 80px 20px 48px; }
+  .hero-body { font-size: 17px; max-width: none; }
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+  /* METRICS */
+  .metrics-band {
+    grid-template-columns: 1fr 1fr;
+    padding: 48px 20px;
+    gap: 32px 0;
+  }
+  .metric-item { padding: 0 14px; }
+  .metric-item:first-child { padding-left: 0; }
+  .metric-item:nth-child(3) { padding-left: 0; }
+
+  /* LOGOS */
+  .logos-band-header { padding: 28px 20px 16px; }
+
+  /* PROBLEM */
+  .problem { padding: 56px 20px 52px; }
+  .iceberg-svg { width: 75%; max-width: 240px; }
+  .problem-right p { font-size: 17px; }
+  .symptom { font-size: 16px; }
+
+  /* APPROACH */
+  .approach { padding: 56px 20px; }
+  .venn-svg { max-width: 280px; }
+  .steps-bento { grid-template-columns: 1fr; }
+  .step-card--feature { grid-column: 1 !important; grid-row: auto !important; }
+  .step-card-04       { grid-column: 1 !important; grid-row: auto !important; }
+  .step-decor-cell    { display: none !important; }
+  .approach-lead { font-size: 17px; }
+
+  /* SERVICES */
+  .services { padding: 56px 20px; }
+  .service-card { padding: 36px 24px 32px; }
+  .service-card p { font-size: 16px; }
+
+  /* TARGET BAND */
+  .target-band { padding: 56px 20px; }
+
+  /* WHY */
+  .why { padding: 56px 20px; gap: 40px; }
+  .why-body p { font-size: 17px; }
+
+  /* CTA */
+  .cta { padding: 64px 20px; gap: 36px; }
+  .cta-right p { font-size: 17px; }
+  .cta-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+  /* FOOTER */
+  footer { padding: 32px 20px; }
+  .footer-copy { display: none; }
+}
+
 </style>
 </head>
 <body>
@@ -1267,14 +1428,14 @@ footer {
       <h4>Progettiamo</h4>
       <p>Identifichiamo le cause reali, non i sintomi, e disegniamo soluzioni concrete adatte alla tua fase di crescita.</p>
     </div>
-    <div class="step-card" style="grid-column:2; grid-row:2;">
+    <div class="step-card step-card-04" style="grid-column:2; grid-row:2;">
       <div class="step-bg-num" aria-hidden="true">04</div>
       <div class="step-num">04</div>
       <h4>Mettiamo a terra</h4>
       <p>Affianchiamo il team nell'esecuzione. Non gestiamo noi — costruiamo insieme un sistema che funziona anche senza di noi.</p>
     </div>
     <!-- Cella decorativa hand-drawn -->
-    <div style="grid-column:3; grid-row:2; border-radius:6px; background:rgba(196,98,42,0.05); border:1px solid rgba(196,98,42,0.14); display:flex; flex-direction:column; align-items:flex-start; justify-content:space-between; padding:28px 28px 24px; min-height:120px; position:relative; overflow:hidden;">
+    <div class="step-decor-cell" style="grid-column:3; grid-row:2; border-radius:6px; background:rgba(196,98,42,0.05); border:1px solid rgba(196,98,42,0.14); display:flex; flex-direction:column; align-items:flex-start; justify-content:space-between; padding:28px 28px 24px; min-height:120px; position:relative; overflow:hidden;">
       <!-- Spiral / organic curves — hand-drawn feel -->
       <svg style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none" viewBox="0 0 200 140" preserveAspectRatio="none" fill="none">
         <!-- Irregular border -->
