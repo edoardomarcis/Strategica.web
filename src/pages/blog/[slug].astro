@@ -12,9 +12,40 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: post.data.author,
+    url: 'https://strategica.it',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Strategica',
+    url: 'https://strategica.it',
+  },
+  url: `https://strategica.it/blog/${post.slug}`,
+  ...(post.data.coverImage ? { image: `https://strategica.it${post.data.coverImage}` } : {}),
+};
 ---
 
-<Base title={`${post.data.title} — Strategica`} description={post.data.description}>
+<Base
+  title={`${post.data.title} — Strategica`}
+  description={post.data.description}
+  ogType="article"
+  ogImage={post.data.coverImage}
+  article={{
+    publishedTime: post.data.pubDate.toISOString(),
+    author: post.data.author,
+    tags: post.data.tags,
+  }}
+  jsonLd={jsonLd}
+>
 
 <div class="c-glow" id="glow"></div>
 

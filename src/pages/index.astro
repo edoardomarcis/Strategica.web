@@ -1,8 +1,39 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Strategica',
+    url: 'https://strategica.it',
+    logo: 'https://strategica.it/logo.png',
+    description: 'Consulenza strategica per PMI italiane. Aiutiamo le aziende a costruire il loro sistema operativo.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Milano',
+      addressCountry: 'IT',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'ciao@strategica.it',
+      contactType: 'customer service',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Strategica',
+    url: 'https://strategica.it',
+  },
+];
 ---
 
-<Base>
+<Base
+  title="Strategica — Consulenza Strategica per PMI Italiane"
+  description="Consulenza strategica per PMI italiane. Aiutiamo le aziende a costruire il loro sistema operativo: chiarezza, decisioni migliori, crescita misurabile."
+  jsonLd={jsonLd}
+>
 
 <!-- SVG defs — roughen filter + hand-drawn shapes ───────────────────── -->
 <svg style="display:none" aria-hidden="true">

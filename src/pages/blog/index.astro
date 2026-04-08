@@ -8,7 +8,10 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 const allTags = [...new Set(posts.flatMap(p => p.data.tags ?? []))].sort();
 ---
 
-<Base title="Blog — Strategica" description="Riflessioni su strategia, crescita e management per PMI italiane.">
+<Base
+  title="Blog — Strategica"
+  description="Riflessioni su strategia, crescita e management per PMI italiane. Articoli pratici per chi vuole capire prima di agire."
+>
 
 <!-- SVG defs -->
 <svg style="display:none" aria-hidden="true">
