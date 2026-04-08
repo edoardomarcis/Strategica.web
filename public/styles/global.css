@@ -748,19 +748,25 @@ nav {
 .faq {
   background: var(--warm);
   padding: 96px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 88px;
+  align-items: start;
 }
-.faq-inner {
-  max-width: 760px;
-  margin: 0 auto;
-}
-.faq-header { margin-bottom: 56px; }
 .faq-title {
-  font-size: clamp(36px, 4vw, 60px);
-  font-weight: 300; line-height: 1.06;
+  font-size: clamp(40px, 4.5vw, 68px);
+  font-weight: 300; line-height: 1.04;
   letter-spacing: -0.018em;
-  margin-top: 12px;
+  margin-top: 12px; margin-bottom: 0;
 }
-.faq-title em { font-style: italic; color: var(--terra); display: block; margin-top: 4px; }
+.faq-title em { font-style: italic; color: var(--terra); display: block; margin-top: 6px; }
+.faq-intro {
+  margin-top: 28px;
+}
+.faq-intro p {
+  font-size: 19px; font-weight: 300;
+  line-height: 1.72; color: var(--ink-soft);
+}
 
 .faq-list { border-top: 1px solid var(--rule-l); }
 
@@ -804,12 +810,13 @@ nav {
   margin: 0;
 }
 .faq-a p strong { color: var(--ink); font-weight: 400; }
+.faq-a p a { color: var(--terra); text-decoration: underline; text-underline-offset: 3px; }
 
 @media (max-width: 960px) {
-  .faq { padding: 80px 40px; }
+  .faq { padding: 80px 40px; gap: 56px; }
 }
 @media (max-width: 768px) {
-  .faq { padding: 64px 24px; }
+  .faq { padding: 64px 24px; grid-template-columns: 1fr; gap: 40px; }
   .faq-q { font-size: 16px; }
   .faq-a p { font-size: 16px; }
 }
