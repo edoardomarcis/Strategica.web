@@ -84,6 +84,9 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags ?? []))].sort();
       ))}
     </div>
   )}
+  <p class="blog-empty-filter" id="blog-empty-filter" style="display:none">
+    Nessun articolo in questa categoria.
+  </p>
 </main>
 
 <!-- FOOTER -->
@@ -104,6 +107,7 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags ?? []))].sort();
 <script>
   const filters = document.getElementById('blog-filters');
   const grid = document.getElementById('blog-grid');
+  const empty = document.getElementById('blog-empty-filter');
   if (filters && grid) {
     filters.addEventListener('click', (e) => {
       const btn = (e.target as HTMLElement).closest('.filter-btn') as HTMLButtonElement | null;
@@ -111,10 +115,14 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags ?? []))].sort();
       const tag = btn.dataset.tag!;
       filters.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-btn--active'));
       btn.classList.add('filter-btn--active');
+      let visible = 0;
       grid.querySelectorAll<HTMLElement>('.blog-card').forEach(card => {
         const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
-        card.style.display = (tag === 'tutti' || cardTags.includes(tag)) ? '' : 'none';
+        const show = tag === 'tutti' || cardTags.includes(tag);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
       });
+      if (empty) empty.style.display = visible === 0 ? '' : 'none';
     });
   }
 </script>
@@ -168,6 +176,7 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags ?? []))].sort();
 }
 
 .blog-empty { color: var(--ink-soft); font-style: italic; }
+.blog-empty-filter { color: var(--ink-soft); font-style: italic; margin-top: 8px; }
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
