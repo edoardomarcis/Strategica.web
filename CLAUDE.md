@@ -36,6 +36,14 @@ I loghi ufficiali in PNG sono in `/brand-guidelines/`.
 
 ---
 
+## Struttura CSS
+
+- Il foglio di stile globale è **uno solo**: `public/styles/global.css` — è quello linkato da `Base.astro`
+- `src/styles/` non esiste e non va ricreata — il CSS non passa dal build Astro
+- Le classi condivise tra più pagine (es. `.blog-tag`) vanno in `public/styles/global.css`, non nelle `<style>` locali delle pagine
+
+---
+
 ## Regole tecniche
 
 - Usa i loghi PNG dalla cartella `/brand-guidelines/` — non ricreare il logo via CSS/SVG

@@ -313,12 +313,6 @@ nav {
 }
 
 /* Iceberg illustration */
-.iceberg-wrap {
-  display: flex; flex-direction: column; align-items: flex-start;
-  gap: 32px;
-}
-.iceberg-wrap .section-label { margin-bottom: 0; }
-.iceberg-wrap h2 { margin-bottom: 0; }
 .iceberg-svg-wrap {
   width: 100%; display: flex; justify-content: flex-start;
   padding: 16px 0 0;
@@ -1061,5 +1055,13 @@ footer {
   /* FOOTER */
   footer { padding: 32px 20px; }
   .footer-copy { display: none; }
+}
+
+/* Blog shared */
+.blog-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--terra); border: 1px solid rgba(196,98,42,0.25);
+  padding: 3px 9px; border-radius: 3px;
 }
 
