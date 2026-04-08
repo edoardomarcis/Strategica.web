@@ -747,26 +747,17 @@ nav {
 ══════════════════════════════════════════════════════════════════════ */
 .faq {
   background: var(--warm);
-  padding: 96px 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 88px;
-  align-items: start;
+  padding: 96px 80px 88px;
+  border-top: 1px solid rgba(212,200,180,0.4);
 }
+.faq-header { margin-bottom: 52px; }
 .faq-title {
-  font-size: clamp(40px, 4.5vw, 68px);
+  font-size: clamp(44px, 5vw, 74px);
   font-weight: 300; line-height: 1.04;
-  letter-spacing: -0.018em;
-  margin-top: 12px; margin-bottom: 0;
+  letter-spacing: -0.015em;
+  margin-top: 8px;
 }
-.faq-title em { font-style: italic; color: var(--terra); display: block; margin-top: 6px; }
-.faq-intro {
-  margin-top: 28px;
-}
-.faq-intro p {
-  font-size: 19px; font-weight: 300;
-  line-height: 1.72; color: var(--ink-soft);
-}
+.faq-title em { font-style: italic; color: var(--terra); }
 
 .faq-list { border-top: 1px solid var(--rule-l); }
 
@@ -813,10 +804,10 @@ nav {
 .faq-a p a { color: var(--terra); text-decoration: underline; text-underline-offset: 3px; }
 
 @media (max-width: 960px) {
-  .faq { padding: 80px 40px; gap: 56px; }
+  .faq { padding: 80px 40px 72px; }
 }
 @media (max-width: 768px) {
-  .faq { padding: 64px 24px; grid-template-columns: 1fr; gap: 40px; }
+  .faq { padding: 64px 24px; }
   .faq-q { font-size: 16px; }
   .faq-a p { font-size: 16px; }
 }
