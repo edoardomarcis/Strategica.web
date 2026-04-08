@@ -1,0 +1,175 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Base title={`${post.data.title} — Strategica`} description={post.data.description}>
+
+<div class="c-glow" id="glow"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Strat<em>egica</em></a>
+  <ul class="nav-links">
+    <li><a href="/#approccio">Approccio</a></li>
+    <li><a href="/#servizi">Servizi</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/#contatti">Contatti</a></li>
+  </ul>
+  <a href="/#contatti" class="nav-cta">Inizia qui</a>
+</nav>
+
+<article class="post-main">
+  <header class="post-header">
+    <a href="/blog" class="post-back">← Blog</a>
+    <div class="post-meta">
+      <span class="post-date">
+        {post.data.pubDate.toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </span>
+      {post.data.tags && post.data.tags.map(tag => (
+        <span class="blog-tag">{tag}</span>
+      ))}
+    </div>
+    <h1 class="post-title">{post.data.title}</h1>
+    <p class="post-desc">{post.data.description}</p>
+    <div class="post-author">
+      <span class="post-author-name">{post.data.author}</span>
+    </div>
+  </header>
+
+  <div class="post-body">
+    <Content />
+  </div>
+
+  <footer class="post-footer">
+    <a href="/blog" class="btn-ghost">Tutti gli articoli</a>
+    <a href="/#contatti" class="btn-dark">Parliamone</a>
+  </footer>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="/" class="footer-logo">Strat<em>egica</em></a>
+    <span class="footer-tagline">Costruiamo sistemi operativi aziendali.</span>
+  </div>
+  <ul class="footer-nav">
+    <li><a href="/#approccio">Approccio</a></li>
+    <li><a href="/#servizi">Servizi</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/#contatti">Contatti</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Strategica</span>
+</footer>
+
+<style>
+.post-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 120px 40px 96px;
+}
+.post-back {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  display: inline-block; margin-bottom: 48px;
+  transition: color .2s;
+}
+.post-back:hover { color: var(--terra); }
+.post-meta {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 24px;
+}
+.post-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.blog-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--terra); border: 1px solid rgba(196,98,42,0.25);
+  padding: 3px 9px; border-radius: 3px;
+}
+.post-title {
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 300; line-height: 1.06;
+  letter-spacing: -0.02em; color: var(--ink);
+  margin-bottom: 20px;
+}
+.post-desc {
+  font-size: 20px; font-weight: 300;
+  color: var(--ink-soft); line-height: 1.68;
+  margin-bottom: 28px;
+}
+.post-author {
+  display: flex; align-items: center; gap: 12px;
+  padding-top: 28px; border-top: 1px solid var(--rule-l);
+  margin-bottom: 64px;
+}
+.post-author-name {
+  font-family: 'Caveat', cursive;
+  font-size: 18px; color: var(--terra);
+}
+
+/* Post body — stile editoriale */
+.post-body {
+  font-size: 19px; line-height: 1.8;
+  color: var(--ink);
+  border-top: 1px solid var(--rule-l);
+  padding-top: 48px;
+}
+.post-body h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 300; letter-spacing: -0.012em;
+  margin: 56px 0 20px; line-height: 1.12;
+}
+.post-body h3 {
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 400; margin: 40px 0 16px;
+}
+.post-body p { margin-bottom: 24px; color: var(--ink-soft); font-weight: 300; }
+.post-body strong { color: var(--ink); font-weight: 400; }
+.post-body em { font-style: italic; color: var(--terra); }
+.post-body blockquote {
+  border-left: 3px solid var(--terra);
+  padding: 16px 20px; margin: 32px 0;
+  background: rgba(196,98,42,0.04);
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+}
+.post-body blockquote p { color: var(--ink); margin: 0; }
+.post-body ul, .post-body ol {
+  padding-left: 24px; margin-bottom: 24px;
+}
+.post-body li { margin-bottom: 10px; color: var(--ink-soft); font-weight: 300; }
+.post-body hr {
+  border: none; border-top: 1px solid var(--rule-l);
+  margin: 48px 0;
+}
+.post-body a { color: var(--terra); text-decoration: underline; text-underline-offset: 3px; }
+
+.post-footer {
+  display: flex; gap: 20px; align-items: center;
+  margin-top: 72px; padding-top: 40px;
+  border-top: 1px solid var(--rule-l);
+}
+
+@media (max-width: 768px) {
+  .post-main { padding: 96px 24px 64px; }
+  .post-footer { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+</Base>

@@ -1,0 +1,168 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Base title="Blog — Strategica" description="Riflessioni su strategia, crescita e management per PMI italiane.">
+
+<!-- SVG defs -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <filter id="roughen" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="3" seed="2" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="c-glow" id="glow"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Strat<em>egica</em></a>
+  <ul class="nav-links">
+    <li><a href="/#approccio">Approccio</a></li>
+    <li><a href="/#servizi">Servizi</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/#contatti">Contatti</a></li>
+  </ul>
+  <a href="/#contatti" class="nav-cta">Inizia qui</a>
+</nav>
+
+<main class="blog-main">
+  <div class="blog-header g-fade">
+    <div class="section-label">Riflessioni</div>
+    <h1>Blog</h1>
+    <p class="blog-lead">Strategia, crescita, management — scritti per chi vuole capire prima di agire.</p>
+  </div>
+
+  {posts.length === 0 ? (
+    <div class="blog-empty">
+      <p>I primi articoli sono in arrivo.</p>
+    </div>
+  ) : (
+    <div class="blog-grid">
+      {posts.map(post => (
+        <a href={`/blog/${post.slug}`} class="blog-card">
+          <div class="blog-card-meta">
+            <span class="blog-card-date">
+              {post.data.pubDate.toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </span>
+            {post.data.tags && post.data.tags.slice(0,2).map(tag => (
+              <span class="blog-tag">{tag}</span>
+            ))}
+          </div>
+          <h2 class="blog-card-title">{post.data.title}</h2>
+          <p class="blog-card-desc">{post.data.description}</p>
+          <span class="blog-card-cta">Leggi →</span>
+        </a>
+      ))}
+    </div>
+  )}
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="/" class="footer-logo">Strat<em>egica</em></a>
+    <span class="footer-tagline">Costruiamo sistemi operativi aziendali.</span>
+  </div>
+  <ul class="footer-nav">
+    <li><a href="/#approccio">Approccio</a></li>
+    <li><a href="/#servizi">Servizi</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/#contatti">Contatti</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Strategica</span>
+</footer>
+
+<style>
+.blog-main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 120px 80px 96px;
+}
+.blog-header { margin-bottom: 64px; }
+.blog-header h1 {
+  font-size: clamp(52px, 6vw, 88px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.022em;
+  margin-top: 12px;
+}
+.blog-lead {
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  margin-top: 20px;
+  max-width: 520px;
+}
+.blog-empty { color: var(--ink-soft); font-style: italic; }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.blog-card {
+  background: rgba(255,253,250,0.97);
+  border: 1px solid rgba(196,98,42,0.12);
+  border-radius: 6px;
+  padding: 40px 36px 36px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--d2);
+  transition: transform .4s cubic-bezier(0.23,1,0.32,1), box-shadow .4s;
+  position: relative; overflow: hidden;
+}
+.blog-card::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0; height: 2px;
+  background: var(--terra);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s cubic-bezier(0.4,0,0.2,1);
+}
+.blog-card:hover { transform: translateY(-4px); box-shadow: var(--d3); }
+.blog-card:hover::after { transform: scaleX(1); }
+.blog-card-meta {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.blog-card-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.blog-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--terra); border: 1px solid rgba(196,98,42,0.25);
+  padding: 3px 9px; border-radius: 3px;
+}
+.blog-card-title {
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 300; line-height: 1.18;
+  letter-spacing: -0.012em; color: var(--ink);
+  margin-bottom: 14px;
+}
+.blog-card-desc {
+  font-size: 16px; font-weight: 300;
+  line-height: 1.72; color: var(--ink-soft);
+  flex: 1;
+}
+.blog-card-cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--terra); margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .blog-main { padding: 96px 24px 64px; }
+  .blog-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+</Base>
