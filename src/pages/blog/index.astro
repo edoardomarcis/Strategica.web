@@ -4,6 +4,8 @@ import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const allTags = [...new Set(posts.flatMap(p => p.data.tags ?? []))].sort();
 ---
 
 <Base title="Blog — Strategica" description="Riflessioni su strategia, crescita e management per PMI italiane.">
@@ -39,25 +41,45 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     <p class="blog-lead">Strategia, crescita, management — scritti per chi vuole capire prima di agire.</p>
   </div>
 
+  {allTags.length > 0 && (
+    <div class="blog-filters" id="blog-filters">
+      <button class="filter-btn filter-btn--active" data-tag="tutti">Tutti</button>
+      {allTags.map(tag => (
+        <button class="filter-btn" data-tag={tag}>{tag}</button>
+      ))}
+    </div>
+  )}
+
   {posts.length === 0 ? (
     <div class="blog-empty">
       <p>I primi articoli sono in arrivo.</p>
     </div>
   ) : (
-    <div class="blog-grid">
+    <div class="blog-grid" id="blog-grid">
       {posts.map(post => (
-        <a href={`/blog/${post.slug}`} class="blog-card">
-          <div class="blog-card-meta">
-            <span class="blog-card-date">
-              {post.data.pubDate.toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </span>
-            {post.data.tags && post.data.tags.slice(0,2).map(tag => (
-              <span class="blog-tag">{tag}</span>
-            ))}
+        <a
+          href={`/blog/${post.slug}`}
+          class="blog-card"
+          data-tags={(post.data.tags ?? []).join(',')}
+        >
+          {post.data.coverImage && (
+            <div class="blog-card-cover">
+              <img src={post.data.coverImage} alt={post.data.title} loading="lazy" />
+            </div>
+          )}
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-date">
+                {post.data.pubDate.toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </span>
+              {post.data.tags && post.data.tags.slice(0,2).map(tag => (
+                <span class="blog-tag">{tag}</span>
+              ))}
+            </div>
+            <h2 class="blog-card-title">{post.data.title}</h2>
+            <p class="blog-card-desc">{post.data.description}</p>
+            <span class="blog-card-cta">Leggi →</span>
           </div>
-          <h2 class="blog-card-title">{post.data.title}</h2>
-          <p class="blog-card-desc">{post.data.description}</p>
-          <span class="blog-card-cta">Leggi →</span>
         </a>
       ))}
     </div>
@@ -79,13 +101,31 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   <span class="footer-copy">© 2025 Strategica</span>
 </footer>
 
+<script>
+  const filters = document.getElementById('blog-filters');
+  const grid = document.getElementById('blog-grid');
+  if (filters && grid) {
+    filters.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('.filter-btn') as HTMLButtonElement | null;
+      if (!btn) return;
+      const tag = btn.dataset.tag!;
+      filters.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-btn--active'));
+      btn.classList.add('filter-btn--active');
+      grid.querySelectorAll<HTMLElement>('.blog-card').forEach(card => {
+        const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+        card.style.display = (tag === 'tutti' || cardTags.includes(tag)) ? '' : 'none';
+      });
+    });
+  }
+</script>
+
 <style>
 .blog-main {
   max-width: 1080px;
   margin: 0 auto;
   padding: 120px 80px 96px;
 }
-.blog-header { margin-bottom: 64px; }
+.blog-header { margin-bottom: 48px; }
 .blog-header h1 {
   font-size: clamp(52px, 6vw, 88px);
   font-weight: 300;
@@ -100,6 +140,33 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   margin-top: 20px;
   max-width: 520px;
 }
+
+/* Filters */
+.blog-filters {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 48px;
+}
+.filter-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 7px 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(196,98,42,0.2);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.filter-btn:hover {
+  color: var(--terra);
+  border-color: rgba(196,98,42,0.5);
+}
+.filter-btn--active {
+  color: var(--terra);
+  border-color: var(--terra);
+  background: rgba(196,98,42,0.06);
+}
+
 .blog-empty { color: var(--ink-soft); font-style: italic; }
 .blog-grid {
   display: grid;
@@ -110,7 +177,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   background: rgba(255,253,250,0.97);
   border: 1px solid rgba(196,98,42,0.12);
   border-radius: 6px;
-  padding: 40px 36px 36px;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -127,6 +193,25 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 }
 .blog-card:hover { transform: translateY(-4px); box-shadow: var(--d3); }
 .blog-card:hover::after { transform: scaleX(1); }
+
+.blog-card-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.blog-card-cover img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s cubic-bezier(0.23,1,0.32,1);
+}
+.blog-card:hover .blog-card-cover img { transform: scale(1.04); }
+
+.blog-card-body {
+  padding: 40px 36px 36px;
+  display: flex; flex-direction: column;
+  flex: 1;
+}
 .blog-card-meta {
   display: flex; align-items: center; gap: 12px;
   margin-bottom: 20px;

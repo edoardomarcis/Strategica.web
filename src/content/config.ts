@@ -8,6 +8,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     author: z.string().default('Edoardo Marcis'),
     tags: z.array(z.string()).optional(),
+    coverImage: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
