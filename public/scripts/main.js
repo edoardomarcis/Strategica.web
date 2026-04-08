@@ -98,6 +98,23 @@ if (icebergEl) {
   }, { threshold: 0.3 }).observe(icebergEl);
 }
 
+/* ── Step cards — ghost → dark on click ──────────────────────────────── */
+document.querySelectorAll('.step-card').forEach(card => {
+  const activate = () => {
+    const isActive = card.classList.contains('active');
+    document.querySelectorAll('.step-card').forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-expanded', 'false');
+    });
+    if (!isActive) {
+      card.classList.add('active');
+      card.setAttribute('aria-expanded', 'true');
+    }
+  };
+  card.addEventListener('click', activate);
+  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+});
+
 /* ── Annotation marks ─────────────────────────────────────────────────── */
 document.querySelectorAll('.mark').forEach(el => {
   new IntersectionObserver(entries => {

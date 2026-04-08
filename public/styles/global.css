@@ -456,65 +456,69 @@ nav {
 /* BENTO steps */
 .steps-bento {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .step-card {
-  background: rgba(255,253,250,0.97);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(196,98,42,0.12);
+  border: 1px solid rgba(196,98,42,0.18);
   border-radius: 6px;
-  padding: 36px 30px 32px;
-  position: relative; overflow: hidden;
-  box-shadow: var(--d2);
-  transition: transform .4s cubic-bezier(0.23,1,0.32,1), box-shadow .4s, background .3s;
+  padding: 32px 28px 28px;
+  cursor: pointer;
   opacity: 0; transform: translateY(24px);
-  will-change: transform;
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
-.step-card:hover {
-  background: #fff;
-  transform: perspective(1000px) rotateX(-1.5deg) rotateY(1deg) translateZ(10px);
-  box-shadow: var(--d3);
+.step-card:hover:not(.active) {
+  border-color: rgba(196,98,42,0.38);
+  background: rgba(196,98,42,0.03);
 }
-.step-card::after {
-  content: ''; position: absolute;
-  bottom: 0; left: 0; right: 0; height: 2px;
-  background: var(--terra);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform .4s cubic-bezier(0.4,0,0.2,1);
+.step-card:focus-visible {
+  outline: 2px solid var(--terra);
+  outline-offset: 3px;
 }
-.step-card:hover::after { transform: scaleX(1); }
+.step-card.active {
+  background: var(--dark);
+  border-color: var(--dark);
+}
 
-.step-card--feature { grid-column: 1; grid-row: 1 / 3; padding: 48px 40px 44px; }
-.step-card--feature .step-num { font-size: 80px; color: rgba(196,98,42,0.13); margin-bottom: 24px; }
-.step-card--feature h4 { font-size: 24px; margin-bottom: 16px; }  /* ↑ */
-.step-card--feature p  { font-size: 18px; }
-
-.step-bg-num {
-  position: absolute; right: -12px; bottom: -20px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 130px; font-weight: 300; font-style: italic; line-height: 1;
-  color: rgba(196,98,42,0.055);
-  pointer-events: none; user-select: none;
-}
 .step-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 48px;   /* ↑ */
-  font-weight: 300; color: rgba(196,98,42,0.2);
-  line-height: 1; margin-bottom: 18px; position: relative; z-index: 1;
+  font-size: 42px;
+  font-weight: 300; line-height: 1;
+  color: rgba(196,98,42,0.28);
+  margin-bottom: 16px;
+  transition: color 0.3s ease;
 }
+.step-card.active .step-num { color: var(--terra); }
+
 .step-card h4 {
-  font-size: 19px;   /* ↑ */
-  font-weight: 400; margin-bottom: 10px;
-  color: var(--ink); position: relative; z-index: 1;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  transition: color 0.3s ease;
 }
-.step-card p {
-  font-size: 16px;
+.step-card.active h4 { color: var(--cream); }
+
+.step-desc {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1),
+              margin-top 0.4s cubic-bezier(0.4,0,0.2,1);
+  margin-top: 0;
+}
+.step-desc > div { overflow: hidden; }
+.step-desc p {
+  font-size: 15px;
   font-weight: 300; line-height: 1.72;
-  color: var(--ink-soft); position: relative; z-index: 1;
+  color: rgba(242,237,228,0.65);
+  opacity: 0;
+  transition: opacity 0.25s ease 0.2s;
 }
+.step-card.active .step-desc {
+  grid-template-rows: 1fr;
+  margin-top: 20px;
+}
+.step-card.active .step-desc p { opacity: 1; }
 
 /* ══════════════════════════════════════════════════════════════════════
    SERVICES
@@ -1021,13 +1025,7 @@ footer {
   }
   .approach-diagram { overflow: visible; }
   .venn-svg { max-width: 320px; }
-  .steps-bento {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-  .step-card--feature { grid-column: 1 / -1 !important; grid-row: auto !important; }
-  .step-card-04       { grid-column: auto !important; grid-row: auto !important; }
-  .step-decor-cell    { grid-column: auto !important; grid-row: auto !important; }
+  .steps-bento { grid-template-columns: 1fr 1fr; }
 
   /* SERVICES */
   .services { padding: 72px 28px; }
@@ -1099,10 +1097,7 @@ footer {
   /* APPROACH */
   .approach { padding: 56px 20px; }
   .venn-svg { max-width: 280px; }
-  .steps-bento { grid-template-columns: 1fr; }
-  .step-card--feature { grid-column: 1 !important; grid-row: auto !important; }
-  .step-card-04       { grid-column: 1 !important; grid-row: auto !important; }
-  .step-decor-cell    { display: none !important; }
+  .steps-bento { grid-template-columns: 1fr 1fr; }
   .approach-lead { font-size: 17px; }
 
   /* SERVICES */
