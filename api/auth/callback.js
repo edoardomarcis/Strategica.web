@@ -1,6 +1,5 @@
 export default async function handler(req, res) {
   const { code } = req.query;
-  const siteUrl = process.env.SITE_URL;
 
   if (!code) {
     res.status(400).send('Missing code parameter');
@@ -29,7 +28,7 @@ export default async function handler(req, res) {
 
   if (tokenData.error) {
     res.setHeader('Content-Type', 'text/html');
-    res.send(buildScript('error', JSON.stringify(tokenData), siteUrl));
+    res.send(buildScript('error', JSON.stringify(tokenData)));
     return;
   }
 
@@ -39,18 +38,24 @@ export default async function handler(req, res) {
   });
 
   res.setHeader('Content-Type', 'text/html');
-  res.send(buildScript('success', payload, siteUrl));
+  res.send(buildScript('success', payload));
 }
 
-function buildScript(status, payload, origin) {
+function buildScript(status, payload) {
+  const message = `authorization:github:${status}:${payload}`;
   return `<!DOCTYPE html>
 <html>
 <body>
 <script>
   (function() {
-    var message = 'authorization:github:${status}:' + ${JSON.stringify(payload)};
-    window.opener.postMessage(message, ${JSON.stringify(origin)});
-    window.close();
+    var message = ${JSON.stringify(message)};
+    function receiveMessage(e) {
+      window.opener.postMessage(message, e.origin);
+      window.removeEventListener('message', receiveMessage, false);
+      window.close();
+    }
+    window.addEventListener('message', receiveMessage, false);
+    window.opener.postMessage('authorizing:github', '*');
   })();
 <\/script>
 </body>
