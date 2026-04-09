@@ -1,0 +1,182 @@
+---
+import Base from '../layouts/Base.astro';
+
+const teamMembers = [
+  {
+    name: "Edoardo Marcis",
+    role: "STRATEGIA & GROWTH",
+    bio: "Ex startup e open innovation. Strategie di crescita, design thinking e project management strategico. Lettore compulsivo, meditatore. Lo trovi in un surf spot o sul tatami a fare jiu-jitsu.",
+    image: "https://picsum.photos/id/1005/600/800"
+  },
+  {
+    name: "Andrea Cavaliere",
+    role: "PERFORMANCE & FACILITAZIONE",
+    bio: "Oltre 3M€ di budget adv gestiti multi-piattaforma. OKR coach, facilitatore certificato LEGO® Serious Play. Fotografo, videomaker, papà di un border collie.",
+    image: "https://picsum.photos/id/1012/600/800"
+  },
+  {
+    name: "Dario Saramin",
+    role: "DIGITAL TRANSFORMATION & AI",
+    bio: "Ex Senior Manager EY. Guida team attraverso progetti digitali complessi — AI, data monetization, CX. Laurea in conservatorio, MBA Executive ESCP. Sub e sneakerhead.",
+    image: "https://picsum.photos/id/1025/600/800"
+  }
+];
+---
+
+<Base
+  title="Chi siamo — Strategica"
+  description="Un collettivo di professionisti con background diversi, uniti dalla stessa insofferenza per il pressapochismo. Non un'agenzia, non una società di consulenza: quello che mancava."
+>
+
+<div class="c-glow" id="glow"></div>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────── -->
+<nav>
+  <a href="/" class="nav-logo">Strat<em>egica</em></a>
+  <ul class="nav-links">
+    <li><a href="/#approccio">Approccio</a></li>
+    <li><a href="/#servizi">Servizi</a></li>
+    <li><a href="/chi-siamo" class="nav-active">Chi siamo</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/#contatti">Contatti</a></li>
+  </ul>
+  <a href="/#contatti" class="nav-cta">Inizia qui</a>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────── -->
+<section class="cs-hero">
+  <div class="cs-hero-inner">
+    <h1 class="cs-hero-h">
+      Non siamo un'agenzia.<br>
+      Non siamo una società di consulenza.<br>
+      <em>Siamo quello che mancava.</em>
+    </h1>
+    <p class="cs-hero-sub">
+      Un collettivo di professionisti con background diversi, uniti dalla stessa insofferenza per il pressapochismo e dalla stessa idea di cosa significhi fare consulenza davvero.
+    </p>
+  </div>
+  <div class="cs-hero-deco" aria-hidden="true">S</div>
+</section>
+
+<!-- ── MANIFESTO ─────────────────────────────────────────────────────── -->
+<section class="cs-manifesto">
+  <div class="cs-manifesto-inner">
+    <div class="section-label">Il Manifesto</div>
+
+    <div class="cs-block g-fade">
+      <p class="cs-block-phrase">Siamo stanchi del pressapochismo.</p>
+      <p class="cs-block-body">Abbiamo lavorato in startup, in multinazionali, in agenzie. Ovunque la stessa scena: tanta esecuzione, poca strategia. Tante slide, pochi risultati. Strategica nasce da lì — dalla decisione di fare le cose in modo diverso.</p>
+    </div>
+
+    <div class="cs-block g-fade">
+      <p class="cs-block-phrase">La consulenza non è un deliverable. È un risultato.</p>
+      <p class="cs-block-body">Non misuriamo il nostro valore in ore fatturate o documenti consegnati. Lo misuriamo nella crescita concreta dell'azienda con cui lavoriamo. Se il cliente non ottiene risultati, abbiamo fallito noi.</p>
+    </div>
+
+    <div class="cs-block g-fade">
+      <p class="cs-block-phrase">Il nostro obiettivo è
+        <em><span class="mark mark-coral">diventare inutili.<svg viewBox="0 0 220 14" fill="none" aria-hidden="true"><path d="M2 10 C40 5, 90 13, 140 8 C175 5, 205 11, 218 8"/></svg></span></em>
+      </p>
+      <p class="cs-block-body">Non creiamo dipendenza. Costruiamo sistemi, trasferiamo competenze, rendiamo i team autonomi. La consulenza ben fatta ha una data di scadenza.</p>
+    </div>
+
+    <div class="cs-block g-fade">
+      <p class="cs-block-phrase">Background diversi. Stessa insofferenza.</p>
+      <p class="cs-block-body">Veniamo da mondi diversi — startup, big four, performance marketing, innovazione digitale. Ma ci siamo riconosciuti nella stessa frustrazione: il divario tra quello che la consulenza promette e quello che realmente produce. Strategica è la nostra risposta.</p>
+    </div>
+
+    <div class="cs-block g-fade">
+      <p class="cs-block-phrase">Un collettivo, non un organigramma.</p>
+      <p class="cs-block-body">Non siamo una struttura gerarchica. Siamo professionisti senior che scelgono di lavorare insieme perché condividono valori e standard. Ogni progetto ha il team giusto — non quello disponibile.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ──────────────────────────────────────────────────────────── -->
+<section class="cs-team">
+  <div class="cs-team-header g-fade">
+    <div class="section-label cs-team-label">Le Persone</div>
+    <h2 class="cs-team-h">Facce, non loghi.</h2>
+  </div>
+
+  <div class="cs-team-carousel-wrap">
+    <div class="cs-team-track" id="teamTrack">
+      {teamMembers.map((member) => (
+        <article class="tc-card">
+          <div class="tc-visual">
+            <img
+              class="tc-img"
+              src={member.image}
+              alt={`Foto di ${member.name}`}
+              loading="lazy"
+              draggable="false"
+            />
+            <div class="tc-duotone"></div>
+          </div>
+          <div class="tc-gradient"></div>
+          <div class="tc-info">
+            <span class="tc-role">{member.role}</span>
+            <strong class="tc-name">{member.name}</strong>
+            <p class="tc-bio">{member.bio}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <button class="cs-arrow cs-arrow-prev" id="teamPrev" aria-label="Precedente">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="cs-arrow cs-arrow-next" id="teamNext" aria-label="Successivo">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────────────── -->
+<section class="cs-cta g-fade">
+  <h2 class="cs-cta-h">Se ti riconosci in questo modo di pensare, parliamoci.</h2>
+  <a href="mailto:ciao@strategica.it" class="cs-cta-link">Scrivici →</a>
+</section>
+
+<script>
+  // Team carousel arrows
+  const track = document.getElementById('teamTrack');
+  const prevBtn = document.getElementById('teamPrev');
+  const nextBtn = document.getElementById('teamNext');
+
+  function updateArrows() {
+    if (!track || !prevBtn || !nextBtn) return;
+    const scrollLeft = track.scrollLeft;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    prevBtn.style.opacity = scrollLeft <= 8 ? '0' : '1';
+    prevBtn.style.pointerEvents = scrollLeft <= 8 ? 'none' : 'auto';
+    nextBtn.style.opacity = scrollLeft >= maxScroll - 8 ? '0' : '1';
+    nextBtn.style.pointerEvents = scrollLeft >= maxScroll - 8 ? 'none' : 'auto';
+  }
+
+  function scrollByCard(dir: number) {
+    if (!track) return;
+    const card = track.querySelector('.tc-card') as HTMLElement;
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 32; // gap
+    track.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+  }
+
+  prevBtn?.addEventListener('click', () => scrollByCard(-1));
+  nextBtn?.addEventListener('click', () => scrollByCard(1));
+  track?.addEventListener('scroll', updateArrows, { passive: true });
+
+  // Hide arrows if no overflow (all cards visible)
+  function checkOverflow() {
+    if (!track || !prevBtn || !nextBtn) return;
+    const hasOverflow = track.scrollWidth > track.clientWidth + 8;
+    const arrowStyle = hasOverflow ? '' : 'none';
+    prevBtn.style.display = arrowStyle;
+    nextBtn.style.display = arrowStyle;
+    updateArrows();
+  }
+
+  checkOverflow();
+  window.addEventListener('resize', checkOverflow);
+</script>
+
+</Base>
