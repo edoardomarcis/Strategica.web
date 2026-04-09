@@ -19,7 +19,7 @@ I loghi ufficiali in PNG sono in `/brand-guidelines/`.
 - Sistema annotazioni SVG a mano (sottolineature e cerchi, una per sezione)
 - Spaziatura (multipli di 8px, sezioni da 80px padding)
 - Ombre calde (base `rgba(60,40,20,x)`, mai grigie)
-- Border-radius (4–6px, mai pill)
+- Border-radius (4–6px, mai pill) — eccezione: card team con foto usano 20px
 - Logo: "Strat" tondo nero + "*egica*" italic terracotta — non alterare mai
 
 ---
@@ -36,22 +36,114 @@ I loghi ufficiali in PNG sono in `/brand-guidelines/`.
 
 ---
 
+## Struttura del progetto
+
+```
+src/
+  pages/
+    index.astro          # Home
+    chi-siamo.astro      # Pagina Chi siamo (manifesto + team)
+    blog/
+      index.astro        # Lista articoli blog
+      [slug].astro       # Singolo articolo
+  layouts/
+    Base.astro           # Layout base (font, SEO, global.css, GSAP)
+  content/
+    blog/                # Articoli Markdown
+    config.ts            # Schema collezione blog (Zod)
+public/
+  styles/
+    global.css           # Unico foglio di stile globale
+  scripts/
+    main.js              # GSAP ScrollTrigger, cursor glow, IntersectionObserver marks
+  admin/
+    index.html           # Pannello Decap CMS (config inline, no config.yml)
+  images/
+    blog/                # Upload immagini di copertina via CMS
+api/
+  auth/
+    index.js             # OAuth GitHub → redirect a GitHub
+    callback.js          # OAuth GitHub → scambio token, postMessage a Decap
+```
+
+---
+
 ## Struttura CSS
 
 - Il foglio di stile globale è **uno solo**: `public/styles/global.css` — è quello linkato da `Base.astro`
 - `src/styles/` non esiste e non va ricreata — il CSS non passa dal build Astro
-- Le classi condivise tra più pagine (es. `.blog-tag`) vanno in `public/styles/global.css`, non nelle `<style>` locali delle pagine
+- Le classi condivise tra più pagine (es. `.blog-tag`, `.nav-active`) vanno in `public/styles/global.css`
+- Le pagine interne (blog, chi-siamo) possono usare `<style>` locali per stili strettamente page-specific
+
+---
+
+## Pattern di layout consolidati
+
+### Alternanza sezioni
+Le sezioni alternano sfondo scuro (`--dark`) e chiaro (`--warm` / `--cream`) con **wave divider SVG** tra ogni transizione. È il pattern principale di ritmo visivo — non usare bordi o margini come separatori.
+
+```html
+<!-- Esempio: da dark a cream -->
+<div class="wave-divider" aria-hidden="true" style="background:var(--dark); margin-bottom:-2px;">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" style="height:52px;" fill="none">
+    <path d="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22 L1440 52 L0 52 Z" fill="#F2EDE4"/>
+  </svg>
+</div>
+```
+
+Il colore del fill SVG deve corrispondere allo sfondo della sezione successiva.
+
+### Sezioni dark
+- Background: `radial-gradient(ellipse ..., rgba(196,98,42,x), ...), var(--dark)`
+- Testo principale: `var(--cream)`
+- `.section-label`: `color: rgba(242,237,228,0.35)`, `::before` terracotta
+- Decorativo bg-text: `font-size: 340-520px`, `-webkit-text-stroke: 1px rgba(255,255,255,0.03)`
+
+### Sezioni chiare
+- Background: `radial-gradient(...rgba(196,98,42,0.06)...), var(--cream)` oppure `var(--warm)`
+- Header di pagina (hero) sulle pagine interne: sempre dark, come la sezione `.problem` della home
+
+### Header pagine interne
+Pattern consolidato per chi-siamo e blog:
+- Background dark con gradiente terra
+- `min-height: 52-100vh`, `display: flex; align-items: flex-end`
+- `section-label` + h1 grande + sottotitolo DM Sans muted
+- Lettera decorativa in background (`--dark`, `-webkit-text-stroke` impercettibile)
+- Wave divider sotto
+
+### Animazioni `.mark`
+```html
+<span class="mark mark-coral">parola.<svg viewBox="0 0 N 14" fill="none"><path d="M2 10 C..."/></svg></span>
+```
+- `IntersectionObserver` aggiunge `.drawn` → `stroke-dashoffset: 0`
+- Il trigger è già in `main.js` — usare la classe `.mark` è sufficiente
+
+### Classi animazione GSAP
+- `.g-fade` — fade in dal basso (opacity + translateY)
+- `.g-l` — slide da sinistra
+- `.g-r` — slide da destra
+- Gestite automaticamente da `main.js` con ScrollTrigger
+
+---
+
+## Decap CMS
+
+- Pannello su `/admin` — config inline in `public/admin/index.html` (non file `.yml` separato, causa 404 su Vercel)
+- Auth GitHub OAuth via funzioni serverless Vercel in `/api/auth/`
+- Il callback usa il **two-way handshake** (`authorizing:github` → `authorization:github:success:...`)
+- Env vars necessarie su Vercel: `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `SITE_URL`
+- Campi blog: title, description, pubDate, author, tags, coverImage, draft, body
 
 ---
 
 ## Regole tecniche
 
-- Usa i loghi PNG dalla cartella `/brand-guidelines/` — non ricreare il logo via CSS/SVG
 - Font via Google Fonts: Cormorant Garamond (300, 300i, 400, 400i), DM Sans (400), Caveat (400)
 - CSS custom properties per colori e ombre — nessun valore hard-coded
 - Animazioni annotazioni SVG: `stroke-dashoffset` → 0, `0.75s cubic-bezier(0.4,0,0.2,1)`, trigger con `IntersectionObserver`
 - Responsive: mobile-first, ma il design di riferimento è desktop
 - Nessuna dipendenza esterna non necessaria
+- Stack: Astro 4 statico (no SSR adapter), deploy su Vercel, repo GitHub `edoardomarcis/Strategica.web`
 
 ---
 
@@ -69,7 +161,10 @@ I loghi ufficiali in PNG sono in `/brand-guidelines/`.
 - Gradienti generici, glow effects, glassmorphism non contestualizzato
 - Font sans-serif neutri per i titoli (è Cormorant, sempre)
 - Ombre grigie o fredde
-- Border-radius > 8px su card e bottoni
+- Border-radius > 8px su card e bottoni (eccezione: foto team a 20px)
 - Più di un'annotazione SVG per sezione
 - Palette fuori dalle brand guidelines senza approvazione esplicita
 - Layout simmetrici e statici privi di tensione visiva
+- Card con bordi e box-shadow come separatori — usare wave divider o regole tipografiche
+- File CSS separati in `src/styles/` — tutto va in `public/styles/global.css`
+- Configurare il CMS con `config.yml` esterno — usare config inline in `index.html`
