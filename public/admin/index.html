@@ -6,6 +6,51 @@
     <title>Strategica CMS</title>
   </head>
   <body>
+    <script>window.CMS_MANUAL_INIT = true;</script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      CMS.init({
+        config: {
+          backend: {
+            name: 'github',
+            repo: 'edoardomarcis/strategica.web',
+            branch: 'main',
+            base_url: 'https://strategica-web.vercel.app',
+            auth_endpoint: 'api/auth',
+          },
+          media_folder: 'public/images/blog',
+          public_folder: '/images/blog',
+          collections: [
+            {
+              name: 'blog',
+              label: 'Blog',
+              label_singular: 'Post',
+              folder: 'src/content/blog',
+              create: true,
+              delete: true,
+              slug: '{{slug}}',
+              preview_path: '/blog/{{slug}}',
+              fields: [
+                { label: 'Titolo', name: 'title', widget: 'string' },
+                { label: 'Descrizione', name: 'description', widget: 'text' },
+                {
+                  label: 'Data pubblicazione',
+                  name: 'pubDate',
+                  widget: 'datetime',
+                  format: 'YYYY-MM-DD',
+                  date_format: 'DD/MM/YYYY',
+                  time_format: false,
+                },
+                { label: 'Autore', name: 'author', widget: 'string', default: 'Edoardo Marcis' },
+                { label: 'Tags', name: 'tags', widget: 'list', required: false },
+                { label: 'Immagine di copertina', name: 'coverImage', widget: 'image', required: false },
+                { label: 'Bozza', name: 'draft', widget: 'boolean', default: false },
+                { label: 'Contenuto', name: 'body', widget: 'markdown' },
+              ],
+            },
+          ],
+        },
+      });
+    </script>
   </body>
 </html>
