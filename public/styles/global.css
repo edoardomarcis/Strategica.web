@@ -1168,7 +1168,10 @@ footer {
 
 /* ── Manifesto ───────────────────────────────────────────────────────── */
 .cs-manifesto {
-  background: var(--warm);
+  background:
+    radial-gradient(ellipse 60% 60% at 0% 100%, rgba(196,98,42,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 100% 0%,  rgba(168,132,58,0.05) 0%, transparent 50%),
+    var(--cream);
   padding: 96px 80px 112px;
 }
 .cs-manifesto-inner { max-width: 1200px; }
@@ -1316,26 +1319,36 @@ footer {
 .cs-arrow-prev { left: -22px; }
 .cs-arrow-next { right: -22px; }
 
+/* ── Team bg-text ────────────────────────────────────────────────────── */
+.cs-team-bg-text {
+  position: absolute; bottom: -60px; right: -20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 340px; font-weight: 300; font-style: italic; line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+  pointer-events: none; user-select: none; letter-spacing: -0.02em;
+}
+
 /* ── CTA ─────────────────────────────────────────────────────────────── */
 .cs-cta {
   background: var(--cream);
-  padding: 112px 80px 120px;
-  border-top: 1px solid var(--rule-l);
+  padding: 96px 80px 104px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0 80px; align-items: center;
 }
 .cs-cta-h {
-  font-size: clamp(32px, 4vw, 60px);
-  font-weight: 300; line-height: 1.12; letter-spacing: -0.014em;
-  color: var(--ink); max-width: 760px; margin-bottom: 44px;
+  font-size: clamp(36px, 4.2vw, 64px);
+  font-weight: 300; line-height: 1.1; letter-spacing: -0.015em;
+  color: var(--ink);
 }
-.cs-cta-link {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink); text-decoration: none;
-  border-bottom: 1.5px solid var(--terra);
-  padding-bottom: 4px;
-  transition: color 0.25s, border-color 0.25s;
+.cs-cta-h em { font-style: italic; color: var(--terra); display: block; margin-top: 6px; }
+.cs-cta-right p {
+  font-size: 18px; font-weight: 300; line-height: 1.76;
+  color: var(--ink-soft); margin-bottom: 36px; max-width: 420px;
 }
-.cs-cta-link:hover { color: var(--terra); }
+.cs-cta-actions {
+  display: flex; gap: 24px; align-items: center;
+}
 
 /* ── Responsive ──────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -1351,8 +1364,10 @@ footer {
   .cs-team-track { grid-template-columns: repeat(3, 80vw); }
   .cs-arrow { display: none; }
 
-  .cs-cta { padding: 72px 24px 80px; }
+  .cs-cta { padding: 64px 24px 72px; grid-template-columns: 1fr; gap: 32px; }
   .cs-cta-h { font-size: clamp(26px, 7vw, 44px); }
+  .cs-cta-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .cs-team-bg-text { display: none; }
 }
 
 /* Blog shared */
