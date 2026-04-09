@@ -1217,82 +1217,108 @@ footer {
   color: var(--cream);
 }
 
-/* Team list */
-.cs-team-list { position: relative; z-index: 1; }
-
-.tc-row {
+/* Team cards */
+.cs-team-track {
   display: grid;
-  grid-template-columns: 88px 260px 1fr;
-  gap: 0 40px;
-  align-items: center;
-  padding: 28px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  grid-template-columns: repeat(3, minmax(0, 300px));
+  gap: 24px;
+  justify-content: center;
+  position: relative; z-index: 1;
+}
+
+.tc-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
   cursor: default;
 }
-.tc-row:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
 
-/* Avatar — small circle with duotone */
-.tc-avatar-wrap {
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
+/* Isolated visual layer: img + duotone */
+.tc-visual {
+  position: absolute; inset: 0;
+  isolation: isolate;
 }
-.tc-avatar-visual {
-  width: 100%; height: 100%;
-  position: relative; isolation: isolate;
-}
-.tc-avatar-img {
+.tc-img {
   width: 100%; height: 100%;
   object-fit: cover; object-position: center top;
   display: block;
   filter: grayscale(100%);
-  transition: filter 0.45s ease;
+  transition: filter 0.5s ease, transform 0.5s ease;
+  transform: scale(1.02);
 }
-.tc-row:hover .tc-avatar-img { filter: grayscale(0%); }
+.tc-card:hover .tc-img { filter: grayscale(0%); transform: scale(1.06); }
+
 .tc-duotone {
   position: absolute; inset: 0;
   background: var(--terra);
   mix-blend-mode: color;
   opacity: 0.55;
-  transition: opacity 0.45s ease;
+  transition: opacity 0.5s ease;
   pointer-events: none;
 }
-.tc-row:hover .tc-duotone { opacity: 0; }
+.tc-card:hover .tc-duotone { opacity: 0; }
 
-/* Identity: name + role */
-.tc-identity { display: flex; flex-direction: column; gap: 6px; }
-.tc-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px; font-weight: 400; line-height: 1.1;
-  color: var(--cream); display: block;
+/* Gradient overlay */
+.tc-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(28,24,20,0.92) 0%,
+    rgba(28,24,20,0.5) 40%,
+    transparent 68%
+  );
+  z-index: 1; pointer-events: none;
 }
+
+/* Info panel */
+.tc-info {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 22px 22px 24px;
+  z-index: 2;
+}
+
+/* Bio — hidden by default, slides up on hover */
+.tc-hover-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.38s ease, opacity 0.28s ease;
+  margin-bottom: 0;
+}
+.tc-card:hover .tc-hover-content {
+  max-height: 130px;
+  opacity: 1;
+  margin-bottom: 14px;
+}
+.tc-bio {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 300; line-height: 1.68;
+  color: rgba(242,237,228,0.68);
+}
+
+/* Base: role + name row */
 .tc-role {
   font-family: 'DM Sans', sans-serif;
   font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--terra-l); display: block;
+  color: var(--terra-l); display: block; margin-bottom: 6px;
 }
-
-/* Bio + LinkedIn — appear on hover */
-.tc-bio-wrap {
-  display: flex; align-items: center; gap: 24px;
-  opacity: 0; transform: translateX(14px);
-  transition: opacity 0.32s ease, transform 0.32s ease;
+.tc-name-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
 }
-.tc-row:hover .tc-bio-wrap { opacity: 1; transform: translateX(0); }
-
-.tc-bio {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px; font-weight: 300; line-height: 1.7;
-  color: rgba(242,237,228,0.58);
+.tc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 400; line-height: 1.15;
+  color: var(--cream);
 }
 .tc-linkedin {
   flex-shrink: 0;
-  color: rgba(242,237,228,0.3);
+  color: rgba(242,237,228,0.35);
   transition: color 0.22s;
   display: flex; align-items: center;
 }
-.tc-linkedin:hover { color: var(--terra-l); }
+.tc-card:hover .tc-linkedin { color: rgba(242,237,228,0.8); }
+.tc-linkedin:hover { color: var(--terra-l) !important; }
 
 /* Team bg-text */
 .cs-team-bg-text {
@@ -1336,8 +1362,8 @@ footer {
   .cs-block-phrase { font-size: clamp(26px, 6vw, 40px); }
 
   .cs-team { padding: 64px 24px 80px; }
-  .tc-row { grid-template-columns: 64px 1fr; grid-template-rows: auto auto; gap: 16px; }
-  .tc-bio-wrap { grid-column: 1 / -1; opacity: 1; transform: none; transition: none; }
+  .cs-team-track { grid-template-columns: repeat(3, minmax(0, 44vw)); gap: 12px; }
+  .tc-hover-content { max-height: none; opacity: 1; margin-bottom: 10px; }
   .cs-team-bg-text { display: none; }
 
   .cs-cta { padding: 64px 24px 72px; grid-template-columns: 1fr; gap: 32px; }
