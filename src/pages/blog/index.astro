@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const allTags = [...new Set(posts.flatMap(p => p.data.tags ?? []))].sort();
+const FILTERS = ['Strategia', 'Management', 'AI', 'Crescita'];
 
 const featured = posts[0] ?? null;
 const rest = posts.slice(1);
@@ -83,10 +83,10 @@ function fmtDate(d: Date) {
       )}
 
       {/* ── Filters (only if there are more posts) ── */}
-      {rest.length > 0 && allTags.length > 0 && (
+      {rest.length > 0 && (
         <div class="blog-filters" id="blog-filters">
           <button class="filter-btn filter-btn--active" data-tag="tutti">Tutti</button>
-          {allTags.map(tag => (
+          {FILTERS.map(tag => (
             <button class="filter-btn" data-tag={tag}>{tag}</button>
           ))}
         </div>
@@ -228,10 +228,10 @@ function fmtDate(d: Date) {
 /* ── Cover template ───────────────────────────────────────────────────── */
 .bct {
   position: relative;
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 16 / 5;
   border-radius: 6px;
   overflow: hidden;
-  padding: 36px 44px;
+  padding: 28px 36px;
   display: flex; flex-direction: column; justify-content: space-between;
   margin-bottom: 36px;
   background:
@@ -245,9 +245,9 @@ function fmtDate(d: Date) {
 }
 
 .bct-deco {
-  position: absolute; right: -16px; bottom: -56px;
+  position: absolute; right: -12px; bottom: -44px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 300px; font-weight: 300; font-style: italic; line-height: 1;
+  font-size: 220px; font-weight: 300; font-style: italic; line-height: 1;
   color: transparent;
   -webkit-text-stroke: 1px rgba(255,255,255,0.045);
   pointer-events: none; user-select: none;
@@ -281,7 +281,7 @@ function fmtDate(d: Date) {
 }
 
 .bct-title {
-  font-size: clamp(26px, 3.2vw, 50px);
+  font-size: clamp(22px, 2.6vw, 40px);
   font-weight: 300; line-height: 1.1; letter-spacing: -0.018em;
   color: var(--cream);
   max-width: 72%;
@@ -408,9 +408,9 @@ function fmtDate(d: Date) {
   .blog-hero-deco { display: none; }
   .blog-hero-h { font-size: clamp(32px, 8vw, 52px); }
   .blog-main { padding: 56px 24px 72px; }
-  .bct { aspect-ratio: 4 / 3; padding: 24px 28px; margin-bottom: 24px; }
-  .bct-title { max-width: 90%; font-size: clamp(22px, 6vw, 34px); }
-  .bct-deco { font-size: 200px; right: -10px; bottom: -40px; }
+  .bct { aspect-ratio: 16 / 9; padding: 20px 24px; margin-bottom: 24px; }
+  .bct-title { max-width: 90%; font-size: clamp(20px, 5.5vw, 30px); }
+  .bct-deco { font-size: 150px; right: -8px; bottom: -30px; }
   .blog-featured-desc { font-size: 16px; }
   .blog-grid { grid-template-columns: 1fr; }
   .blog-card { grid-template-columns: 40px 1fr; gap: 0 16px; }

@@ -3,7 +3,7 @@ title: "Perché le aziende non crescono (e non è colpa del mercato)"
 description: "Il problema di crescita delle PMI italiane raramente è esterno. Quasi sempre è strutturale, interno, e ha radici precise che si possono identificare."
 pubDate: 2025-04-07
 author: Edoardo Marcis
-tags: ["Strategia", "PMI", "Crescita"]
+tags: ["Strategia", "Crescita"]
 draft: false
 ---
 
