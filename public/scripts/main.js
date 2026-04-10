@@ -97,14 +97,28 @@ if (typeof gsap !== 'undefined') {
     });
   }
 
-  /* Hero entrance */
-  if (document.querySelector('.hero-eyebrow')) {
-    gsap.timeline({ delay: 0.1 })
-      .to('.hero-eyebrow',  { opacity: 1, duration: .55, ease: 'power2.out' })
-      .to('.hero-headline', { opacity: 1, y: 0, duration: .9,  ease: 'power3.out' }, '-=0.3')
-      .to('.hero-body',     { opacity: 1, y: 0, duration: .7,  ease: 'power2.out' }, '-=0.45')
-      .to('.hero-actions',  { opacity: 1, y: 0, duration: .6,  ease: 'power2.out' }, '-=0.4')
-      .to(qcard,            { opacity: 1, y: 0, duration: .9,  ease: 'power3.out' }, '-=0.55');
+  /* Site hero entrance — immediate */
+  if (document.querySelector('.sh-wordmark')) {
+    gsap.timeline({ delay: 0.15 })
+      .to('.sh-wordmark', { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' })
+      .to('.sh-tagline',  { opacity: 1,        duration: 0.6, ease: 'power2.out' }, '-=0.55')
+      .to('.sh-payoff',   { opacity: 1,        duration: 0.7, ease: 'power2.out' }, '-=0.35')
+      .to('.sh-actions',  { opacity: 1,        duration: 0.6, ease: 'power2.out' }, '-=0.3')
+      .to('.sh-scroll',   { opacity: 1,        duration: 0.5, ease: 'power2.out' }, '-=0.1');
+  }
+
+  /* Hero narrative entrance — ScrollTrigger (è sotto il fold) */
+  if (document.querySelector('.hero-headline')) {
+    ScrollTrigger.create({
+      trigger: '.hero', start: 'top 78%', once: true,
+      onEnter: () => {
+        gsap.timeline()
+          .to('.hero-headline', { opacity: 1, y: 0, duration: .9,  ease: 'power3.out' })
+          .to('.hero-body',     { opacity: 1, y: 0, duration: .7,  ease: 'power2.out' }, '-=0.45')
+          .to('.hero-actions',  { opacity: 1, y: 0, duration: .6,  ease: 'power2.out' }, '-=0.4')
+          .to(qcard,            { opacity: 1, y: 0, duration: .9,  ease: 'power3.out' }, '-=0.55');
+      }
+    });
   }
 
   /* Scroll reveals — g-fade / g-l / g-r */
