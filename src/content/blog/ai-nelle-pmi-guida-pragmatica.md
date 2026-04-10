@@ -20,7 +20,7 @@ Questa inversione cambia tutto. Invece di partire dallo strumento e cercare un p
 
 ## Dove l'AI funziona davvero per le PMI
 
-**Produzione di contenuti e comunicazione.** Non intendo "fare scrivere l'AI al posto tuo" — intendo usarla per accelerare il processo: bozze veloci, varianti di copy, traduzioni, adattamento di tono per canali diversi. Il tempo risparmiato è reale e misurabile.
+**Produzione di contenuti e comunicazione.** Non intendo "fare scrivere l'AI al posto tuo": intendo usarla per accelerare il processo: bozze veloci, varianti di copy, traduzioni, adattamento di tono per canali diversi. Il tempo risparmiato è reale e misurabile.
 
 **Sintesi e analisi di documenti.** Contratti, report, feedback clienti, trascrizioni di meeting. Se la tua azienda produce o riceve molto testo, esistono strumenti che lo processano in secondi. Non devi assumere un analista per questo.
 
@@ -32,7 +32,7 @@ Questa inversione cambia tutto. Invece di partire dallo strumento e cercare un p
 
 L'AI sbaglia quando il contesto è ambiguo, quando le decisioni richiedono giudizio etico o relazionale, quando i dati di input sono scarsi o di bassa qualità.
 
-Affidarle decisioni strategiche, valutazioni di persone, gestione di situazioni di crisi è un errore. Non perché non sia capace di produrre un output — lo fa sempre, con sicurezza — ma perché quell'output non ha la comprensione del contesto che hai tu.
+Affidarle decisioni strategiche, valutazioni di persone, gestione di situazioni di crisi è un errore. Non perché non sia capace di produrre un output (lo fa sempre, con sicurezza), ma perché quell'output non ha la comprensione del contesto che hai tu.
 
 L'AI è un moltiplicatore. Moltiplica ciò che c'è già: se il processo è solido, lo accelera; se il processo è caotico, lo rende caotico più in fretta.
 
@@ -42,7 +42,7 @@ L'AI è un moltiplicatore. Moltiplica ciò che c'è già: se il processo è soli
 
 **2. Scegli un solo caso d'uso per iniziare.** Non lanciare cinque progetti AI contemporaneamente. Scegli quello con il ROI più chiaro e costruisci un caso di successo interno. Servirà per convincere il team a cambiare abitudini.
 
-**3. Misura prima e dopo.** Senza una baseline, non puoi dimostrare il valore — né a te stesso né all'organizzazione.
+**3. Misura prima e dopo.** Senza una baseline, non puoi dimostrare il valore, né a te stesso né all'organizzazione.
 
 **4. Forma le persone, non solo i processi.** L'AI adottata senza cambiamento culturale produce resistenza. Le persone devono capire perché cambia il loro modo di lavorare, non solo come usare il nuovo tool.
 

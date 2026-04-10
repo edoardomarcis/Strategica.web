@@ -16,7 +16,7 @@ Non è un problema di strumento. È un problema di implementazione.
 
 Gli OKR non sono KPI rinominati. Questa è la prima, più comune, più costosa confusione.
 
-I KPI misurano la salute operativa: fatturato, margine, conversion rate. Sono indicatori di stato — dicono dove sei. Gli OKR invece definiscono dove vuoi andare e come saprai di esserci arrivato.
+I KPI misurano la salute operativa: fatturato, margine, conversion rate. Sono indicatori di stato: dicono dove sei. Gli OKR invece definiscono dove vuoi andare e come saprai di esserci arrivato.
 
 Un KPI è "tasso di retention clienti = 85%". Un OKR è "diventare l'azienda con cui i clienti vogliono crescere" con key result "aumentare il retention rate dall'80% all'88% entro Q3".
 
@@ -34,7 +34,7 @@ Quando tutto è priorità, niente lo è.
 
 Questo è il più distruttivo. Succede quando il management usa gli OKR per monitorare i singoli, non per allineare l'organizzazione.
 
-Il risultato? I team imparano a scrivere key result che sanno già di poter raggiungere. Il 70% di achievement — che nel framework originale indica un obiettivo sfidante raggiunto in modo soddisfacente — diventa qualcosa da evitare, perché "sembra un fallimento".
+Il risultato? I team imparano a scrivere key result che sanno già di poter raggiungere. Il 70% di achievement (che nel framework originale indica un obiettivo sfidante raggiunto in modo soddisfacente) diventa qualcosa da evitare, perché "sembra un fallimento".
 
 Gli OKR funzionano sulla fiducia. Se li usi come sistema di valutazione individuale, li stai usando male.
 
@@ -52,6 +52,6 @@ Gli OKR funzionano sulla fiducia. Se li usi come sistema di valutazione individu
 
 Prima di implementare gli OKR, chiediti: la tua organizzazione è pronta per avere conversazioni difficili sulla priorità? È disposta ad abbandonare iniziative in corso se non sono allineate agli obiettivi?
 
-Se la risposta è no, gli OKR diventeranno un layer burocratico in più. Il problema non è lo strumento — è la cultura in cui lo installi.
+Se la risposta è no, gli OKR diventeranno un layer burocratico in più. Il problema non è lo strumento: è la cultura in cui lo installi.
 
 Gli OKR non creano chiarezza strategica. La amplificano. Se la chiarezza non c'è, non ci sarà neanche dopo.
