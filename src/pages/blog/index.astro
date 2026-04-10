@@ -18,22 +18,10 @@ function fmtDate(d: Date) {
 <Base
   title="Blog — Strategica"
   description="Riflessioni su strategia, crescita e management per PMI italiane. Articoli pratici per chi vuole capire prima di agire."
+  activePage="blog"
 >
 
 <div class="c-glow" id="glow"></div>
-
-<!-- ── NAV ──────────────────────────────────────────────────────────── -->
-<nav>
-  <a href="/" class="nav-logo">Strat<em>egica</em></a>
-  <ul class="nav-links">
-    <li><a href="/#approccio">Approccio</a></li>
-    <li><a href="/#servizi">Servizi</a></li>
-    <li><a href="/chi-siamo">Chi siamo</a></li>
-    <li><a href="/blog" class="nav-active">Blog</a></li>
-    <li><a href="/#contatti">Contatti</a></li>
-  </ul>
-  <a href="/#contatti" class="nav-cta">Inizia qui</a>
-</nav>
 
 <!-- ── HEADER dark ────────────────────────────────────────────────────── -->
 <header class="blog-hero">
@@ -164,12 +152,6 @@ function fmtDate(d: Date) {
     });
   }
 
-  // Animate marks on scroll
-  const marks = document.querySelectorAll('.mark');
-  const markObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('drawn'); markObs.unobserve(e.target); } });
-  }, { threshold: 0.6 });
-  marks.forEach(m => markObs.observe(m));
 </script>
 
 <style>

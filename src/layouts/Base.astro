@@ -8,6 +8,7 @@ export interface Props {
   ogImage?: string;
   ogType?: 'website' | 'article';
   noindex?: boolean;
+  activePage?: 'chi-siamo' | 'blog';
   article?: {
     publishedTime?: string;
     author?: string;
@@ -23,6 +24,7 @@ const {
   ogImage,
   ogType = 'website',
   noindex = false,
+  activePage,
   article,
   jsonLd,
 } = Astro.props;
@@ -88,10 +90,32 @@ const ogImageURL = ogImage ? new URL(ogImage, SITE).href : DEFAULT_OG_IMAGE;
 </head>
 <body>
 
+<nav>
+  <a href="/" class="nav-logo">Strat<em>egica</em></a>
+  <ul class="nav-links">
+    <li><a href="/#approccio">Approccio</a></li>
+    <li><a href="/#servizi">Servizi</a></li>
+    <li><a href="/chi-siamo" class={activePage === 'chi-siamo' ? 'nav-active' : ''}>Chi siamo</a></li>
+    <li><a href="/blog" class={activePage === 'blog' ? 'nav-active' : ''}>Blog</a></li>
+    <li><a href="/#contatti">Contatti</a></li>
+  </ul>
+  <a href="/#contatti" class="nav-cta">Inizia qui</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-mobile">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="/#approccio">Approccio</a>
+  <a href="/#servizi">Servizi</a>
+  <a href="/chi-siamo" class={activePage === 'chi-siamo' ? 'nav-active' : ''}>Chi siamo</a>
+  <a href="/blog" class={activePage === 'blog' ? 'nav-active' : ''}>Blog</a>
+  <a href="/#contatti">Contatti</a>
+  <a href="/#contatti" class="nav-cta-mobile">Inizia qui</a>
+</div>
+
 <slot />
 
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script is:inline src="/scripts/main.js"></script>
 
 </body>
