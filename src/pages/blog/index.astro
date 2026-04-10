@@ -56,16 +56,27 @@ function fmtDate(d: Date) {
       {/* ── Featured post ── */}
       {featured && (
         <a href={`/blog/${featured.slug}`} class="blog-featured" data-tags={(featured.data.tags ?? []).join(',')}>
-          <div class="blog-featured-top">
-            <span class="blog-featured-eyebrow">Ultimo articolo</span>
-            <div class="blog-featured-meta">
-              <span class="blog-date">{fmtDate(featured.data.pubDate)}</span>
-              {(featured.data.tags ?? []).slice(0, 2).map(tag => (
-                <span class="blog-tag">{tag}</span>
-              ))}
+
+          {/* Cover template */}
+          <div class="bct">
+            <div class="bct-top">
+              <span class="bct-eyebrow">Ultimo articolo</span>
+              <div class="bct-tags">
+                {(featured.data.tags ?? []).slice(0, 2).map(tag => (
+                  <span class="bct-tag">{tag}</span>
+                ))}
+              </div>
             </div>
+            <h2 class="bct-title">{featured.data.title}</h2>
+            <div class="bct-footer">
+              <span class="bct-date">{fmtDate(featured.data.pubDate)}</span>
+              <span class="bct-logo">Strat<em>egica</em></span>
+            </div>
+            <span class="bct-deco" aria-hidden="true">
+              {(featured.data.tags?.[0] ?? 'S')[0].toUpperCase()}
+            </span>
           </div>
-          <h2 class="blog-featured-title">{featured.data.title}</h2>
+
           <p class="blog-featured-desc">{featured.data.description}</p>
           <span class="blog-featured-cta">Leggi l'articolo →</span>
         </a>
@@ -212,51 +223,101 @@ function fmtDate(d: Date) {
   text-decoration: none;
   padding: 56px 0 60px;
   border-bottom: 1px solid var(--rule-l);
-  position: relative;
-  transition: opacity 0.2s;
 }
-.blog-featured::before {
-  content: '';
-  position: absolute; left: 0; top: 56px; bottom: 60px;
-  width: 2px; background: var(--terra);
-  transform: scaleY(0); transform-origin: top;
-  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
-}
-.blog-featured:hover::before { transform: scaleY(1); }
 
-.blog-featured-top {
-  display: flex; align-items: center; gap: 20px;
-  margin-bottom: 24px; padding-left: 20px;
+/* ── Cover template ───────────────────────────────────────────────────── */
+.bct {
+  position: relative;
+  aspect-ratio: 16 / 7;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 36px 44px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  margin-bottom: 36px;
+  background:
+    radial-gradient(ellipse 70% 80% at 88% 10%, rgba(196,98,42,0.22) 0%, transparent 52%),
+    radial-gradient(ellipse 45% 55% at 8% 90%,  rgba(168,132,58,0.10) 0%, transparent 50%),
+    var(--dark);
+  transition: box-shadow 0.4s ease;
 }
-.blog-featured-eyebrow {
+.blog-featured:hover .bct {
+  box-shadow: 0 16px 56px rgba(60,40,20,0.18), 0 0 0 1px rgba(196,98,42,0.15);
+}
+
+.bct-deco {
+  position: absolute; right: -16px; bottom: -56px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 300px; font-weight: 300; font-style: italic; line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.045);
+  pointer-events: none; user-select: none;
+  transition: -webkit-text-stroke-color 0.45s ease;
+}
+.blog-featured:hover .bct-deco {
+  -webkit-text-stroke-color: rgba(196,98,42,0.08);
+}
+
+.bct-top {
+  display: flex; align-items: center; gap: 16px;
+}
+.bct-eyebrow {
   font-family: 'DM Sans', sans-serif;
   font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(242,237,228,0.35);
+  display: flex; align-items: center; gap: 10px;
+}
+.bct-eyebrow::before {
+  content: ''; display: block; width: 20px; height: 1px;
+  background: rgba(196,98,42,0.6);
+}
+.bct-tags { display: flex; gap: 7px; }
+.bct-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--terra);
-  display: flex; align-items: center; gap: 10px;
+  background: rgba(196,98,42,0.12);
+  padding: 4px 10px; border-radius: 4px;
+  border: 1px solid rgba(196,98,42,0.2);
 }
-.blog-featured-eyebrow::before {
-  content: ''; display: block; width: 24px; height: 1px; background: var(--terra);
+
+.bct-title {
+  font-size: clamp(26px, 3.2vw, 50px);
+  font-weight: 300; line-height: 1.1; letter-spacing: -0.018em;
+  color: var(--cream);
+  max-width: 72%;
+  position: relative; z-index: 1;
+  transition: color 0.3s ease;
 }
-.blog-featured-meta {
-  display: flex; align-items: center; gap: 10px;
+.blog-featured:hover .bct-title { color: #fff; }
+
+.bct-footer {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  position: relative; z-index: 1;
 }
-.blog-featured-title {
-  font-size: clamp(32px, 3.8vw, 56px);
-  font-weight: 300; line-height: 1.1; letter-spacing: -0.016em;
-  color: var(--ink); margin-bottom: 20px;
-  padding-left: 20px;
-  transition: color 0.25s;
+.bct-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(242,237,228,0.25);
 }
-.blog-featured:hover .blog-featured-title { color: var(--terra); }
+.bct-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 400; letter-spacing: 0.01em;
+  color: rgba(242,237,228,0.3);
+  transition: color 0.3s ease;
+}
+.bct-logo em { font-style: italic; color: rgba(196,98,42,0.55); }
+.blog-featured:hover .bct-logo { color: rgba(242,237,228,0.5); }
+.blog-featured:hover .bct-logo em { color: rgba(196,98,42,0.85); }
+
 .blog-featured-desc {
   font-size: 18px; font-weight: 300; line-height: 1.74;
   color: var(--ink-soft); max-width: 640px;
-  padding-left: 20px; margin-bottom: 28px;
+  margin-bottom: 28px;
 }
 .blog-featured-cta {
   font-family: 'DM Sans', sans-serif;
   font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--terra); padding-left: 20px;
+  color: var(--terra);
   display: inline-block;
   transition: letter-spacing 0.25s;
 }
@@ -347,11 +408,10 @@ function fmtDate(d: Date) {
   .blog-hero-deco { display: none; }
   .blog-hero-h { font-size: clamp(32px, 8vw, 52px); }
   .blog-main { padding: 56px 24px 72px; }
-  .blog-featured-top { flex-wrap: wrap; padding-left: 0; }
-  .blog-featured::before { display: none; }
-  .blog-featured-title,
-  .blog-featured-desc,
-  .blog-featured-cta { padding-left: 0; }
+  .bct { aspect-ratio: 4 / 3; padding: 24px 28px; margin-bottom: 24px; }
+  .bct-title { max-width: 90%; font-size: clamp(22px, 6vw, 34px); }
+  .bct-deco { font-size: 200px; right: -10px; bottom: -40px; }
+  .blog-featured-desc { font-size: 16px; }
   .blog-grid { grid-template-columns: 1fr; }
   .blog-card { grid-template-columns: 40px 1fr; gap: 0 16px; }
 }
