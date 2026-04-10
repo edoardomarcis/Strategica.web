@@ -107,7 +107,7 @@ const teamMembers = [
     <h2 class="cs-team-h">Facce, non loghi.</h2>
   </div>
 
-  <div class="cs-team-track">
+  <div class="cs-team-track" id="tc-track">
     {teamMembers.map((member) => (
       <article class="tc-card">
         <div class="tc-visual">
@@ -144,6 +144,12 @@ const teamMembers = [
           </div>
         </div>
       </article>
+    ))}
+  </div>
+
+  <div class="tc-dots" aria-hidden="true">
+    {teamMembers.map((_, i) => (
+      <button class={`tc-dot${i === 0 ? ' active' : ''}`} data-idx={i} aria-label={`Vai alla card ${i + 1}`}></button>
     ))}
   </div>
 
@@ -192,5 +198,34 @@ const teamMembers = [
 
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script is:inline>
+(function () {
+  if (!window.matchMedia('(max-width: 900px)').matches) return;
+  var track = document.getElementById('tc-track');
+  var cards = track ? Array.from(track.querySelectorAll('.tc-card')) : [];
+  var dots  = Array.from(document.querySelectorAll('.tc-dot'));
+  if (!track || !cards.length || !dots.length) return;
+
+  function setActive(idx) {
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+  }
+
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) setActive(cards.indexOf(e.target));
+    });
+  }, { root: track, threshold: 0.55 });
+  cards.forEach(function(c) { obs.observe(c); });
+
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() {
+      var card = cards[i];
+      var offset = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+      track.scrollTo({ left: offset, behavior: 'smooth' });
+    });
+  });
+})();
+</script>
 
 </Base>

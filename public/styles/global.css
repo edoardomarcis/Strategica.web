@@ -1394,6 +1394,29 @@ footer {
   pointer-events: none; user-select: none; letter-spacing: -0.02em;
 }
 
+/* Carousel dots */
+.tc-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 0 24px;
+}
+.tc-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(242,237,228,0.2);
+  border: none; cursor: pointer; padding: 0;
+  transition: background .22s, transform .22s;
+}
+.tc-dot.active {
+  background: var(--terra);
+  transform: scale(1.4);
+}
+@media (max-width: 900px) {
+  .tc-dots { display: flex; }
+}
+
 /* ── CTA ─────────────────────────────────────────────────────────────── */
 .cs-cta {
   background: var(--cream);
@@ -1425,8 +1448,24 @@ footer {
   .cs-block { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
   .cs-block-phrase { font-size: clamp(26px, 6vw, 40px); }
 
-  .cs-team { padding: 64px 24px 80px; }
-  .cs-team-track { grid-template-columns: repeat(3, minmax(0, 44vw)); gap: 12px; }
+  .cs-team { padding: 64px 0 80px; overflow: hidden; }
+  .cs-team-header { padding: 0 24px; margin-bottom: 40px; }
+  .cs-team-track {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    padding: 0 24px;
+  }
+  .cs-team-track::-webkit-scrollbar { display: none; }
+  .tc-card {
+    flex-shrink: 0;
+    width: 82vw;
+    scroll-snap-align: center;
+    cursor: default;
+  }
   .tc-hover-content { max-height: none; opacity: 1; margin-bottom: 10px; }
   .cs-team-bg-text { display: none; }
 
