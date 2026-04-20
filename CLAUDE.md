@@ -47,7 +47,7 @@ src/
       index.astro        # Lista articoli blog
       [slug].astro       # Singolo articolo
   layouts/
-    Base.astro           # Layout base (font, SEO, global.css, GSAP)
+    Base.astro           # Layout base (font, SEO, global.css, main.js) — NO GSAP qui
   content/
     blog/                # Articoli Markdown
     config.ts            # Schema collezione blog (Zod)
@@ -123,6 +123,13 @@ Pattern consolidato per chi-siamo e blog:
 - `.g-l` — slide da sinistra
 - `.g-r` — slide da destra
 - Gestite automaticamente da `main.js` con ScrollTrigger
+- **GSAP caricato solo su pagine che lo usano** (`index.astro`, `chi-siamo.astro`) — NON in `Base.astro`
+- Le pagine che usano GSAP devono includere prima del `</Base>`:
+  ```html
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  ```
+- `main.js` wrappa tutto il codice GSAP in `if (typeof gsap !== 'undefined') { ... }` per sicurezza
 
 ---
 
@@ -147,6 +154,14 @@ Pattern consolidato per chi-siamo e blog:
 
 ---
 
+## Modello Claude
+
+- **Default**: Haiku 4.5 (veloce, perfetto per copy, edit, modifiche semplici)
+- **Switch autonomo a Sonnet 4.6**: quando il lavoro richiede debug complesso, decisioni architetturali, refactoring di sistema, o analisi profonda del codice
+- **Non chiedere permesso** — decidi in autonomia quando serve più capacità
+
+---
+
 ## Workflow di sviluppo
 
 - Usa **Puppeteer** per scattare screenshot durante la costruzione del sito
@@ -168,3 +183,6 @@ Pattern consolidato per chi-siamo e blog:
 - Card con bordi e box-shadow come separatori — usare wave divider o regole tipografiche
 - File CSS separati in `src/styles/` — tutto va in `public/styles/global.css`
 - Configurare il CMS con `config.yml` esterno — usare config inline in `index.html`
+- `will-change: transform` sulle card in stato statico — usarlo solo in `:hover` per evitare sprechi GPU
+- `backdrop-filter` su card con sfondo solido (es. `.service-card`) — serve solo su elementi veramente trasparenti (nav, quote-card)
+- `/* ↑ */` o altri commenti di revisione nel CSS — vanno rimossi al termine di ogni sessione
