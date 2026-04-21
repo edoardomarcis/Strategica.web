@@ -453,10 +453,10 @@ const jsonLd = {
   }
 
   .srv-section-inner {
-    display: grid; grid-template-columns: 36% 1fr;
-    gap: 80px; align-items: start;
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 60px; align-items: start;
   }
-  .srv-section-left { position: sticky; top: 88px; }
+  .srv-section-left { position: sticky; top: 88px; width: 140px; flex-shrink: 0; }
 
   .srv-roman {
     font-family: 'Cormorant Garamond', serif;
@@ -620,8 +620,8 @@ const jsonLd = {
     .srv-hero-deco { display: none; }
     .srv-choose { padding: 72px 28px 64px; }
     .srv-section { padding: 72px 28px 64px; }
-    .srv-section-inner { grid-template-columns: 1fr; gap: 40px; }
-    .srv-section-left { position: static; }
+    .srv-section-inner { grid-template-columns: 1fr; gap: 32px; }
+    .srv-section-left { position: static; width: auto; }
     .srv-no { padding: 72px 28px 64px; }
     .srv-closing { padding: 80px 28px 88px; }
     .target-cta { flex-direction: column; gap: 16px; }
