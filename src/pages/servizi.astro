@@ -366,16 +366,17 @@ const jsonLd = {
     color: var(--cream);
     position: relative; overflow: hidden;
   }
-  .srv-hero-inner { position: relative; z-index: 1; max-width: 860px; }
+  .srv-hero-inner { position: relative; z-index: 1; max-width: 100%; }
   .srv-hero h1 {
     font-size: clamp(38px, 5.2vw, 80px);
     font-weight: 300; line-height: 1.08; letter-spacing: -0.018em;
     margin-bottom: 32px;
+    max-width: 900px;
   }
   .srv-hero-sub {
     font-family: 'DM Sans', sans-serif;
     font-size: 16px; font-weight: 300; line-height: 1.82;
-    color: rgba(242,237,228,0.52); max-width: 520px;
+    color: rgba(242,237,228,0.52); max-width: 700px;
     margin-bottom: 18px;
   }
   .srv-hero-micro {
@@ -404,12 +405,12 @@ const jsonLd = {
   }
   .srv-choose-lead {
     font-size: 19px; font-weight: 300; line-height: 1.78;
-    color: var(--ink-soft); max-width: 620px;
+    color: var(--ink-soft); max-width: 800px;
     margin-bottom: 56px;
   }
   .srv-choose-lead p + p { margin-top: 14px; }
 
-  .srv-recog { border-top: 1px solid var(--rule-l); max-width: 740px; }
+  .srv-recog { border-top: 1px solid var(--rule-l); max-width: 900px; }
   .srv-recog-item {
     padding: 30px 0; border-bottom: 1px solid var(--rule-l);
     display: grid; grid-template-columns: 1fr; gap: 10px;
@@ -454,9 +455,9 @@ const jsonLd = {
 
   .srv-section-inner {
     display: grid; grid-template-columns: auto 1fr;
-    gap: 60px; align-items: start;
+    gap: 48px; align-items: start;
   }
-  .srv-section-left { position: sticky; top: 88px; width: 140px; flex-shrink: 0; }
+  .srv-section-left { position: sticky; top: 88px; width: 220px; flex-shrink: 0; }
 
   .srv-roman {
     font-family: 'Cormorant Garamond', serif;
