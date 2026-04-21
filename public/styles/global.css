@@ -782,6 +782,16 @@ nav {
 }
 .service-tag:hover { background: rgba(248,245,240,0.9); border-color: var(--rule); }
 
+.services-footer {
+  margin-top: 64px; padding-top: 48px;
+  border-top: 1px solid rgba(212,200,180,0.35);
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+}
+.services-footer p {
+  font-size: 18px; font-weight: 300; color: var(--ink-soft); max-width: 480px;
+}
+
 /* ══════════════════════════════════════════════════════════════════════
    TARGET BAND
 ══════════════════════════════════════════════════════════════════════ */

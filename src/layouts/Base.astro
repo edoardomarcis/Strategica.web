@@ -8,7 +8,7 @@ export interface Props {
   ogImage?: string;
   ogType?: 'website' | 'article';
   noindex?: boolean;
-  activePage?: 'chi-siamo' | 'blog';
+  activePage?: 'servizi' | 'chi-siamo' | 'blog';
   article?: {
     publishedTime?: string;
     author?: string;
@@ -94,7 +94,7 @@ const ogImageURL = ogImage ? new URL(ogImage, SITE).href : DEFAULT_OG_IMAGE;
   <a href="/" class="nav-logo">Strat<em>egica</em></a>
   <ul class="nav-links">
     <li><a href="/#approccio">Approccio</a></li>
-    <li><a href="/#servizi">Servizi</a></li>
+    <li><a href="/servizi" class={activePage === 'servizi' ? 'nav-active' : ''}>Servizi</a></li>
     <li><a href="/chi-siamo" class={activePage === 'chi-siamo' ? 'nav-active' : ''}>Chi siamo</a></li>
     <li><a href="/blog" class={activePage === 'blog' ? 'nav-active' : ''}>Blog</a></li>
     <li><a href="/#contatti">Contatti</a></li>
@@ -107,7 +107,7 @@ const ogImageURL = ogImage ? new URL(ogImage, SITE).href : DEFAULT_OG_IMAGE;
 
 <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
   <a href="/#approccio">Approccio</a>
-  <a href="/#servizi">Servizi</a>
+  <a href="/servizi" class={activePage === 'servizi' ? 'nav-active' : ''}>Servizi</a>
   <a href="/chi-siamo" class={activePage === 'chi-siamo' ? 'nav-active' : ''}>Chi siamo</a>
   <a href="/blog" class={activePage === 'blog' ? 'nav-active' : ''}>Blog</a>
   <a href="/#contatti">Contatti</a>
