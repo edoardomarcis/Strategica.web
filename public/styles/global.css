@@ -1546,6 +1546,17 @@ footer {
   display: flex; gap: 24px; align-items: center;
 }
 
+/* Dark variant — active when the team section is hidden (showTeam = false) */
+.cs-cta--dark {
+  background:
+    radial-gradient(ellipse 70% 55% at 0% 100%, rgba(196,98,42,0.1) 0%, transparent 55%),
+    var(--dark);
+}
+.cs-cta--dark .section-label { color: rgba(242,237,228,0.35); }
+.cs-cta--dark .section-label::before { background: var(--terra); }
+.cs-cta--dark .cs-cta-h { color: var(--cream); }
+.cs-cta--dark .cs-cta-right p { color: rgba(242,237,228,0.55); }
+
 /* ── Responsive ──────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .cs-hero { padding: 96px 24px 72px; align-items: center; }

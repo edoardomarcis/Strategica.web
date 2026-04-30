@@ -1,6 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 
+// Toggle to true to restore the team section (wave + cards + wave)
+// and revert the CTA section to its original light styling
+const showTeam = false;
+
 const teamMembers = [
   {
     name: "Edoardo Marcis",
@@ -110,6 +114,8 @@ const teamMembers = [
   </svg>
 </div>
 
+{showTeam && (
+<>
 <!-- ── TEAM ──────────────────────────────────────────────────────────── -->
 <section class="cs-team">
   <div class="cs-team-header g-fade">
@@ -172,9 +178,11 @@ const teamMembers = [
     <path d="M0 20 C300 6, 600 36, 900 18 C1100 6, 1280 30, 1440 14 L1440 44 L0 44 Z" fill="#F2EDE4"/>
   </svg>
 </div>
+</>
+)}
 
 <!-- ── CTA ───────────────────────────────────────────────────────────── -->
-<section class="cs-cta">
+<section class={`cs-cta${!showTeam ? ' cs-cta--dark' : ''}`}>
   <div class="cs-cta-left g-l">
     <div class="section-label">Parliamoci</div>
     <h2 class="cs-cta-h">
@@ -186,7 +194,7 @@ const teamMembers = [
     <p>Non servono deck pronti o brief formali. Basta una mail, e capiamo insieme se ha senso parlare.</p>
     <div class="cs-cta-actions">
       <a href="mailto:ciao@strategica.it" class="btn-dark">Scrivici →</a>
-      <a href="/#approccio" class="btn-ghost">Scopri come lavoriamo</a>
+      <a href="/#approccio" class={!showTeam ? 'btn-ghost-white' : 'btn-ghost'}>Scopri come lavoriamo</a>
     </div>
   </div>
 </section>
