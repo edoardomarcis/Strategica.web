@@ -1,0 +1,29 @@
+---
+type ColorToken = 'dark' | 'cream' | 'warm' | 'terra';
+
+interface Props {
+  from: ColorToken;
+  to: ColorToken;
+  h?: number;
+  path: string;
+  stroke?: boolean;
+}
+
+const colors: Record<ColorToken, { bg: string; fill: string }> = {
+  dark:  { bg: 'var(--dark)',  fill: '#1C1814' },
+  cream: { bg: 'var(--cream)', fill: '#F2EDE4' },
+  warm:  { bg: 'var(--warm)',  fill: '#F8F5F0' },
+  terra: { bg: 'var(--terra)', fill: '#C4622A' },
+};
+
+const { from, to, h = 48, path, stroke = false } = Astro.props;
+const strokeColor = to === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(196,98,42,0.1)';
+const closedPath = `${path} L1440 ${h} L0 ${h} Z`;
+---
+
+<div class="wave-divider" aria-hidden="true" style={`background:${colors[from].bg}; margin-bottom:-2px;`}>
+  <svg viewBox={`0 0 1440 ${h}`} preserveAspectRatio="none" style={`height:${h}px;`} fill="none">
+    <path d={closedPath} fill={colors[to].fill} />
+    {stroke && <path d={path} stroke={strokeColor} stroke-width="1.5" fill="none" />}
+  </svg>
+</div>

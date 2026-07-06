@@ -1,16 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import Mark from '../components/Mark.astro';
+import { service } from '../utils/jsonld';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Servizi Strategica',
-  provider: {
-    '@type': 'Organization',
-    name: 'Strategica',
-    url: 'https://strategica.it',
-  },
-};
+const jsonLd = service('Servizi Strategica');
 ---
 
 <Base
@@ -26,19 +20,14 @@ const jsonLd = {
 <section class="srv-hero">
   <div class="srv-hero-inner g-l">
     <div class="section-label">01 — Come aiutiamo</div>
-    <h1>Progettiamo come la tua organizzazione <em><span class="mark mark-lime">decide, migliora, cresce.<svg viewBox="0 0 280 14" fill="none"><path d="M2 9 C50 5, 120 13, 180 8 C230 5, 270 11, 278 8"/></svg></span></em></h1>
+    <h1>Progettiamo come la tua organizzazione <em><Mark color="lime" viewBox="0 0 280 14" path="M2 9 C50 5, 120 13, 180 8 C230 5, 270 11, 278 8">decide, migliora, cresce.</Mark></em></h1>
     <p class="srv-hero-sub">Il vostro sistema operativo: la struttura con cui prendete decisioni, misurate i risultati, scalate in modo coerente. Da caos a modello replicabile. E ha tre punti di ingresso diversi in base a dove siete adesso.</p>
     <span class="srv-hero-micro">Scopri quale ha senso per il tuo momento.</span>
   </div>
   <div class="srv-hero-deco" aria-hidden="true">S</div>
 </section>
 
-<!-- ── WAVE dark → cream ───────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--dark); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" style="height:52px;" fill="none">
-    <path d="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22 L1440 52 L0 52 Z" fill="#F2EDE4"/>
-  </svg>
-</div>
+<WaveDivider from="dark" to="cream" h={52} path="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22" />
 
 <!-- ── COME SCEGLIERE ───────────────────────────────────────────────── -->
 <section class="srv-choose">
@@ -66,12 +55,7 @@ const jsonLd = {
   <div class="srv-bg-num" aria-hidden="true">02</div>
 </section>
 
-<!-- ── WAVE cream → warm ─────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--cream); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 44" preserveAspectRatio="none" style="height:44px;" fill="none">
-    <path d="M0 22 C200 6, 400 38, 600 20 C800 4, 1000 36, 1200 18 C1320 8, 1400 28, 1440 16 L1440 44 L0 44 Z" fill="#F8F5F0"/>
-  </svg>
-</div>
+<WaveDivider from="cream" to="warm" h={44} path="M0 22 C200 6, 400 38, 600 20 C800 4, 1000 36, 1200 18 C1320 8, 1400 28, 1440 16" />
 
 <!-- ── SERVIZIO I: IN-FORMAZIONE ─────────────────────────────────────── -->
 <section class="srv-section srv-section--warm" id="in-formazione">
@@ -122,12 +106,7 @@ const jsonLd = {
   <div class="srv-bg-num" aria-hidden="true">03</div>
 </section>
 
-<!-- ── WAVE warm → dark ──────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--warm); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="height:48px;" fill="none">
-    <path d="M0 26 C240 8, 480 42, 720 24 C960 6, 1200 40, 1440 18 L1440 48 L0 48 Z" fill="#1C1814"/>
-  </svg>
-</div>
+<WaveDivider from="warm" to="dark" h={48} path="M0 26 C240 8, 480 42, 720 24 C960 6, 1200 40, 1440 18" />
 
 <!-- ── SERVIZIO II: STRATEGY SPRINT ──────────────────────────────────── -->
 <section class="srv-section srv-section--dark" id="strategy-sprint">
@@ -137,7 +116,7 @@ const jsonLd = {
       <div class="section-label" style="color:rgba(242,237,228,0.38);">04 — Fase II</div>
       <span class="srv-roman" aria-hidden="true">II.</span>
       <h2><em>Strategy Sprint</em></h2>
-      <span class="srv-tagline">progetta come deciderete e scalcerete.</span>
+      <span class="srv-tagline">progetta come deciderete e scalerete.</span>
       <div class="service-tags">
         <span class="service-tag">Governance</span>
         <span class="service-tag">OKR</span>
@@ -180,12 +159,7 @@ const jsonLd = {
   <div class="srv-bg-num" aria-hidden="true">04</div>
 </section>
 
-<!-- ── WAVE dark → cream ─────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--dark); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 44" preserveAspectRatio="none" style="height:44px;" fill="none">
-    <path d="M0 20 C300 6, 600 36, 900 18 C1100 6, 1280 30, 1440 14 L1440 44 L0 44 Z" fill="#F2EDE4"/>
-  </svg>
-</div>
+<WaveDivider from="dark" to="cream" h={44} path="M0 20 C300 6, 600 36, 900 18 C1100 6, 1280 30, 1440 14" />
 
 <!-- ── SERVIZIO III: EDU-COACHING ───────────────────────────────────── -->
 <section class="srv-section srv-section--cream" id="edu-coaching">
@@ -237,12 +211,7 @@ const jsonLd = {
   <div class="srv-bg-num" aria-hidden="true">05</div>
 </section>
 
-<!-- ── WAVE cream → dark ─────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--cream); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="height:48px;" fill="none">
-    <path d="M0 24 C180 8, 360 40, 540 22 C720 6, 900 38, 1080 20 C1260 4, 1380 32, 1440 18 L1440 48 L0 48 Z" fill="#1C1814"/>
-  </svg>
-</div>
+<WaveDivider from="cream" to="dark" h={48} path="M0 24 C180 8, 360 40, 540 22 C720 6, 900 38, 1080 20 C1260 4, 1380 32, 1440 18" />
 
 <!-- ── COSA NON FACCIAMO ────────────────────────────────────────────── -->
 <section class="srv-no" id="cosa-non-facciamo">
@@ -253,12 +222,7 @@ const jsonLd = {
   <div class="srv-bg-num" aria-hidden="true">06</div>
 </section>
 
-<!-- ── WAVE dark → warm ──────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--dark); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 44" preserveAspectRatio="none" style="height:44px;" fill="none">
-    <path d="M0 20 C300 6, 600 36, 900 18 C1100 6, 1280 30, 1440 14 L1440 44 L0 44 Z" fill="#F8F5F0"/>
-  </svg>
-</div>
+<WaveDivider from="dark" to="warm" h={44} path="M0 20 C300 6, 600 36, 900 18 C1100 6, 1280 30, 1440 14" />
 
 <!-- ── FAQ ────────────────────────────────────────────────────────────── -->
 <section class="faq" id="faq-servizi">
@@ -314,11 +278,7 @@ const jsonLd = {
   </div>
 </section>
 
-<!-- ── WAVE warm → terra ─────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--warm); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 44" preserveAspectRatio="none" style="height:44px;" fill="none">
-    <path d="M0 22 C200 6, 400 38, 600 20 C800 4, 1000 36, 1200 18 C1320 8, 1400 28, 1440 16 L1440 44 L0 44 Z" fill="#C4622A"/>
-  </svg>
+<WaveDivider from="warm" to="terra" h={44} path="M0 22 C200 6, 400 38, 600 20 C800 4, 1000 36, 1200 18 C1320 8, 1400 28, 1440 16" />
 </div>
 
 <!-- ── CLOSING ───────────────────────────────────────────────────────── -->

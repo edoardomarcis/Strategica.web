@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import WaveDivider from '../../components/WaveDivider.astro';
+import Mark from '../../components/Mark.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -29,20 +31,14 @@ function fmtDate(d: Date) {
     <div class="section-label blog-hero-label">Riflessioni</div>
     <h1 class="blog-hero-h">
       Idee scritte per<br>
-      <em><span class="mark mark-coral">capire prima di agire.<svg viewBox="0 0 300 14" fill="none" aria-hidden="true"><path d="M2 10 C50 5, 120 13, 190 8 C240 4, 280 11, 298 8"/></svg></span></em>
+      <em><Mark color="coral" viewBox="0 0 300 14" path="M2 10 C50 5, 120 13, 190 8 C240 4, 280 11, 298 8">capire prima di agire.</Mark></em>
     </h1>
     <p class="blog-hero-sub">Strategia, crescita, management. Senza fretta, senza ovvietà.</p>
   </div>
   <div class="blog-hero-deco" aria-hidden="true">B</div>
 </header>
 
-<!-- ── WAVE dark → warm ───────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--dark); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" style="height:52px;" fill="none">
-    <path d="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22 L1440 52 L0 52 Z" fill="#F8F5F0"/>
-    <path d="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22" stroke="rgba(196,98,42,0.08)" stroke-width="1.5" fill="none"/>
-  </svg>
-</div>
+<WaveDivider from="dark" to="warm" h={52} path="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22" stroke />
 
 <!-- ── MAIN ───────────────────────────────────────────────────────────── -->
 <main class="blog-main">
@@ -140,30 +136,7 @@ function fmtDate(d: Date) {
   <div class="footer-copy">© 2025 Strategica. Consulenza Strategica. &nbsp;&nbsp; Milano, Italia</div>
 </footer>
 
-<script>
-  const filters = document.getElementById('blog-filters');
-  const grid    = document.getElementById('blog-grid');
-  const empty   = document.getElementById('blog-empty-filter');
-
-  if (filters && grid) {
-    filters.addEventListener('click', (e) => {
-      const btn = (e.target as HTMLElement).closest('.filter-btn') as HTMLButtonElement | null;
-      if (!btn) return;
-      const tag = btn.dataset.tag!;
-      filters.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-btn--active'));
-      btn.classList.add('filter-btn--active');
-      let visible = 0;
-      grid.querySelectorAll<HTMLElement>('.blog-card').forEach(card => {
-        const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
-        const show = tag === 'tutti' || cardTags.includes(tag);
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-      if (empty) empty.style.display = visible === 0 ? '' : 'none';
-    });
-  }
-
-</script>
+<script>import '../../scripts/blog-filters';</script>
 
 <style>
 /* ── Blog hero header ─────────────────────────────────────────────────── */

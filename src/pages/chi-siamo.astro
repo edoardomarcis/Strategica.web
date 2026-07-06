@@ -1,33 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+import Mark from '../components/Mark.astro';
 
-// Toggle to true to restore the team section (wave + cards + wave)
-// and revert the CTA section to its original light styling
-const showTeam = false;
-
-const teamMembers = [
-  {
-    name: "Edoardo Marcis",
-    role: "STRATEGIA & GROWTH",
-    bio: "Ex startup e open innovation. Strategie di crescita, design thinking e project management strategico. Lettore compulsivo, meditatore. Lo trovi in un surf spot o sul tatami a fare jiu-jitsu.",
-    image: "https://picsum.photos/id/1005/600/800",
-    linkedin: "https://linkedin.com/in/edoardomarcis"
-  },
-  {
-    name: "Andrea Cavaliere",
-    role: "PERFORMANCE & FACILITAZIONE",
-    bio: "Oltre 3M€ di budget adv gestiti multi-piattaforma. OKR coach, facilitatore certificato LEGO® Serious Play. Fotografo, videomaker, papà di un border collie.",
-    image: "https://picsum.photos/id/1012/600/800",
-    linkedin: "https://www.linkedin.com/in/andreacavaliere-/"
-  },
-  {
-    name: "Dario Saramin",
-    role: "DIGITAL TRANSFORMATION & AI",
-    bio: "Ex Senior Manager EY. Guida team attraverso progetti digitali complessi: AI, data monetization, CX. Laurea in conservatorio, MBA Executive ESCP. Sub e sneakerhead.",
-    image: "https://picsum.photos/id/1025/600/800",
-    linkedin: "https://www.linkedin.com/in/dariosaramin/"
-  }
-];
 ---
 
 <Base
@@ -42,8 +17,7 @@ const teamMembers = [
 <section class="cs-hero">
   <div class="cs-hero-inner">
     <h1 class="cs-hero-h">
-      Non siamo un'agenzia.<br>
-      Non siamo una società di consulenza.<br>
+      Non un'agenzia. Non una società di consulenza.<br>
       <em>Siamo quello che mancava.</em>
     </h1>
     <p class="cs-hero-sub">
@@ -53,13 +27,7 @@ const teamMembers = [
   <div class="cs-hero-deco" aria-hidden="true">S</div>
 </section>
 
-<!-- ── WAVE dark → cream ──────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--dark); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" style="height:52px;" fill="none">
-    <path d="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22 L1440 52 L0 52 Z" fill="#F2EDE4"/>
-    <path d="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22" stroke="rgba(196,98,42,0.1)" stroke-width="1.5" fill="none"/>
-  </svg>
-</div>
+<WaveDivider from="dark" to="cream" h={52} path="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22" stroke />
 
 <!-- ── MANIFESTO ─────────────────────────────────────────────────────── -->
 <section class="cs-manifesto">
@@ -78,7 +46,7 @@ const teamMembers = [
 
     <div class="cs-block g-fade">
       <p class="cs-block-phrase">Senza compromessi.</p>
-      <p class="cs-block-body">Non facciamo body rental. Non vendiamo quello che non ti serve. Non gonfiamo progetti per fatturare. Analizziamo il tuo problema finché non capiamo cosa serve davvero. Disegniamo la strada migliore — anche se non è quella che il framework dice — perché la consulenza ben fatta serve il cliente, non il nostro fatturato.</p>
+      <p class="cs-block-body">Non facciamo body rental. Non vendiamo quello che non ti serve. Non gonfiamo progetti per fatturare. Analizziamo il tuo problema finché non capiamo cosa serve davvero. Disegniamo la strada migliore, anche se non è quella che prescrive il framework. La consulenza ben fatta serve il cliente, non il nostro fatturato.</p>
     </div>
 
     <div class="cs-block g-fade">
@@ -89,7 +57,7 @@ const teamMembers = [
     <div class="cs-block g-fade">
       <p class="cs-block-phrase">
         Il nostro obiettivo è
-        <em><span class="mark mark-coral">diventare inutili.<svg viewBox="0 0 220 14" fill="none" aria-hidden="true"><path d="M2 10 C40 5, 90 13, 140 8 C175 5, 205 11, 218 8"/></svg></span></em>
+        <em><Mark color="coral" viewBox="0 0 220 14" path="M2 10 C40 5, 90 13, 140 8 C175 5, 205 11, 218 8">diventare inutili.</Mark></em>
       </p>
       <p class="cs-block-body">Non creiamo dipendenza. Trasformiamo governance, processi e organizzazione in modo che funzionino in autonomia. La vera misura è se il modello operativo continua a evolversi anche dopo il nostro intervento.</p>
     </div>
@@ -101,100 +69,27 @@ const teamMembers = [
 
     <div class="cs-block g-fade">
       <p class="cs-block-phrase">Un collettivo, non un organigramma.</p>
-      <p class="cs-block-body">Non siamo una struttura gerarchica. Siamo professionisti senior che scelgono di lavorare insieme perché condividono valori e standard. Ogni progetto ha il team giusto, non quello disponibile.</p>
+      <p class="cs-block-body">Nessuna struttura gerarchica, nessun organigramma da rispettare. Professionisti senior che scelgono di lavorare insieme perché condividono valori e standard. Ogni progetto ha il team giusto, non quello disponibile.</p>
     </div>
   </div>
 </section>
 
-<!-- ── WAVE cream → dark ──────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--cream); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="height:48px;" fill="none">
-    <path d="M0 26 C240 8, 480 42, 720 24 C960 6, 1200 40, 1440 18 L1440 48 L0 48 Z" fill="#1C1814"/>
-    <path d="M0 26 C240 8, 480 42, 720 24 C960 6, 1200 40, 1440 18" stroke="rgba(255,255,255,0.05)" stroke-width="1.5" fill="none"/>
-  </svg>
-</div>
-
-{showTeam && (
-<>
-<!-- ── TEAM ──────────────────────────────────────────────────────────── -->
-<section class="cs-team">
-  <div class="cs-team-header g-fade">
-    <div class="section-label cs-team-label">Le Persone</div>
-    <h2 class="cs-team-h">Facce, non loghi.</h2>
-  </div>
-
-  <div class="cs-team-track" id="tc-track">
-    {teamMembers.map((member) => (
-      <article class="tc-card">
-        <div class="tc-visual">
-          <img
-            class="tc-img"
-            src={member.image}
-            alt={`Foto di ${member.name}`}
-            loading="lazy"
-            draggable="false"
-          />
-          <div class="tc-duotone"></div>
-        </div>
-        <div class="tc-gradient"></div>
-        <div class="tc-info">
-          <div class="tc-hover-content">
-            <p class="tc-bio">{member.bio}</p>
-          </div>
-          <div class="tc-base-content">
-            <span class="tc-role">{member.role}</span>
-            <div class="tc-name-row">
-              <strong class="tc-name">{member.name}</strong>
-              <a
-                href={member.linkedin}
-                class="tc-linkedin"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`LinkedIn di ${member.name}`}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </article>
-    ))}
-  </div>
-
-  <div class="tc-dots" aria-hidden="true">
-    {teamMembers.map((_, i) => (
-      <button class={`tc-dot${i === 0 ? ' active' : ''}`} data-idx={i} aria-label={`Vai alla card ${i + 1}`}></button>
-    ))}
-  </div>
-
-  <div class="cs-team-bg-text" aria-hidden="true">noi</div>
-</section>
-
-<!-- ── WAVE dark → cream ──────────────────────────────────────────────── -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--dark); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 44" preserveAspectRatio="none" style="height:44px;" fill="none">
-    <path d="M0 20 C300 6, 600 36, 900 18 C1100 6, 1280 30, 1440 14 L1440 44 L0 44 Z" fill="#F2EDE4"/>
-  </svg>
-</div>
-</>
-)}
+<WaveDivider from="cream" to="dark" h={48} path="M0 26 C240 8, 480 42, 720 24 C960 6, 1200 40, 1440 18" stroke />
 
 <!-- ── CTA ───────────────────────────────────────────────────────────── -->
-<section class={`cs-cta${!showTeam ? ' cs-cta--dark' : ''}`}>
+<section class="cs-cta cs-cta--dark">
   <div class="cs-cta-left g-l">
     <div class="section-label">Parliamoci</div>
     <h2 class="cs-cta-h">
       Se ti riconosci in questo modo di pensare,
-      <em><span class="mark mark-gold">parliamoci.<svg viewBox="0 0 120 14" fill="none"><path d="M2 9 C22 5, 50 13, 78 7 C98 4, 112 11, 118 8"/></svg></span></em>
+      <em><Mark color="gold" viewBox="0 0 120 14" path="M2 9 C22 5, 50 13, 78 7 C98 4, 112 11, 118 8">parliamoci.</Mark></em>
     </h2>
   </div>
   <div class="cs-cta-right g-r">
     <p>Non servono deck pronti o brief formali. Basta una mail, e capiamo insieme se ha senso parlare.</p>
     <div class="cs-cta-actions">
       <a href="mailto:ciao@strategica.it" class="btn-dark">Scrivici →</a>
-      <a href="/#approccio" class={!showTeam ? 'btn-ghost-white' : 'btn-ghost'}>Scopri come lavoriamo</a>
+      <a href="/#approccio" class="btn-ghost-white">Scopri come lavoriamo</a>
     </div>
   </div>
 </section>

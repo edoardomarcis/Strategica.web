@@ -1084,62 +1084,6 @@ footer {
   color: var(--terra); opacity: 0.75; margin-top: 5px; display: block;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   LOGOS MARQUEE
-══════════════════════════════════════════════════════════════════════ */
-.logos-band {
-  background: var(--ink);
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-}
-.logos-band-header {
-  padding: 40px 80px 28px;
-  display: flex; align-items: center; gap: 16px;
-}
-.logos-band-header span {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(242,237,228,0.28);
-}
-.logos-band-header::after {
-  content: ''; flex: 1; height: 1px;
-  background: rgba(255,255,255,0.06);
-}
-.logos-track-wrap {
-  overflow: hidden;
-  padding-bottom: 40px;
-  /* Fade edges */
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
-}
-.logos-track {
-  display: flex; align-items: center;
-  width: max-content;
-  animation: marquee 32s linear infinite;
-}
-.logos-track:hover { animation-play-state: paused; }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.logo-item {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 0 52px;
-  border-right: 1px solid rgba(255,255,255,0.055);
-  color: rgba(242,237,228,0.28);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px; font-weight: 400; letter-spacing: 0.03em;
-  white-space: nowrap; flex-shrink: 0;
-  transition: color 0.3s;
-  cursor: default;
-}
-.logo-item:hover { color: rgba(242,237,228,0.65); }
-.logo-dot {
-  width: 4px; height: 4px; border-radius: 50%;
-  background: rgba(196,98,42,0.4); flex-shrink: 0;
-}
-
 /* ── GSAP initial states ─────────────────────────────────────────────── */
 .g-fade { opacity: 0; transform: translateY(32px); }
 .g-l    { opacity: 0; transform: translateX(-36px); }
@@ -1174,9 +1118,6 @@ footer {
   .metric-item:nth-child(3) { border-right: 1px solid rgba(212,200,180,0.5); padding-left: 0; }
   .metric-item:nth-child(4) { border-right: none; }
   .metric-item:first-child { padding-left: 0; }
-
-  /* LOGOS */
-  .logos-band-header { padding: 32px 28px 20px; }
 
   /* PROBLEM */
   .problem {
@@ -1259,9 +1200,6 @@ footer {
   .metric-item { padding: 0 14px; }
   .metric-item:first-child { padding-left: 0; }
   .metric-item:nth-child(3) { padding-left: 0; }
-
-  /* LOGOS */
-  .logos-band-header { padding: 28px 20px 16px; }
 
   /* PROBLEM */
   .problem { padding: 56px 20px 52px; }

@@ -1,0 +1,84 @@
+---
+---
+<svg class="iceberg-svg" id="iceberg" viewBox="0 0 340 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="ice-wobble" x="-8%" y="-4%" width="116%" height="108%">
+      <feTurbulence type="turbulence" baseFrequency="0.022" numOctaves="2" seed="14" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <clipPath id="above-water"><rect x="0" y="0" width="340" height="162"/></clipPath>
+    <clipPath id="below-water"><rect x="0" y="162" width="340" height="360"/></clipPath>
+  </defs>
+
+  <path class="iceberg-fill-below"
+    d="M 170 162
+       C 190 162, 220 158, 248 152
+       C 280 144, 308 136, 318 148
+       C 328 162, 326 200, 322 240
+       C 318 280, 310 320, 304 360
+       C 298 400, 296 440, 280 468
+       C 264 494, 220 510, 170 512
+       C 120 510, 76 494, 60 468
+       C 44 440, 42 400, 36 360
+       C 30 320, 22 280, 18 240
+       C 12 200, 10 162, 22 148
+       C 32 136, 60 144, 92 152
+       C 120 158, 150 162, 170 162 Z"
+    fill="rgba(196,98,42,0.2)" filter="url(#ice-wobble)"/>
+
+  <path class="iceberg-fill-above"
+    d="M 170 162
+       C 185 162, 200 158, 210 148
+       C 222 136, 228 110, 224 88
+       C 220 66, 204 40, 190 24
+       C 182 14, 176 8, 170 6
+       C 164 8, 158 14, 150 24
+       C 136 40, 120 66, 116 88
+       C 112 110, 118 136, 130 148
+       C 140 158, 155 162, 170 162 Z"
+    fill="rgba(248,245,240,0.14)" filter="url(#ice-wobble)"/>
+
+  <path class="iceberg-outline"
+    d="M 170 6
+       C 164 8, 154 16, 146 28
+       C 134 46, 116 72, 113 96
+       C 110 118, 120 140, 133 152
+       C 143 162, 156 166, 170 166
+       C 184 166, 197 162, 207 152
+       C 220 140, 230 118, 227 96
+       C 224 72, 206 46, 194 28
+       C 186 16, 176 8, 170 6 Z
+       M 133 152
+       C 110 152, 82 148, 60 152
+       C 36 156, 16 164, 16 180
+       C 14 210, 12 250, 16 288
+       C 20 326, 28 364, 36 396
+       C 44 426, 52 452, 60 468
+       C 72 488, 110 508, 170 510
+       C 230 508, 268 488, 280 468
+       C 288 452, 296 426, 304 396
+       C 312 364, 320 326, 324 288
+       C 328 250, 326 210, 324 180
+       C 324 164, 304 156, 280 152
+       C 258 148, 230 152, 207 152"
+    stroke="rgba(242,237,228,0.82)" stroke-width="1.6"
+    stroke-linecap="round" stroke-linejoin="round"
+    filter="url(#ice-wobble)"/>
+
+  <path class="iceberg-water-line"
+    d="M 0 166 C 28 156, 56 174, 86 164 C 116 154, 140 172, 170 163
+       C 200 154, 224 172, 254 163 C 284 154, 312 172, 340 162"
+    stroke="rgba(196,98,42,0.75)" stroke-width="1.6"
+    stroke-linecap="round" filter="url(#ice-wobble)"/>
+
+  <text class="iceberg-label" x="170" y="88" text-anchor="middle"
+    font-family="Caveat,cursive" font-size="17" fill="rgba(242,237,228,0.6)">quello che senti</text>
+
+  <text class="iceberg-label" x="170" y="340" text-anchor="middle"
+    font-family="Caveat,cursive" font-size="19" fill="rgba(196,98,42,0.85)">quello che</text>
+  <text class="iceberg-label" x="170" y="364" text-anchor="middle"
+    font-family="Caveat,cursive" font-size="19" fill="rgba(196,98,42,0.85)">blocca davvero</text>
+
+  <line class="iceberg-label" x1="170" y1="178" x2="170" y2="310"
+    stroke="rgba(242,237,228,0.15)" stroke-width="1" stroke-dasharray="3 6"/>
+</svg>
