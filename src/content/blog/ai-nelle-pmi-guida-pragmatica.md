@@ -4,7 +4,6 @@ description: "L'intelligenza artificiale non è una bacchetta magica. Ma usata b
 pubDate: 2025-04-05
 author: Edoardo Marcis
 tags: ["AI", "Innovazione", "PMI"]
-coverImage: "https://picsum.photos/id/180/1200/630"
 draft: false
 ---
 

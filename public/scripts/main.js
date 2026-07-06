@@ -154,31 +154,14 @@ if (typeof gsap !== 'undefined') {
     });
   });
 
-  /* Iceberg draw */
-  const icebergEl = document.getElementById('iceberg');
-  if (icebergEl) {
-    new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) setTimeout(() => icebergEl.classList.add('drawn'), 200);
-    }, { threshold: 0.3 }).observe(icebergEl);
-  }
-
-  /* Step cards — ghost → dark on click/keyboard */
-  document.querySelectorAll('.step-card').forEach(card => {
-    const activate = () => {
-      const isActive = card.classList.contains('active');
-      document.querySelectorAll('.step-card').forEach(c => {
-        c.classList.remove('active');
-        c.setAttribute('aria-expanded', 'false');
-      });
-      if (!isActive) {
-        card.classList.add('active');
-        card.setAttribute('aria-expanded', 'true');
+  /* Iceberg + venn draw */
+  document.querySelectorAll('#iceberg, #venn').forEach(el => {
+    new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) {
+        setTimeout(() => el.classList.add('drawn'), 200);
+        obs.unobserve(el);
       }
-    };
-    card.addEventListener('click', activate);
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
-    });
+    }, { threshold: 0.3 }).observe(el);
   });
 
   /* Service icon ovals — draw on scroll */

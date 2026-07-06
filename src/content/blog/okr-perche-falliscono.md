@@ -4,7 +4,6 @@ description: "Gli OKR sono uno strumento potente, ma nelle PMI italiane vengono 
 pubDate: 2025-04-09
 author: Edoardo Marcis
 tags: ["OKR", "Strategia", "Management"]
-coverImage: "https://picsum.photos/id/3/1200/630"
 draft: false
 ---
 

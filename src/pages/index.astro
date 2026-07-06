@@ -31,12 +31,14 @@ const jsonLd = [organization(), website()];
 <!-- ── SITE HERO ──────────────────────────────────────────────────────── -->
 <section class="site-hero">
   <div class="site-hero-inner">
-    <p class="sh-wordmark">Strat<em>egica</em></p>
     <p class="sh-tagline">Clarity for builders</p>
-    <h1 class="sh-payoff">Progettiamo la crescita aziendale:<br>dalla strategia all'esecuzione.</h1>
-    <div class="sh-actions">
-      <a href="#contatti" class="btn-white">Inizia qui</a>
-      <a href="#approccio" class="btn-ghost-white">Scopri l'approccio</a>
+    <p class="sh-wordmark">Strat<em>egica</em></p>
+    <div class="sh-sub">
+      <h1 class="sh-payoff">Progettiamo la crescita aziendale:<br>dalla strategia all'<Mark color="coral" viewBox="0 0 130 14" path="M2 10 C24 6, 52 13, 80 8 C104 4, 120 11, 128 7">esecuzione.</Mark></h1>
+      <div class="sh-actions">
+        <a href="#contatti" class="btn-white">Inizia qui</a>
+        <a href="#approccio" class="btn-ghost-white">Scopri l'approccio</a>
+      </div>
     </div>
   </div>
   <a href="#hero-narrative" class="sh-scroll" aria-label="Scorri verso il basso">
@@ -186,32 +188,32 @@ const jsonLd = [organization(), website()];
 
     <!-- Venn diagram — 4-circle intersection SVG -->
     <div class="approach-diagram g-r">
-      <svg class="venn-svg" viewBox="-130 -70 760 640" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="venn-svg" id="venn" viewBox="-130 -70 760 640" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <!-- Subtle hand-drawn wobble -->
           <filter id="wobble" x="-8%" y="-8%" width="116%" height="116%">
             <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="2" seed="9" result="noise"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
           </filter>
         </defs>
 
         <!-- 4 circles: top, right, bottom, left — centered at (250,250), offset 85, r=155 -->
-        <circle cx="250" cy="165" r="155" stroke="rgba(28,24,20,0.6)"  stroke-width="1.8" filter="url(#wobble)"/>
-        <circle cx="335" cy="250" r="155" stroke="rgba(28,24,20,0.6)"  stroke-width="1.8" filter="url(#wobble)"/>
-        <circle cx="250" cy="335" r="155" stroke="rgba(28,24,20,0.6)"  stroke-width="1.8" filter="url(#wobble)"/>
-        <circle cx="165" cy="250" r="155" stroke="rgba(28,24,20,0.6)"  stroke-width="1.8" filter="url(#wobble)"/>
+        <circle class="venn-circle" cx="250" cy="165" r="155" stroke="rgba(28,24,20,0.55)" stroke-width="1.5" filter="url(#wobble)"/>
+        <circle class="venn-circle" cx="335" cy="250" r="155" stroke="rgba(28,24,20,0.55)" stroke-width="1.5" filter="url(#wobble)"/>
+        <circle class="venn-circle" cx="250" cy="335" r="155" stroke="rgba(28,24,20,0.55)" stroke-width="1.5" filter="url(#wobble)"/>
+        <circle class="venn-circle" cx="165" cy="250" r="155" stroke="rgba(28,24,20,0.55)" stroke-width="1.5" filter="url(#wobble)"/>
 
         <!-- Center intersection — 4-way overlap, convex "pillow" shape -->
         <!-- sweep=1 → arcs bow outward toward each circle's own center, giving convex sides -->
-        <path d="M 191.5 308.5
+        <path class="venn-center" d="M 191.5 308.5
           A 155 155 0 0 1 191.5 191.5
           A 155 155 0 0 1 308.5 191.5
           A 155 155 0 0 1 308.5 308.5
           A 155 155 0 0 1 191.5 308.5 Z"
-          fill="rgba(196,98,42,0.78)" filter="url(#wobble)"/>
+          fill="rgba(196,98,42,0.72)" filter="url(#wobble)"/>
 
         <!-- Scribble texture — layered curves to mimic the hand-drawn fill -->
-        <g stroke="rgba(220,130,80,0.5)" stroke-width="1.4" stroke-linecap="round" fill="none">
+        <g class="venn-scribble" stroke="rgba(220,130,80,0.5)" stroke-width="1.4" stroke-linecap="round" fill="none">
           <path d="M202 238 C212 231,224 229,235 233 C246 237,256 244,262 240"/>
           <path d="M199 249 C211 242,225 240,238 244 C251 248,261 256,268 252"/>
           <path d="M200 260 C214 253,229 251,243 255 C257 259,267 268,272 264"/>
@@ -228,42 +230,34 @@ const jsonLd = [organization(), website()];
         </g>
 
         <!-- Labels — Caveat, terracotta -->
-        <text x="250"  y="-40" text-anchor="middle" font-family="Caveat,cursive" font-size="28" fill="#C4622A">Analisi</text>
-        <text x="-110" y="258" text-anchor="start"  font-family="Caveat,cursive" font-size="28" fill="#C4622A">Iterazione</text>
-        <text x="610"  y="258" text-anchor="end"    font-family="Caveat,cursive" font-size="28" fill="#C4622A">Co-Design</text>
-        <text x="250"  y="542" text-anchor="middle" font-family="Caveat,cursive" font-size="28" fill="#C4622A">Sperimentazione</text>
+        <text class="venn-label" x="250"  y="-40" text-anchor="middle" font-family="Caveat,cursive" font-size="28" fill="#C4622A">Analisi</text>
+        <text class="venn-label" x="-110" y="258" text-anchor="start"  font-family="Caveat,cursive" font-size="28" fill="#C4622A">Iterazione</text>
+        <text class="venn-label" x="610"  y="258" text-anchor="end"    font-family="Caveat,cursive" font-size="28" fill="#C4622A">Co-Design</text>
+        <text class="venn-label" x="250"  y="542" text-anchor="middle" font-family="Caveat,cursive" font-size="28" fill="#C4622A">Sperimentazione</text>
       </svg>
     </div>
   </div>
 
   <div class="steps-bento">
-    <div class="step-card" tabindex="0" role="button" aria-expanded="false">
+    <div class="step-card">
       <div class="step-num">01</div>
       <h4>Mappiamo</h4>
-      <div class="step-desc"><div>
-        <p>Governance, processi decisionali, allineamento. Scopri come decide davvero l'organizzazione: dove c'è chiarezza e dove gli errori costano di più.</p>
-      </div></div>
+      <p class="step-desc">Governance, processi decisionali, allineamento. Scopri come decide davvero l'organizzazione: dove c'è chiarezza e dove gli errori costano di più.</p>
     </div>
-    <div class="step-card" tabindex="0" role="button" aria-expanded="false">
+    <div class="step-card">
       <div class="step-num">02</div>
       <h4>Capiamo i blocchi</h4>
-      <div class="step-desc"><div>
-        <p>I veri vincoli tra struttura e esecuzione. Non sono tool: sono processi non definiti, gap di allineamento, metriche invisibili. Identifichiamo cosa costa davvero.</p>
-      </div></div>
+      <p class="step-desc">I veri vincoli tra struttura e esecuzione. Non sono tool: sono processi non definiti, gap di allineamento, metriche invisibili. Identifichiamo cosa costa davvero.</p>
     </div>
-    <div class="step-card" tabindex="0" role="button" aria-expanded="false">
+    <div class="step-card">
       <div class="step-num">03</div>
       <h4>Disegniamo il modello</h4>
-      <div class="step-desc"><div>
-        <p>Regole del gioco chiare, ruoli, metriche, escalation. Da caos a sistema replicabile. Non è teoria: è cosa farete davvero dal lunedì.</p>
-      </div></div>
+      <p class="step-desc">Regole del gioco chiare, ruoli, metriche, escalation. Da caos a sistema replicabile. Non è teoria: è cosa farete davvero dal lunedì.</p>
     </div>
-    <div class="step-card" tabindex="0" role="button" aria-expanded="false">
+    <div class="step-card">
       <div class="step-num">04</div>
       <h4>Industrializziamo</h4>
-      <div class="step-desc"><div>
-        <p>Affianchiamo nell'adozione del modello. Non gestiamo noi: trasformiamo la soluzione in un sistema che funziona in autonomia e scala nel tempo.</p>
-      </div></div>
+      <p class="step-desc">Affianchiamo nell'adozione del modello. Non gestiamo noi: trasformiamo la soluzione in un sistema che funziona in autonomia e scala nel tempo.</p>
     </div>
   </div>
 </section>
@@ -287,11 +281,7 @@ const jsonLd = [organization(), website()];
       <h3>In-formazione</h3>
       <span class="service-subtitle">il punto di partenza</span>
       <p>Mappiamo governance, processi decisionali e allineamento. Capiamo cosa blocca davvero la crescita. Consegni una lettura chiara: i problemi reali, cosa costa di più, le priorità, il primo passo concreto.</p>
-      <div class="service-tags">
-        <span class="service-tag">Governance</span>
-        <span class="service-tag">Diagnosi operativa</span>
-        <span class="service-tag">Roadmap</span>
-      </div>
+      <p class="service-tags">Governance · Diagnosi operativa · Roadmap</p>
     </div>
     <div class="service-card">
       <div class="service-icon-wrap">
@@ -304,11 +294,7 @@ const jsonLd = [organization(), website()];
       <h3>Strategy Sprint</h3>
       <span class="service-subtitle">il salto di prospettiva</span>
       <p>Capiamo cosa blocca la crescita, le priorità giuste, le metriche. Mettiamo a terra il piano concreto con il tuo team e il nostro network di partner.</p>
-      <div class="service-tags">
-        <span class="service-tag">Strategia</span>
-        <span class="service-tag">OKR</span>
-        <span class="service-tag">Esecuzione</span>
-      </div>
+      <p class="service-tags">Strategia · OKR · Esecuzione</p>
     </div>
     <div class="service-card">
       <div class="service-icon-wrap">
@@ -322,11 +308,7 @@ const jsonLd = [organization(), website()];
       <span class="service-subtitle">l'autonomia come obiettivo</span>
       <p>Una relazione continuativa in cui affianchiamo il team con un obiettivo preciso: renderlo sempre più autonomo. Non gestiamo noi: costruiamo insieme un sistema di decisione e misurazione che funziona anche senza di noi.</p>
       <p>Perché la consulenza ben fatta non dovrebbe essere per sempre.</p>
-      <div class="service-tags">
-        <span class="service-tag">Continuativo</span>
-        <span class="service-tag">Team building</span>
-        <span class="service-tag">Autonomia</span>
-      </div>
+      <p class="service-tags">Continuativo · Team building · Autonomia</p>
     </div>
   </div>
   <div class="services-footer g-fade">
