@@ -66,11 +66,7 @@ const jsonLd = service('Servizi Strategica');
       <span class="srv-roman" aria-hidden="true">I.</span>
       <h2><em>In-formazione</em></h2>
       <span class="srv-tagline">vedi il sistema per quello che è.</span>
-      <div class="service-tags">
-        <span class="service-tag">Diagnosi</span>
-        <span class="service-tag">Governance</span>
-        <span class="service-tag">Roadmap</span>
-      </div>
+      <p class="service-tags">Diagnosi · Governance · Roadmap</p>
     </div>
 
     <div class="srv-body g-r">
@@ -117,11 +113,7 @@ const jsonLd = service('Servizi Strategica');
       <span class="srv-roman" aria-hidden="true">II.</span>
       <h2><em>Strategy Sprint</em></h2>
       <span class="srv-tagline">progetta come deciderete e scalerete.</span>
-      <div class="service-tags">
-        <span class="service-tag">Governance</span>
-        <span class="service-tag">OKR</span>
-        <span class="service-tag">Esecuzione</span>
-      </div>
+      <p class="service-tags">Governance · OKR · Esecuzione</p>
     </div>
 
     <div class="srv-body g-r">
@@ -170,11 +162,7 @@ const jsonLd = service('Servizi Strategica');
       <span class="srv-roman" aria-hidden="true">III.</span>
       <h2><em>Edu-coaching</em></h2>
       <span class="srv-tagline">trasforma il modello in pratica autonoma.</span>
-      <div class="service-tags">
-        <span class="service-tag">OKR coaching</span>
-        <span class="service-tag">Facilitazione</span>
-        <span class="service-tag">Trasferimento metodo</span>
-      </div>
+      <p class="service-tags">OKR coaching · Facilitazione · Trasferimento metodo</p>
     </div>
 
     <div class="srv-body g-r">
@@ -365,7 +353,7 @@ const jsonLd = service('Servizi Strategica');
   }
   .srv-choose-lead {
     font-size: 19px; font-weight: 300; line-height: 1.78;
-    color: var(--ink-soft); max-width: 800px;
+    color: var(--ink-soft); max-width: 660px;
     margin-bottom: 56px;
   }
   .srv-choose-lead p + p { margin-top: 14px; }
@@ -441,6 +429,7 @@ const jsonLd = service('Servizi Strategica');
   }
   .srv-section--dark .srv-tagline { color: var(--terra-l); }
 
+  .srv-body { max-width: 680px; }
   .srv-body p {
     font-size: 19px; font-weight: 300; line-height: 1.78;
     color: var(--ink-soft); margin-bottom: 18px;
@@ -502,11 +491,7 @@ const jsonLd = service('Servizi Strategica');
   }
   .srv-section--dark .srv-perchi p { color: rgba(242,237,228,0.52); }
 
-  .srv-section--dark .service-tag {
-    border-color: rgba(255,255,255,0.10);
-    color: rgba(242,237,228,0.38);
-    background: rgba(255,255,255,0.03);
-  }
+  .srv-section--dark :global(.service-tags) { color: rgba(242,237,228,0.38); }
 
   .srv-no {
     background:
@@ -602,7 +587,6 @@ const jsonLd = service('Servizi Strategica');
     .srv-roman { font-size: 48px; }
     .srv-tagline { font-size: 16px; }
     .srv-body p { font-size: 17px; }
-    .service-tag { font-size: 8px; }
 
     .srv-no { padding: 56px 20px 52px; }
     .srv-no p { font-size: 17px; }

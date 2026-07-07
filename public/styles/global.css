@@ -760,16 +760,20 @@ nav {
   font-family: 'Caveat', cursive; font-size: 17px;
   color: var(--terra); margin-bottom: 20px; display: block;
 }
-.service-card p {
+.service-card p:not(.service-tags) {
   font-size: 18px;
   font-weight: 300; line-height: 1.74;
   color: var(--ink-soft); margin-bottom: 10px;
 }
-.service-card p.service-tags {
+/* Tag di servizio — small caps con separatori, condivisi tra home e servizi */
+.service-tags {
   font-family: 'DM Sans', sans-serif;
   font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
   line-height: 1.9;
-  color: var(--ink-soft); margin: auto 0 0;
+  color: var(--ink-soft);
+}
+.service-card p.service-tags {
+  margin: auto 0 0;
   padding-top: 18px; border-top: 1px solid rgba(212,200,180,0.5);
   align-self: stretch;
 }
@@ -1144,6 +1148,7 @@ footer {
   .services-grid { grid-template-columns: 1fr; }
   .service-card { padding: 40px 0 32px; }
   .service-card + .service-card { border-left: none; border-top: 1px solid rgba(212,200,180,0.6); }
+  .service-icon-wrap { margin-left: 16px; }
 
   /* TARGET BAND */
   .target-band { padding: 72px 28px; }
@@ -1214,7 +1219,7 @@ footer {
   /* SERVICES */
   .services { padding: 56px 20px; }
   .service-card { padding: 32px 0 28px; }
-  .service-card p { font-size: 16px; }
+  .service-card p:not(.service-tags) { font-size: 16px; }
 
   /* TARGET BAND */
   .target-band { padding: 56px 20px; }

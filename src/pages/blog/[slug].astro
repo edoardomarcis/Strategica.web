@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import BlogCover from '../../components/BlogCover.astro';
 import { article } from '../../utils/jsonld';
 import { getCollection } from 'astro:content';
 
@@ -50,11 +51,11 @@ const jsonLd = article(post);
     </div>
   </header>
 
-  {post.data.coverImage && (
-    <div class="post-cover">
-      <img src={post.data.coverImage} alt={post.data.title} />
-    </div>
-  )}
+  <div class="post-cover">
+    {post.data.coverImage
+      ? <img src={post.data.coverImage} alt={post.data.title} />
+      : <BlogCover title={post.data.title} tags={post.data.tags} slug={post.slug} />}
+  </div>
 
   <div class="post-body">
     <Content />
@@ -161,6 +162,13 @@ const jsonLd = article(post);
   font-weight: 400; margin: 40px 0 16px;
 }
 .post-body p { margin-bottom: 24px; color: var(--ink-soft); font-weight: 300; }
+/* Drop cap sul primo paragrafo */
+.post-body > :global(p:first-of-type)::first-letter {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 74px; line-height: 0.8;
+  float: left; padding: 9px 12px 0 0;
+  color: var(--terra); font-weight: 300;
+}
 .post-body strong { color: var(--ink); font-weight: 400; }
 .post-body em { font-style: italic; color: var(--terra); }
 .post-body blockquote {
