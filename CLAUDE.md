@@ -156,7 +156,7 @@ Pattern consolidato per chi-siamo e blog:
 
 - La sitemap è generata **automaticamente a ogni build** da `@astrojs/sitemap` (pinned a 3.1.6: le versioni successive richiedono Astro 5) — non va mai scritta o aggiornata a mano; nuove pagine e articoli entrano da soli al deploy
 - `/admin` è escluso da sitemap (filter in `astro.config.mjs`) e robots.txt
-- `public/robots.txt` punta a `https://strategica.it/sitemap-index.xml` — se cambia il dominio, aggiornare `site` in `astro.config.mjs`, `SITE` in `Base.astro`/`jsonld.ts` e robots.txt
+- `public/robots.txt` punta a `https://www.wearestrategica.com/sitemap-index.xml` — se cambia il dominio, aggiornare `site` in `astro.config.mjs`, `SITE` in `Base.astro`/`jsonld.ts` e robots.txt
 - OG image di default: `public/og-default.jpg` (1200×630, generata dall'estetica hero) — referenziata da `Base.astro` per tutte le pagine senza immagine propria
 
 ---

@@ -1,4 +1,4 @@
-const SITE = 'https://strategica.it';
+const SITE = 'https://www.wearestrategica.com';
 
 const publisher = { '@type': 'Organization' as const, name: 'Strategica', url: SITE };
 
@@ -9,7 +9,7 @@ export function organization() {
     logo: `${SITE}/logo.png`,
     description: 'Consulenza strategica per PMI italiane. Aiutiamo le aziende a costruire il loro sistema operativo.',
     address: { '@type': 'PostalAddress', addressLocality: 'Milano', addressCountry: 'IT' },
-    contactPoint: { '@type': 'ContactPoint', email: 'ciao@strategica.it', contactType: 'customer service' },
+    contactPoint: { '@type': 'ContactPoint', email: 'hello@wearestrategica.com', contactType: 'customer service' },
   };
 }
 

@@ -29,7 +29,7 @@ const {
   jsonLd,
 } = Astro.props;
 
-const SITE = 'https://strategica.it';
+const SITE = 'https://www.wearestrategica.com';
 const DEFAULT_OG_IMAGE = `${SITE}/og-default.jpg`;
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, SITE).href;
 const ogImageURL = ogImage ? new URL(ogImage, SITE).href : DEFAULT_OG_IMAGE;
