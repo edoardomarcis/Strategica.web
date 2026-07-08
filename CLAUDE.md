@@ -152,6 +152,18 @@ Pattern consolidato per chi-siamo e blog:
 - Nessuna dipendenza esterna non necessaria
 - Stack: Astro 4 statico (no SSR adapter), deploy su Vercel, repo GitHub `edoardomarcis/Strategica.web`
 
+## Pubblicazione articoli
+
+Le bozze vivono in `drafts/` (markdown, anche senza frontmatter completo). Quando viene chiesto di **pubblicare** un articolo, seguire sempre questo workflow:
+
+1. **Frontmatter completo**: title, description 140–160 caratteri con la query target, pubDate odierna, tags coerenti coi cluster (OKR/Governance, Strategia/Crescita, AI/Innovazione), slug breve con la keyword. Niente coverImage se non fornita: la BlogCover branded è automatica.
+2. **Link interni bidirezionali** — è la parte obbligatoria:
+   - nel nuovo articolo: 2–4 link contestuali agli articoli esistenti correlati + almeno 1 link alla pagina servizio del cluster (`/servizi#in-formazione`, `#strategy-sprint`, `#edu-coaching`);
+   - negli articoli esistenti correlati: aggiungere 1 link contestuale verso il nuovo pezzo (aggiornarli davvero, non solo il nuovo).
+   - I link vanno nel flusso del testo su anchor descrittive, mai "clicca qui" né blocchi "articoli correlati" appiccicati in fondo.
+3. **Spostare** il file da `drafts/` a `src/content/blog/`, build di verifica, commit e push (deploy e sitemap si aggiornano da soli).
+4. Non riscrivere il contenuto dell'autore: solo frontmatter, link e refusi evidenti. Modifiche di sostanza vanno proposte, non applicate.
+
 ## SEO
 
 - La sitemap è generata **automaticamente a ogni build** da `@astrojs/sitemap` (pinned a 3.1.6: le versioni successive richiedono Astro 5) — non va mai scritta o aggiornata a mano; nuove pagine e articoli entrano da soli al deploy
