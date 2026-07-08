@@ -5,3 +5,6 @@ dist/
 *.bak
 .vercel
 
+.claude/skills/linkedin-edoardo/
+drafts/*
+!drafts/README.md

@@ -163,6 +163,9 @@ Le bozze vivono in `drafts/` (markdown, anche senza frontmatter completo). Quand
    - I link vanno nel flusso del testo su anchor descrittive, mai "clicca qui" né blocchi "articoli correlati" appiccicati in fondo.
 3. **Spostare** il file da `drafts/` a `src/content/blog/`, build di verifica, commit e push (deploy e sitemap si aggiornano da soli).
 4. Non riscrivere il contenuto dell'autore: solo frontmatter, link e refusi evidenti. Modifiche di sostanza vanno proposte, non applicate.
+5. **Post LinkedIn di lancio**: dopo la pubblicazione, preparare la bozza del post usando la skill `linkedin-edoardo` (in `.claude/skills/`, solo locale). Il post non si pubblica da solo: è una bozza da consegnare a Edoardo.
+
+Nota: il repo GitHub è **pubblico** — `drafts/` e la skill LinkedIn sono in `.gitignore` apposta (le bozze non devono essere leggibili prima dell'uscita). Non committarle mai.
 
 ## SEO
 
