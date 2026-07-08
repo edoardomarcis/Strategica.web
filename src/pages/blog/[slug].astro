@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import BlogCover from '../../components/BlogCover.astro';
 import { article } from '../../utils/jsonld';
+import { authors } from '../../utils/authors';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -15,6 +16,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
+const author = authors[post.data.author];
 const jsonLd = article(post);
 ---
 
@@ -60,6 +62,18 @@ const jsonLd = article(post);
   <div class="post-body">
     <Content />
   </div>
+
+  {author && (
+    <aside class="post-author-box">
+      <div class="pab-monogram" aria-hidden="true">{author.initials}</div>
+      <div class="pab-content">
+        <span class="pab-role">{author.role}</span>
+        <strong class="pab-name">{author.name}</strong>
+        <p class="pab-bio">{author.bio}</p>
+        <a href={author.linkedin} target="_blank" rel="noopener noreferrer" class="pab-link">LinkedIn →</a>
+      </div>
+    </aside>
+  )}
 
   <footer class="post-footer">
     <a href="/blog" class="btn-ghost">Tutti gli articoli</a>
@@ -189,6 +203,43 @@ const jsonLd = article(post);
   margin: 48px 0;
 }
 .post-body a { color: var(--terra); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Box autore — E-E-A-T */
+.post-author-box {
+  display: flex; gap: 24px; align-items: flex-start;
+  margin-top: 64px; padding-top: 40px;
+  border-top: 1px solid var(--rule-l);
+}
+.pab-monogram {
+  flex-shrink: 0;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(196,98,42,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-style: italic; font-weight: 400;
+  color: var(--terra);
+}
+.pab-role {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--terra); display: block; margin-bottom: 4px;
+}
+.pab-name {
+  font-size: 22px; font-weight: 400; color: var(--ink);
+  display: block; margin-bottom: 8px;
+}
+.pab-bio {
+  font-size: 17px; font-weight: 300; line-height: 1.7;
+  color: var(--ink-soft); margin-bottom: 12px;
+}
+.pab-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px; transition: color .2s, border-color .2s;
+}
+.pab-link:hover { color: var(--terra); border-color: var(--terra); }
 
 .post-footer {
   display: flex; gap: 20px; align-items: center;

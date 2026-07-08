@@ -1,3 +1,5 @@
+import { authors } from './authors';
+
 const SITE = 'https://www.wearestrategica.com';
 
 const publisher = { '@type': 'Organization' as const, name: 'Strategica', url: SITE };
@@ -31,7 +33,15 @@ export function article(post: {
     headline: post.data.title,
     description: post.data.description,
     datePublished: post.data.pubDate.toISOString(),
-    author: { '@type': 'Person', name: post.data.author, url: SITE },
+    author: authors[post.data.author]
+      ? {
+          '@type': 'Person',
+          name: post.data.author,
+          jobTitle: authors[post.data.author].role,
+          sameAs: [authors[post.data.author].linkedin],
+          url: `${SITE}/chi-siamo`,
+        }
+      : { '@type': 'Person', name: post.data.author, url: SITE },
     publisher,
     url: `${SITE}/blog/${post.slug}`,
     ...(post.data.coverImage ? { image: `${SITE}${post.data.coverImage}` } : {}),
