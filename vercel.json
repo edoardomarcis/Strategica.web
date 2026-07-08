@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "strategica-web.vercel.app" }],
+      "destination": "https://www.wearestrategica.com/$1",
+      "permanent": true
+    }
+  ]
+}
