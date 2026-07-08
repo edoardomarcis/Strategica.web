@@ -1352,7 +1352,7 @@ footer {
 /* Team cards */
 .cs-team-track {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(0, 300px));
   gap: 24px;
   justify-content: center;
   position: relative; z-index: 1;
@@ -1505,17 +1505,6 @@ footer {
 .cs-cta-actions {
   display: flex; gap: 24px; align-items: center;
 }
-
-/* Dark variant — active when the team section is hidden (showTeam = false) */
-.cs-cta--dark {
-  background:
-    radial-gradient(ellipse 70% 55% at 0% 100%, rgba(196,98,42,0.1) 0%, transparent 55%),
-    var(--dark);
-}
-.cs-cta--dark .section-label { color: rgba(242,237,228,0.35); }
-.cs-cta--dark .section-label::before { background: var(--terra); }
-.cs-cta--dark .cs-cta-h { color: var(--cream); }
-.cs-cta--dark .cs-cta-right p:not(.privacy-note) { color: rgba(242,237,228,0.55); }
 
 /* ── Responsive ──────────────────────────────────────────────────────── */
 @media (max-width: 900px) {

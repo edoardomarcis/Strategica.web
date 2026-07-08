@@ -39,6 +39,7 @@ export function article(post: {
           name: post.data.author,
           jobTitle: authors[post.data.author].role,
           sameAs: [authors[post.data.author].linkedin],
+          image: `${SITE}${authors[post.data.author].photo}`,
           url: `${SITE}/chi-siamo`,
         }
       : { '@type': 'Person', name: post.data.author, url: SITE },

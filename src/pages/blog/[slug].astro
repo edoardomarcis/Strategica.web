@@ -65,7 +65,7 @@ const jsonLd = article(post);
 
   {author && (
     <aside class="post-author-box">
-      <div class="pab-monogram" aria-hidden="true">{author.initials}</div>
+      <img class="pab-photo" src={author.photo} alt={author.name} width="72" height="72" />
       <div class="pab-content">
         <span class="pab-role">{author.role}</span>
         <strong class="pab-name">{author.name}</strong>
@@ -210,14 +210,10 @@ const jsonLd = article(post);
   margin-top: 64px; padding-top: 40px;
   border-top: 1px solid var(--rule-l);
 }
-.pab-monogram {
+.pab-photo {
   flex-shrink: 0;
-  width: 64px; height: 64px; border-radius: 50%;
-  background: rgba(196,98,42,0.1);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px; font-style: italic; font-weight: 400;
-  color: var(--terra);
+  width: 72px; height: 72px; border-radius: 20px;
+  object-fit: cover;
 }
 .pab-role {
   font-family: 'DM Sans', sans-serif;
