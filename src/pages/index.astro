@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import Mark from '../components/Mark.astro';
 import Iceberg from '../components/Iceberg.astro';
+import PrivacyNote from '../components/PrivacyNote.astro';
 import { organization, website } from '../utils/jsonld';
 
 const jsonLd = [organization(), website()];
@@ -451,6 +452,7 @@ const jsonLd = [organization(), website()];
       <a href="mailto:hello@wearestrategica.com" class="btn-dark">Scrivici →</a>
       <a href="#approccio" class="btn-ghost">Rileggi l'approccio</a>
     </div>
+    <PrivacyNote />
   </div>
 </section>
 
@@ -465,6 +467,7 @@ const jsonLd = [organization(), website()];
     <li><a href="/servizi">Servizi</a></li>
     <li><a href="/chi-siamo">Chi siamo</a></li>
     <li><a href="#contatti">Contatti</a></li>
+  <li><a href="/privacy">Privacy</a></li>
   </ul>
   <div class="footer-copy">© 2025 Strategica. Consulenza Strategica. &nbsp;&nbsp; Milano, Italia</div>
 </footer>

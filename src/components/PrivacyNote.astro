@@ -1,0 +1,10 @@
+---
+interface Props {
+  dark?: boolean;
+}
+const { dark = false } = Astro.props;
+---
+
+<p class={`privacy-note${dark ? ' privacy-note--dark' : ''}`}>
+  Scrivendoci, i tuoi dati saranno trattati secondo la <a href="/privacy">privacy policy</a>.
+</p>

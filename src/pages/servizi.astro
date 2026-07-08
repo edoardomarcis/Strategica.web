@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import WaveDivider from '../components/WaveDivider.astro';
 import Mark from '../components/Mark.astro';
+import PrivacyNote from '../components/PrivacyNote.astro';
 import { service } from '../utils/jsonld';
 
 const jsonLd = service('Servizi Strategica');
@@ -279,6 +280,7 @@ const jsonLd = service('Servizi Strategica');
   <div class="target-cta g-fade">
     <a href="mailto:hello@wearestrategica.com" class="btn-white">Scrivici →</a>
   </div>
+  <PrivacyNote dark />
 </section>
 
 <!-- ── FOOTER ────────────────────────────────────────────────────────── -->
@@ -293,6 +295,7 @@ const jsonLd = service('Servizi Strategica');
     <li><a href="/chi-siamo">Chi siamo</a></li>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/#contatti">Contatti</a></li>
+  <li><a href="/privacy">Privacy</a></li>
   </ul>
   <div class="footer-copy">© 2025 Strategica. Consulenza Strategica. &nbsp;&nbsp; Milano, Italia</div>
 </footer>

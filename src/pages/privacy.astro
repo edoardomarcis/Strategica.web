@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Privacy Policy · Strategica"
+  description="Informativa sul trattamento dei dati personali del sito wearestrategica.com."
+>
+
+<!-- TODO iubenda: quando c'è il policy ID, sostituire il testo con l'embed ufficiale -->
+<article class="privacy-main">
+  <a href="/" class="privacy-back">← Home</a>
+  <h1>Privacy Policy</h1>
+  <p class="privacy-updated">Ultimo aggiornamento: luglio 2026</p>
+
+  <div class="privacy-body">
+    <h2>Titolare del trattamento</h2>
+    <p>Strategica — contatto: <a href="mailto:hello@wearestrategica.com">hello@wearestrategica.com</a></p>
+
+    <h2>Quali dati trattiamo</h2>
+    <p>Questo sito non contiene form di raccolta dati e non richiede registrazione. I dati trattati sono limitati a:</p>
+    <ul>
+      <li><strong>Log tecnici di hosting</strong> — il sito è ospitato su Vercel Inc. (USA), che registra automaticamente dati tecnici di navigazione (indirizzo IP, user agent) per finalità di sicurezza ed erogazione del servizio. Riferimento: <a href="https://vercel.com/legal/privacy-policy" rel="noopener">privacy policy di Vercel</a>.</li>
+      <li><strong>Font e librerie via CDN</strong> — il sito carica font da Google Fonts e librerie da Cloudflare CDN: il tuo indirizzo IP viene trasmesso a questi fornitori per servire i file. Riferimenti: <a href="https://policies.google.com/privacy" rel="noopener">privacy Google</a>, <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">privacy Cloudflare</a>.</li>
+      <li><strong>Email</strong> — se ci scrivi, trattiamo il tuo indirizzo e il contenuto del messaggio al solo scopo di risponderti. Non iscriviamo a newsletter, non cediamo il contatto a terzi.</li>
+    </ul>
+
+    <h2>Cookie</h2>
+    <p>Questo sito non utilizza cookie di profilazione né strumenti di analytics. Non è quindi richiesto alcun banner di consenso. Se in futuro verranno introdotti strumenti di misurazione, questa pagina e il meccanismo di consenso saranno aggiornati prima della loro attivazione.</p>
+
+    <h2>I tuoi diritti</h2>
+    <p>Ai sensi del Regolamento (UE) 2016/679 (GDPR) puoi richiedere accesso, rettifica o cancellazione dei tuoi dati scrivendo a <a href="mailto:hello@wearestrategica.com">hello@wearestrategica.com</a>. Hai inoltre diritto di proporre reclamo al Garante per la protezione dei dati personali.</p>
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="/" class="footer-logo">Strat<em>egica</em></a>
+    <span class="footer-tagline">Costruiamo sistemi operativi aziendali.</span>
+  </div>
+  <ul class="footer-nav">
+    <li><a href="/#approccio">Approccio</a></li>
+    <li><a href="/servizi">Servizi</a></li>
+    <li><a href="/chi-siamo">Chi siamo</a></li>
+    <li><a href="/#contatti">Contatti</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Strategica</span>
+</footer>
+
+<style>
+.privacy-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 40px 96px;
+}
+.privacy-back {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  display: inline-block; margin-bottom: 48px;
+  transition: color .2s;
+}
+.privacy-back:hover { color: var(--terra); }
+.privacy-main h1 {
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 300; line-height: 1.06;
+  letter-spacing: -0.02em; margin-bottom: 12px;
+}
+.privacy-updated {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-bottom: 32px; margin-bottom: 40px;
+  border-bottom: 1px solid var(--rule-l);
+}
+.privacy-body { font-size: 18px; line-height: 1.78; }
+.privacy-body h2 {
+  font-size: 26px; font-weight: 400;
+  margin: 40px 0 14px;
+}
+.privacy-body p, .privacy-body li { color: var(--ink-soft); font-weight: 300; margin-bottom: 14px; }
+.privacy-body strong { color: var(--ink); font-weight: 400; }
+.privacy-body ul { padding-left: 22px; }
+.privacy-body a { color: var(--terra); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 768px) {
+  .privacy-main { padding: 96px 24px 64px; }
+}
+</style>
+
+</Base>

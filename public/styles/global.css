@@ -101,6 +101,21 @@ body::after {
   content: ''; display: block; width: 32px; height: 1px; background: var(--terra);
 }
 
+/* ── Nota privacy sotto le CTA ──────────────────────────────────────── */
+.privacy-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 300; letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  margin-top: 18px;
+}
+.privacy-note a {
+  color: inherit; text-decoration: underline; text-underline-offset: 3px;
+  transition: color .2s;
+}
+.privacy-note a:hover { color: var(--terra); }
+.privacy-note--dark { color: rgba(242,237,228,0.42); }
+.privacy-note--dark a:hover { color: var(--terra-l); }
+
 /* ── Wavy section divider ────────────────────────────────────────────── */
 .wave-divider {
   display: block; width: 100%; overflow: hidden; line-height: 0;
@@ -1011,7 +1026,7 @@ nav {
   letter-spacing: -0.022em;
 }
 .cta h2 em { font-style: italic; color: var(--terra); display: block; }
-.cta-right p {
+.cta-right p:not(.privacy-note) {
   font-size: 19px;
   font-weight: 300; color: var(--ink-soft);
   max-width: 420px; line-height: 1.74; margin-bottom: 40px;
@@ -1171,7 +1186,7 @@ footer {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  .cta-right p { max-width: none; }
+  .cta-right p:not(.privacy-note) { max-width: none; }
 
   /* FOOTER */
   footer {
@@ -1234,7 +1249,7 @@ footer {
 
   /* CTA */
   .cta { padding: 64px 20px; gap: 36px; }
-  .cta-right p { font-size: 17px; }
+  .cta-right p:not(.privacy-note) { font-size: 17px; }
   .cta-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
 
   /* FOOTER */
@@ -1483,7 +1498,7 @@ footer {
   color: var(--ink);
 }
 .cs-cta-h em { font-style: italic; color: var(--terra); display: block; margin-top: 6px; }
-.cs-cta-right p {
+.cs-cta-right p:not(.privacy-note) {
   font-size: 18px; font-weight: 300; line-height: 1.76;
   color: var(--ink-soft); margin-bottom: 36px; max-width: 420px;
 }
@@ -1500,7 +1515,7 @@ footer {
 .cs-cta--dark .section-label { color: rgba(242,237,228,0.35); }
 .cs-cta--dark .section-label::before { background: var(--terra); }
 .cs-cta--dark .cs-cta-h { color: var(--cream); }
-.cs-cta--dark .cs-cta-right p { color: rgba(242,237,228,0.55); }
+.cs-cta--dark .cs-cta-right p:not(.privacy-note) { color: rgba(242,237,228,0.55); }
 
 /* ── Responsive ──────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
