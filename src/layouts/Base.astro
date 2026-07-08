@@ -68,13 +68,12 @@ const ogImageURL = ogImage ? new URL(ogImage, SITE).href : DEFAULT_OG_IMAGE;
   }}
   twitter={{
     card: ogImageURL ? 'summary_large_image' : 'summary',
-    site: '@strategica_it',
     creator: '@edoardomarcis',
     ...(ogImageURL ? { image: ogImageURL, imageAlt: title } : {}),
   }}
   extend={{
     meta: [
-      { name: 'author', content: 'Edoardo Marcis' },
+      { name: 'author', content: article?.author ?? 'Edoardo Marcis' },
     ],
   }}
 />
