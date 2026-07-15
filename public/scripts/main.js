@@ -154,6 +154,24 @@ if (typeof gsap !== 'undefined') {
     });
   });
 
+  /* Parallasse leggera — le lettere di sfondo scorrono più lente del contenuto */
+  [
+    ['.sh-deco',         '.site-hero',   0, -90],
+    ['.problem-bg-text', '.problem',   -60,  60],
+  ].forEach(([sel, trig, from, to]) => {
+    const el = document.querySelector(sel);
+    if (el) gsap.fromTo(el, { y: from }, {
+      y: to, ease: 'none',
+      scrollTrigger: { trigger: trig, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
+    });
+  });
+  /* .hero-decor ha un translateY di centraggio in CSS: si anima in yPercent */
+  const heroDecor = document.querySelector('.hero-decor');
+  if (heroDecor) gsap.fromTo(heroDecor, { yPercent: -62, y: 0 }, {
+    yPercent: -42, y: 0, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top bottom', end: 'bottom top', scrub: 0.6 }
+  });
+
   /* Iceberg + venn draw */
   document.querySelectorAll('#iceberg, #venn').forEach(el => {
     new IntersectionObserver((entries, obs) => {
