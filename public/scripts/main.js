@@ -165,10 +165,9 @@ if (typeof gsap !== 'undefined') {
       scrollTrigger: { trigger: trig, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
     });
   });
-  /* .hero-decor ha un translateY di centraggio in CSS: si anima in yPercent */
   const heroDecor = document.querySelector('.hero-decor');
-  if (heroDecor) gsap.fromTo(heroDecor, { yPercent: -62, y: 0 }, {
-    yPercent: -42, y: 0, ease: 'none',
+  if (heroDecor) gsap.fromTo(heroDecor, { y: -24 }, {
+    y: 56, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top bottom', end: 'bottom top', scrub: 0.6 }
   });
 

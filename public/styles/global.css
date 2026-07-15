@@ -430,12 +430,12 @@ nav {
 
 .hero-decor {
   position: absolute;
-  right: -40px; top: 50%; transform: translateY(-52%);
+  right: 24px; top: -8px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 440px; font-weight: 300; font-style: italic;
+  font-size: 420px; font-weight: 300; font-style: italic;
   line-height: 1; letter-spacing: -0.04em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(196,98,42,0.09);
+  -webkit-text-stroke: 1px rgba(196,98,42,0.13);
   pointer-events: none; user-select: none; z-index: 0;
 }
 
