@@ -156,13 +156,24 @@ if (typeof gsap !== 'undefined') {
 
   /* Parallasse leggera — le lettere di sfondo scorrono più lente del contenuto */
   [
-    ['.sh-deco',         '.site-hero',   0, -90],
-    ['.problem-bg-text', '.problem',   -60,  60],
+    ['.sh-deco',          '.site-hero',   0, -90],
+    ['.problem-bg-text',  '.problem',   -60,  60],
+    ['.srv-hero-deco',    '.srv-hero',    0, -70],
+    ['.cs-hero-deco',     '.cs-hero',     0, -70],
+    ['.cs-team-bg-text',  '.cs-team',   -50,  50],
   ].forEach(([sel, trig, from, to]) => {
     const el = document.querySelector(sel);
     if (el) gsap.fromTo(el, { y: from }, {
       y: to, ease: 'none',
       scrollTrigger: { trigger: trig, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
+    });
+  });
+  /* i numeroni di sezione su /servizi: uno per sezione, trigger il proprio genitore */
+  document.querySelectorAll('.srv-bg-num').forEach(el => {
+    const sec = el.closest('section');
+    if (sec) gsap.fromTo(el, { y: -40 }, {
+      y: 40, ease: 'none',
+      scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
     });
   });
   const heroDecor = document.querySelector('.hero-decor');
