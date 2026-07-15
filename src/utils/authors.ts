@@ -10,7 +10,7 @@ export const authors: Record<string, Author> = {
   'Edoardo Marcis': {
     name: 'Edoardo Marcis',
     role: 'Strategia & Growth',
-    bio: 'Ex startup e open innovation. Strategie di crescita, design thinking e project management strategico. Lettore compulsivo, meditatore. Lo trovi in un surf spot o sul tatami a fare jiu-jitsu.',
+    bio: 'Fractional COO e consulente strategico: aiuta PMI e scale-up a crescere senza perdere il controllo. Dall\'idea alla messa a terra, passando per sistemi, governance e OKR. Lettore compulsivo, meditatore. Lo trovi in un surf spot o sul tatami a fare jiu-jitsu.',
     linkedin: 'https://linkedin.com/in/edoardomarcis',
     photo: '/images/team/edoardo.jpg',
   },
