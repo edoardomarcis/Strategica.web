@@ -11,7 +11,7 @@ const jsonLd = [organization(), website()];
 
 <Base
   title="Strategica · Consulenza Strategica per PMI Italiane"
-  description="Consulenza strategica da un collettivo di professionisti. Aiutiamo PMI italiane a costruire il loro sistema operativo: chiarezza, decisioni migliori, crescita misurabile."
+  description="Consulenza strategica che punta a rendersi inutile. Aiutiamo PMI italiane a costruire il loro sistema operativo: chiarezza, decisioni migliori, crescita misurabile."
   jsonLd={jsonLd}
 >
 
@@ -32,7 +32,7 @@ const jsonLd = [organization(), website()];
 <!-- ── SITE HERO ──────────────────────────────────────────────────────── -->
 <section class="site-hero">
   <div class="site-hero-inner">
-    <p class="sh-tagline">Consulenza strategica per PMI italiane</p>
+    <p class="sh-tagline">Consulenza che punta a rendersi inutile</p>
     <div class="sh-row">
       <p class="sh-wordmark">Strat<em>egica</em></p>
       <h1 class="sh-payoff">Costruiamo il <Mark color="coral" viewBox="0 0 170 14" path="M2 10 C30 5, 65 13, 100 8 C135 3, 155 11, 168 7">sistema operativo</Mark> della tua azienda: decisioni chiare, priorità allineate, esecuzione che scala.</h1>
@@ -148,9 +148,15 @@ const jsonLd = [organization(), website()];
   </div>
 
   <div class="iceberg-col">
-    <div class="iceberg-svg-wrap">
-      <Iceberg />
-    </div>
+    <figure class="tavola">
+      <div class="iceberg-svg-wrap">
+        <Iceberg />
+      </div>
+      <figcaption class="tavola-cap">
+        <span>Tav. 01 · Sezione del problema</span>
+        <span>rilevazione su 40+ organizzazioni</span>
+      </figcaption>
+    </figure>
   </div>
   <div class="problem-right g-r">
     <p>Le organizzazioni arrivano da noi con richieste precise: <strong>più lead, più clienti, più tecnologia, più persone.</strong></p>
@@ -168,6 +174,22 @@ const jsonLd = [organization(), website()];
     <span class="caveat-note">e poi costruiamo da lì insieme.</span>
   </div>
   <div class="problem-bg-text" aria-hidden="true">02</div>
+</section>
+
+<!-- ── AUTODIAGNOSI TEASER ────────────────────────────────────────────── -->
+<section class="diag-teaser">
+  <div class="diag-teaser-left g-l">
+    <div class="section-label">Autodiagnosi</div>
+    <h2 class="diag-teaser-h">Dieci frasi.<br>Conta quante sono vere.</h2>
+    <p class="diag-teaser-sub">Cinque minuti, nessun dato richiesto. Il risultato lo leggi da solo.</p>
+    <a href="/check-up" class="btn-white diag-teaser-cta">Fai il check-up →</a>
+  </div>
+  <ul class="diag-teaser-samples g-r">
+    <li><span>01</span>Le decisioni importanti passano tutte da una persona sola.</li>
+    <li><span>04</span>I progetti partono con entusiasmo e muoiono senza che nessuno lo dichiari.</li>
+    <li><span>07</span>Il piano strategico esiste, ma nessuno lo apre da mesi.</li>
+    <li class="diag-more"><span>…</span>e le altre sette ti aspettano.</li>
+  </ul>
 </section>
 
 <WaveDivider from="dark" to="cream" h={52} path="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22" stroke />
@@ -322,7 +344,7 @@ const jsonLd = [organization(), website()];
 
 <!-- ── TARGET BAND ────────────────────────────────────────────────────── -->
 <div class="target-band g-fade">
-  <p><em>Lavoriamo con</em> organizzazioni in crescita che affrontano il passaggio critico: più grande della startup, ma non ancora sistematizzata. <em>Governance confusa, decisioni disallineate, opportunità perse perché l'esecuzione non stacca dalla strategia.</em></p>
+  <p><em>Lavoriamo con</em> organizzazioni in crescita che affrontano il <strong>passaggio critico</strong>: più grande della startup, ma <strong>non ancora sistematizzata</strong>. <em>Governance confusa, decisioni disallineate, opportunità perse perché <strong>l'esecuzione non stacca dalla strategia</strong>.</em></p>
   <span class="caveat-sub">se senti che la crescita è caotica, parliamoci.</span>
   <div class="target-cta">
     <a href="mailto:hello@wearestrategica.com" class="btn-white">Scrivici →</a>
@@ -448,6 +470,11 @@ const jsonLd = [organization(), website()];
   </div>
   <div class="cta-right g-r">
     <p>Il percorso più semplice è partire con una giornata di In-formazione. Senza impegni alla fine, sai esattamente come lavoriamo.</p>
+    <ol class="cta-steps">
+      <li><span>1.</span>Ci scrivi due righe su dove senti che qualcosa non torna.</li>
+      <li><span>2.</span>Fissiamo una prima conversazione: serve a capire, non a vendere.</li>
+      <li><span>3.</span>Ne esci con una lettura chiara e un primo passo concreto. Poi decidi tu.</li>
+    </ol>
     <div class="cta-actions">
       <a href="mailto:hello@wearestrategica.com" class="btn-dark">Scrivici →</a>
       <a href="#approccio" class="btn-ghost">Rileggi l'approccio</a>
@@ -460,7 +487,7 @@ const jsonLd = [organization(), website()];
 <footer>
   <div>
     <a href="#" class="footer-logo">Strat<em>egica</em></a>
-    <span class="footer-tagline">Costruiamo sistemi operativi aziendali.</span>
+    <span class="footer-tagline">Consulenza che punta a rendersi inutile.</span>
   </div>
   <ul class="footer-nav">
     <li><a href="#approccio">Approccio</a></li>

@@ -1,0 +1,270 @@
+---
+import Base from '../layouts/Base.astro';
+import Mark from '../components/Mark.astro';
+import PrivacyNote from '../components/PrivacyNote.astro';
+
+const statements = [
+  'Le decisioni importanti passano tutte da una persona sola.',
+  'L\'ultima riunione chiusa con una decisione scritta e un responsabile risale a più di una settimana fa.',
+  'Ogni reparto ha le sue priorità, e nessuno sa quali vengono prima.',
+  'I progetti partono con entusiasmo e muoiono senza che nessuno lo dichiari.',
+  'Non esiste un numero che tutti guardano ogni settimana per capire se l\'azienda va bene.',
+  'Le stesse informazioni vengono richieste e ricostruite più volte, da persone diverse.',
+  'Il piano strategico esiste, ma nessuno lo apre da mesi.',
+  'Chi è responsabile di cosa si scopre solo quando qualcosa va storto.',
+  'Il fatturato cresce, ma il margine e le ore lavorate raccontano un\'altra storia.',
+  'Avete comprato strumenti nuovi per risolvere problemi che erano di processo.',
+];
+---
+
+<Base
+  title="Check-up · Strategica"
+  description="Dieci frasi per misurare il sistema operativo della tua azienda. Cinque minuti, carta e penna, nessun dato richiesto."
+>
+
+<article class="checkup-main">
+  <a href="/" class="checkup-back">← Home</a>
+
+  <div class="section-label">Il check-up</div>
+  <h1 class="checkup-h">
+    Dieci frasi.<br>
+    Conta quante sono <em><Mark color="coral" viewBox="0 0 110 14" path="M2 10 C25 5, 55 12, 80 8 C95 5, 104 10, 108 7">vere.</Mark></em>
+  </h1>
+  <p class="checkup-sub">Un check-up onesto del sistema operativo della tua azienda. Cinque minuti, carta e penna, risposte d'istinto: se esiti su una frase, probabilmente è vera. Nessun form, nessun dato richiesto. Il risultato lo leggi da solo, in fondo.</p>
+
+  <ol class="checkup-list" id="cu-list">
+    {statements.map((s, i) => (
+      <li>
+        <input type="checkbox" id={`cu-${i + 1}`} value={i + 1} />
+        <label for={`cu-${i + 1}`}>
+          <span class="cu-num">{String(i + 1).padStart(2, '0')}</span>
+          <span class="cu-box" aria-hidden="true"></span>
+          <span class="cu-text">{s}</span>
+        </label>
+      </li>
+    ))}
+  </ol>
+
+  <div class="checkup-results">
+    <h2>Come leggere il risultato</h2>
+    <div class="cu-band" data-min="0" data-max="2">
+      <span class="cu-range">0–2 vere</span>
+      <p>Il sistema operativo regge. Onestamente, non abbiamo molto da venderti: continua così e ricontrolla tra un anno.</p>
+    </div>
+    <div class="cu-band" data-min="3" data-max="5">
+      <span class="cu-range">3–5 vere</span>
+      <p>Frizioni note, ancora gestibili. È il momento migliore per sistemarle: prima che diventino urgenti, quando costano ancora poco.</p>
+    </div>
+    <div class="cu-band cu-band--hot" data-min="6" data-max="10">
+      <span class="cu-range">6+ vere</span>
+      <p>L'azienda funziona per sforzo delle persone, non per sistema. Il rischio non è visibile oggi: si presenta alla prossima crescita, alla prossima assenza, al prossimo imprevisto.</p>
+    </div>
+  </div>
+
+  <div class="checkup-cta">
+    <p>Vuoi capire da dove cominciare? Scrivici quali frasi hai segnato. La prima conversazione serve a capire, non a vendere.</p>
+    <a href="mailto:hello@wearestrategica.com" class="btn-dark" id="cu-cta">Scrivici →</a>
+    <PrivacyNote />
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="/" class="footer-logo">Strat<em>egica</em></a>
+    <span class="footer-tagline">Consulenza che punta a rendersi inutile.</span>
+  </div>
+  <ul class="footer-nav">
+    <li><a href="/#approccio">Approccio</a></li>
+    <li><a href="/servizi">Servizi</a></li>
+    <li><a href="/chi-siamo">Chi siamo</a></li>
+    <li><a href="/#contatti">Contatti</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 Strategica</span>
+</footer>
+
+<style>
+.checkup-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 40px 96px;
+}
+.checkup-back {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none;
+  display: inline-block; margin-bottom: 48px;
+  transition: color .2s;
+}
+.checkup-back:hover { color: var(--terra); }
+
+.checkup-h {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 300; line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 20px 0 24px;
+}
+.checkup-h em { font-style: italic; color: var(--terra); }
+
+.checkup-sub {
+  font-size: 17px; font-weight: 300; line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 56ch;
+  padding-bottom: 40px; margin-bottom: 16px;
+  border-bottom: 1px solid var(--rule-l);
+}
+
+/* lista affermazioni */
+.checkup-list {
+  list-style: none;
+  margin-bottom: 64px;
+}
+.checkup-list li {
+  border-bottom: 1px solid var(--rule-l);
+  position: relative;
+}
+.checkup-list input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.checkup-list label {
+  display: grid;
+  grid-template-columns: 36px 26px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 20px 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.checkup-list label:hover { background: rgba(228,218,200,0.18); }
+.checkup-list input:focus-visible + label .cu-box {
+  outline: 2px solid var(--terra);
+  outline-offset: 2px;
+}
+.cu-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-style: italic;
+  color: rgba(92,80,72,0.4);
+}
+.cu-box {
+  width: 17px; height: 17px;
+  border: 1.5px solid var(--ink-soft);
+  border-radius: 3px;
+  transform: rotate(-1deg) translateY(2px);
+  display: inline-block;
+  position: relative;
+}
+/* la X a mano quando la frase è segnata */
+.cu-box::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background:
+    linear-gradient(48deg, transparent 42%, var(--terra) 42% 58%, transparent 58%),
+    linear-gradient(-46deg, transparent 43%, var(--terra) 43% 57%, transparent 57%);
+  transform: scale(0);
+  transition: transform 0.18s cubic-bezier(0.5, 1.6, 0.4, 1);
+}
+.checkup-list input:checked + label .cu-box::after { transform: scale(1); }
+.checkup-list input:checked + label .cu-text { color: var(--ink); }
+.cu-text {
+  font-size: 18px; font-weight: 300;
+  line-height: 1.6; color: var(--ink);
+}
+
+/* risultati */
+.checkup-results h2 {
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 300; letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.cu-band {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule-l);
+  align-items: baseline;
+}
+.cu-range {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-style: italic;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.cu-band--hot .cu-range { color: var(--terra); }
+.cu-band p {
+  font-size: 15px; font-weight: 300; line-height: 1.7;
+  color: var(--ink-soft); margin: 0;
+}
+
+/* fascia attiva: si accende quando il conto delle frasi vere ci cade dentro */
+.checkup-results.touched .cu-band { opacity: 0.45; transition: opacity 0.25s; }
+.checkup-results.touched .cu-band.active { opacity: 1; }
+.cu-band.active .cu-range { color: var(--terra); font-weight: 500; }
+.cu-band.active p { color: var(--ink); }
+
+/* CTA */
+.checkup-cta {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule-l);
+}
+.checkup-cta p {
+  font-size: 17px; font-weight: 300; line-height: 1.7;
+  color: var(--ink); max-width: 52ch;
+  margin-bottom: 24px;
+}
+
+/* stampa: l'artefatto in una pagina */
+@media print {
+  :global(nav) { display: none !important; }
+  :global(.c-glow) { display: none !important; }
+  footer { display: none; }
+  .checkup-back { display: none; }
+  .checkup-main { padding: 24px 0; }
+  .checkup-cta .btn-dark { display: none; }
+  .checkup-list label { padding: 12px 0; }
+  @page { margin: 14mm 16mm; }
+}
+
+@media (max-width: 768px) {
+  .checkup-main { padding: 96px 24px 64px; }
+  .checkup-list label { grid-template-columns: 28px 24px 1fr; gap: 10px; }
+  .cu-text { font-size: 16px; }
+  .cu-band { grid-template-columns: 84px 1fr; gap: 14px; }
+}
+</style>
+
+<script>
+  const boxes = Array.from(document.querySelectorAll('#cu-list input'));
+  const bands = Array.from(document.querySelectorAll('.cu-band'));
+  const results = document.querySelector('.checkup-results');
+  const cta = document.getElementById('cu-cta');
+  const email = 'hello@wearestrategica.com';
+
+  function update() {
+    const checked = boxes.filter(b => b.checked).map(b => b.value);
+    const n = checked.length;
+
+    results.classList.add('touched');
+    bands.forEach(band => {
+      const min = Number(band.dataset.min);
+      const max = Number(band.dataset.max);
+      band.classList.toggle('active', n >= min && n <= max);
+    });
+
+    if (n > 0) {
+      const body = `Ho fatto il check-up: ${n} frasi vere su 10 (le numero ${checked.join(', ')}).`;
+      cta.href = `mailto:${email}?subject=${encodeURIComponent('Check-up')}&body=${encodeURIComponent(body)}`;
+    } else {
+      cta.href = `mailto:${email}`;
+    }
+  }
+
+  boxes.forEach(b => b.addEventListener('change', update));
+</script>
+
+</Base>

@@ -1,66 +1,71 @@
 ---
 ---
-<svg class="iceberg-svg" id="iceberg" viewBox="0 0 340 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg class="iceberg-svg" id="iceberg" viewBox="34 46 426 492" fill="none" xmlns="http://www.w3.org/2000/svg"
+  role="img" aria-label="Tavola tecnica: sezione di un iceberg. Sopra la linea di galleggiamento, piccola, la parte visibile con le richieste. Sotto, molto più grande, la massa con le cause reali: decisioni, priorità, coordinamento, misura.">
   <defs>
     <filter id="ice-wobble" x="-8%" y="-4%" width="116%" height="108%">
       <feTurbulence type="turbulence" baseFrequency="0.022" numOctaves="2" seed="14" result="noise"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
+    <linearGradient id="ice-abisso" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="rgba(51,36,23,0.25)"/>
+      <stop offset="0.42" stop-color="rgba(43,29,18,0.45)"/>
+      <stop offset="1" stop-color="rgba(34,21,9,0.7)"/>
+    </linearGradient>
+    <pattern id="ice-hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="7" stroke="#F2EDE4" stroke-width="0.6" opacity="0.22"/>
+    </pattern>
   </defs>
 
-  <!-- Massa sommersa — sfaccettata, angolare -->
-  <path class="iceberg-fill-below"
-    d="M 100 162 L 238 162 L 292 188 L 314 254 L 296 332 L 256 414 L 196 478 L 156 496 L 110 452 L 66 378 L 40 282 L 52 206 Z"
-    fill="rgba(196,98,42,0.24)" filter="url(#ice-wobble)"/>
+  <!-- il mare -->
+  <rect class="ib-sea" x="0" y="168" width="460" height="392" fill="url(#ice-abisso)"/>
 
-  <!-- Hatching interno — coerente con il tratteggio del venn -->
-  <g class="iceberg-hatch" stroke="rgba(212,120,74,0.38)" stroke-width="1.3" stroke-linecap="round" filter="url(#ice-wobble)">
-    <path d="M 76 220 C 84 268, 94 320, 108 368"/>
-    <path d="M 104 200 C 112 258, 124 322, 140 392"/>
-    <path d="M 134 186 C 140 256, 148 340, 158 428"/>
-    <path d="M 166 178 C 170 254, 174 350, 178 444"/>
-    <path d="M 198 180 C 200 250, 200 340, 196 424"/>
-    <path d="M 228 186 C 230 244, 226 316, 216 388"/>
-    <path d="M 258 200 C 260 246, 254 300, 242 356"/>
-    <path d="M 284 224 C 284 258, 278 296, 268 336"/>
+  <!-- scala di profondità -->
+  <g class="ib-fade ib-f1" font-family="'DM Sans',sans-serif" font-size="9.5" fill="rgba(242,237,228,0.45)" letter-spacing="0.08em">
+    <path d="M448 168 v382 M444 238 h8 M444 308 h8 M444 378 h8 M444 448 h8 M444 518 h8" stroke="rgba(242,237,228,0.3)" stroke-width="0.8"/>
+    <text x="438" y="242" text-anchor="end">Q.−05</text>
+    <text x="438" y="312" text-anchor="end">Q.−10</text>
+    <text x="438" y="382" text-anchor="end">Q.−15</text>
+    <text x="438" y="452" text-anchor="end">Q.−20</text>
   </g>
 
-  <!-- Punta emersa — piena, crema: è la parte che si vede -->
-  <path class="iceberg-fill-above"
-    d="M 100 162 L 124 126 L 140 138 L 166 60 L 188 106 L 204 90 L 226 138 L 238 162 Z"
-    fill="rgba(242,237,228,0.88)" filter="url(#ice-wobble)"/>
+  <!-- punta emersa -->
+  <path class="ib-draw ib-tip" d="M196 96 L226 58 L262 88 L280 124 L270 142 L206 142 L186 120 Z"
+    stroke="rgba(242,237,228,0.85)" stroke-width="1.6" stroke-linejoin="round"
+    fill="rgba(242,237,228,0.1)" filter="url(#ice-wobble)"/>
 
-  <!-- Contorno unico: punta + massa, disegnato allo scroll -->
-  <path class="iceberg-outline"
-    d="M 100 162 L 124 126 L 140 138 L 166 60 L 188 106 L 204 90 L 226 138 L 238 162
-       L 292 188 L 314 254 L 296 332 L 256 414 L 196 478 L 156 496 L 110 452 L 66 378 L 40 282 L 52 206 L 100 162"
-    stroke="rgba(242,237,228,0.85)" stroke-width="1.8"
-    stroke-linecap="round" stroke-linejoin="round"
-    filter="url(#ice-wobble)"/>
-
-  <!-- Spigoli interni — danno volume -->
-  <g class="iceberg-facet" stroke="rgba(242,237,228,0.16)" stroke-width="1.2" stroke-linecap="round" filter="url(#ice-wobble)">
-    <path d="M 166 60 L 174 162"/>
-    <path d="M 226 138 L 208 162"/>
-    <path d="M 174 166 L 148 300 L 168 436"/>
-    <path d="M 238 164 L 250 270 L 220 392"/>
-    <path d="M 100 164 L 116 262 L 148 372"/>
+  <!-- richiamo: parte visibile -->
+  <g class="ib-fade ib-f1">
+    <path d="M280 92 h84" stroke="rgba(242,237,228,0.35)" stroke-width="0.8"/>
+    <text x="368" y="88" font-family="'DM Sans',sans-serif" font-size="10" letter-spacing="0.12em" fill="rgba(242,237,228,0.6)">PARTE VISIBILE:</text>
+    <text x="368" y="102" font-family="'DM Sans',sans-serif" font-size="10" letter-spacing="0.12em" fill="rgba(242,237,228,0.6)">LE RICHIESTE</text>
+    <text x="368" y="122" font-family="Caveat,cursive" font-size="14" fill="rgba(242,237,228,0.45)">lead · clienti ·</text>
+    <text x="368" y="138" font-family="Caveat,cursive" font-size="14" fill="rgba(242,237,228,0.45)">tecnologia · persone</text>
   </g>
 
-  <path class="iceberg-water-line"
-    d="M 0 166 C 28 156, 56 174, 86 164 C 116 154, 140 172, 170 163
-       C 200 154, 224 172, 254 163 C 284 154, 312 172, 340 162"
-    stroke="rgba(196,98,42,0.85)" stroke-width="1.8"
-    stroke-linecap="round" filter="url(#ice-wobble)"/>
+  <!-- linea di galleggiamento -->
+  <path class="ib-draw ib-water" d="M16 168 H 444" stroke="rgba(196,98,42,0.9)" stroke-width="1.6"
+    stroke-dasharray="8 5" stroke-linecap="round" filter="url(#ice-wobble)"/>
+  <text class="ib-fade ib-f2" x="16" y="158" font-family="'DM Sans',sans-serif" font-size="9.5" letter-spacing="0.18em" fill="rgba(212,120,74,0.95)">LINEA DI GALLEGGIAMENTO · Q. 0</text>
 
-  <text class="iceberg-label" x="170" y="152" text-anchor="middle"
-    font-family="Caveat,cursive" font-size="16" fill="rgba(28,24,20,0.72)">quello che senti</text>
+  <!-- massa sommersa -->
+  <path class="ib-draw ib-mass" d="M186 144 L206 142 L270 142 L280 144 L330 208 L366 306 L342 424 L272 516 L206 528 L142 438 L112 322 L138 226 Z"
+    stroke="rgba(242,237,228,0.6)" stroke-width="1.3" stroke-linejoin="round"
+    fill="url(#ice-hatch)" filter="url(#ice-wobble)"/>
 
-  <text class="iceberg-label" x="170" y="336" text-anchor="middle"
-    font-family="Caveat,cursive" font-size="21" fill="rgba(228,150,100,0.95)">quello che</text>
-  <text class="iceberg-label" x="170" y="362" text-anchor="middle"
-    font-family="Caveat,cursive" font-size="21" fill="rgba(228,150,100,0.95)">blocca davvero</text>
+  <!-- le cause, livello per livello -->
+  <g font-family="'Cormorant Garamond',serif" font-size="15" font-style="italic" fill="rgba(242,237,228,0.92)">
+    <g class="ib-fade ib-f2"><circle cx="236" cy="238" r="3.4" fill="#FF6B4A"/><text x="250" y="243">come si prendono le decisioni</text></g>
+    <g class="ib-fade ib-f3"><circle cx="224" cy="308" r="3.4" fill="#FF6B4A"/><text x="238" y="313">come si definiscono le priorità</text></g>
+    <g class="ib-fade ib-f4"><circle cx="232" cy="378" r="3.4" fill="#FF6B4A"/><text x="246" y="383">come si coordina il lavoro</text></g>
+    <g class="ib-fade ib-f5"><circle cx="242" cy="448" r="3.4" fill="#FF6B4A"/><text x="256" y="453">come si misurano i risultati</text></g>
+  </g>
 
-  <line class="iceberg-label" x1="170" y1="190" x2="170" y2="304"
-    stroke="rgba(242,237,228,0.18)" stroke-width="1" stroke-dasharray="3 6"/>
+  <!-- quote di proporzione -->
+  <g class="ib-fade ib-f5" font-family="'DM Sans',sans-serif" font-size="9.5" letter-spacing="0.14em">
+    <path d="M64 58 v110 M58 58 h12" stroke="rgba(242,237,228,0.35)" stroke-width="0.8"/>
+    <text x="46" y="120" fill="rgba(242,237,228,0.5)" transform="rotate(-90 46 120)">1/8 VISIBILE</text>
+    <path d="M64 168 v360 M58 528 h12 M60 168 h8" stroke="rgba(242,237,228,0.35)" stroke-width="0.8"/>
+    <text x="46" y="400" fill="rgba(242,237,228,0.8)" transform="rotate(-90 46 400)">7/8 SOMMERSO</text>
+  </g>
 </svg>
