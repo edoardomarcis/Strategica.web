@@ -99,6 +99,28 @@ const jsonLd = service('Servizi Strategica');
       </div>
     </div>
 
+    <aside class="ticket g-fade" aria-label="Riepilogo In-formazione">
+      <div class="ticket-main">
+        <div class="ticket-over"><span>Ingresso I · Biglietto</span><span>valido per una organizzazione</span></div>
+        <h3>Una giornata dentro la tua azienda.</h3>
+        <dl class="ticket-fields">
+          <div><dt>Durata</dt><dd>1 giornata</dd></div>
+          <div><dt>Impegno successivo</dt><dd>nessuno</dd></div>
+          <div><dt>Consegna</dt><dd>lettura chiara + roadmap</dd></div>
+          <div><dt>Modalità</dt><dd>in presenza o da remoto</dd></div>
+          <div><dt>Copertura</dt><dd>governance · diagnosi · priorità</dd></div>
+          <div><dt>Prezzo</dt><dd>definito prima, senza sorprese</dd></div>
+        </dl>
+        <div class="ticket-cta">
+          <a href="mailto:hello@wearestrategica.com" class="btn-dark">Prenota la giornata →</a>
+          <span class="ticket-fine">non è un pitch: è lavoro vero</span>
+        </div>
+      </div>
+      <div class="ticket-stub" aria-hidden="true">
+        <span class="ticket-stub-inner">Ammissione <span class="ticket-serial">N° ST-2026-001</span></span>
+      </div>
+    </aside>
+
   </div>
   <div class="srv-bg-num" aria-hidden="true">03</div>
 </section>
@@ -564,6 +586,70 @@ const jsonLd = service('Servizi Strategica');
   }
   .srv-closing .target-cta { position: relative; z-index: 1; }
 
+  /* ── il biglietto d'ingresso ─────────────────────────────────────── */
+  .ticket {
+    grid-column: 1 / -1;
+    margin-top: 48px;
+    display: grid; grid-template-columns: 1fr 120px;
+    border: 1px solid rgba(28,24,20,0.4);
+    border-radius: 6px;
+    background: #FFFDF8;
+    box-shadow: var(--d3);
+    transform: rotate(-0.35deg);
+    position: relative;
+  }
+  .ticket-main { padding: 36px 40px 34px; }
+  .ticket-over {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .ticket-over span:first-child { color: var(--terra); }
+  .ticket-main h3 {
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 300; font-style: italic;
+    letter-spacing: -0.01em; line-height: 1.12;
+    margin: 14px 0 24px;
+  }
+  .ticket-fields {
+    display: grid; grid-template-columns: repeat(3, auto);
+    gap: 16px 52px; width: fit-content;
+    margin: 0 0 30px;
+  }
+  .ticket-fields div { display: flex; flex-direction: column; }
+  .ticket-fields dt {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(92,80,72,0.55);
+  }
+  .ticket-fields dd { font-size: 16px; margin: 3px 0 0; }
+  .ticket-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .ticket-fine { font-family: 'Caveat', cursive; font-size: 18px; color: var(--terra); }
+  .ticket-stub {
+    border-left: 1px dashed rgba(28,24,20,0.45);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; padding: 20px 8px;
+  }
+  /* i fori del taglio, colore della sezione dietro */
+  .ticket-stub::before,
+  .ticket-stub::after {
+    content: ''; position: absolute; left: -11px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--warm);
+    border: 1px solid rgba(28,24,20,0.4);
+  }
+  .ticket-stub::before { top: -11px; }
+  .ticket-stub::after { bottom: -11px; }
+  .ticket-stub-inner {
+    writing-mode: vertical-rl;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--terra);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .ticket-serial { font-size: 9px; letter-spacing: 0.16em; color: rgba(92,80,72,0.6); }
+
   @media (max-width: 900px) {
     .srv-hero { padding: 100px 28px 80px; align-items: center; }
     .srv-hero-deco { display: none; }
@@ -574,6 +660,18 @@ const jsonLd = service('Servizi Strategica');
     .srv-no { padding: 72px 28px 64px; }
     .srv-closing { padding: 80px 28px 88px; }
     .target-cta { flex-direction: column; gap: 16px; }
+
+    .ticket { grid-template-columns: 1fr; }
+    .ticket-main { padding: 28px 24px; }
+    .ticket-fields { grid-template-columns: 1fr 1fr; gap: 14px 28px; width: auto; }
+    .ticket-stub {
+      border-left: none;
+      border-top: 1px dashed rgba(28,24,20,0.45);
+      min-height: 56px;
+    }
+    .ticket-stub::before { top: -11px; left: -11px; }
+    .ticket-stub::after { top: -11px; bottom: auto; left: auto; right: -11px; }
+    .ticket-stub-inner { writing-mode: horizontal-tb; }
   }
 
   @media (max-width: 540px) {
