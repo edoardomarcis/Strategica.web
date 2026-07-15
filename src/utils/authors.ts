@@ -21,4 +21,11 @@ export const authors: Record<string, Author> = {
     linkedin: 'https://www.linkedin.com/in/andreacavaliere-/',
     photo: '/images/team/andrea.jpg',
   },
+  'Team Strategica': {
+    name: 'Edoardo Marcis & Andrea Cavaliere',
+    role: 'Strategica',
+    bio: 'Un collettivo di professionisti con background diversi, uniti dalla stessa idea di cosa significhi fare consulenza davvero: capire prima di agire, e rendersi inutili quando il lavoro è fatto.',
+    linkedin: 'https://linkedin.com/in/edoardomarcis',
+    photo: '/images/team/edoardo.jpg',
+  },
 };

@@ -1,0 +1,128 @@
+{
+  "entries": [
+    {
+      "date": "2026-07-20",
+      "slug": "sistema-operativo-aziendale",
+      "published": false,
+      "retro_edits": []
+    },
+    {
+      "date": "2026-07-24",
+      "slug": "okr-vs-kpi-misurare-progresso",
+      "published": false,
+      "retro_edits": [
+        {
+          "file": "sistema-operativo-aziendale",
+          "insert_after": "### Approfondisci",
+          "insert_text": "- [OKR vs KPI: perché misurare il progresso è diverso da misurare la performance](/blog/okr-vs-kpi-misurare-progresso)"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-27",
+      "slug": "ai-amplifica-rumore-senza-struttura",
+      "published": false,
+      "retro_edits": []
+    },
+    {
+      "date": "2026-07-31",
+      "slug": "come-definire-priorita-aziendali",
+      "published": false,
+      "retro_edits": [
+        {
+          "file": "sistema-operativo-aziendale",
+          "insert_after": "### Approfondisci",
+          "insert_text": "- [Come definire le priorità aziendali quando tutto sembra urgente](/blog/come-definire-priorita-aziendali)"
+        },
+        {
+          "file": "okr-vs-kpi-misurare-progresso",
+          "insert_after": "### Approfondisci",
+          "insert_text": "- [Come definire le priorità aziendali quando tutto sembra urgente](/blog/come-definire-priorita-aziendali)"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-03",
+      "slug": "asset-invisibili-pmi-italiane",
+      "published": false,
+      "retro_edits": []
+    },
+    {
+      "date": "2026-08-07",
+      "slug": "pmi-italiane-ai-gap",
+      "published": false,
+      "retro_edits": [
+        {
+          "file": "ai-amplifica-rumore-senza-struttura",
+          "insert_after": "### Approfondisci",
+          "insert_text": "- [Perché il 76% delle PMI non usa l'AI (e non è colpa loro)](/blog/pmi-italiane-ai-gap)"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-10",
+      "slug": "innovazione-continua-pmi",
+      "published": false,
+      "retro_edits": []
+    },
+    {
+      "date": "2026-08-14",
+      "slug": "agenti-ai-organigramma-aumentato",
+      "published": false,
+      "retro_edits": [
+        {
+          "file": "ai-amplifica-rumore-senza-struttura",
+          "insert_after": "### Approfondisci",
+          "insert_text": "- [Agenti AI e organigramma aumentato: come disegnarlo](/blog/agenti-ai-organigramma-aumentato)"
+        },
+        {
+          "file": "pmi-italiane-ai-gap",
+          "insert_after": "### Approfondisci",
+          "insert_text": "- [Agenti AI e organigramma aumentato: come disegnarlo](/blog/agenti-ai-organigramma-aumentato)"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "slug": "growth-hacking-pmi",
+      "published": false,
+      "retro_edits": []
+    },
+    {
+      "date": "2026-08-21",
+      "slug": "capitale-nascosto-azienda",
+      "published": false,
+      "retro_edits": []
+    },
+    {
+      "date": "2026-08-24",
+      "slug": "quando-fare-retreat-aziendale",
+      "published": false,
+      "retro_edits": [
+        {
+          "file": "innovazione-continua-pmi",
+          "insert_after": "### Approfondisci",
+          "insert_text": "- [Il problema non è che non avete idee. È che non avete mai il tempo di pensarle](/blog/quando-fare-retreat-aziendale)"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-28",
+      "slug": "consulenza-lascia-valore-o-fatture",
+      "published": false,
+      "retro_edits": [
+        {
+          "file": "capitale-nascosto-azienda",
+          "insert_after": "### Approfondisci",
+          "insert_text": "- [Consulenza aziendale: quando lascia valore e quando lascia solo fatture](/blog/consulenza-lascia-valore-o-fatture)"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-31",
+      "slug": "ads-senza-strategia",
+      "published": false,
+      "retro_edits": []
+    }
+  ]
+}
