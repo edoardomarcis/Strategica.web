@@ -33,11 +33,11 @@ L'AI sbaglia quando il contesto è ambiguo, quando le decisioni richiedono giudi
 
 Affidarle decisioni strategiche, valutazioni di persone, gestione di situazioni di crisi è un errore. Non perché non sia capace di produrre un output (lo fa sempre, con sicurezza), ma perché quell'output non ha la comprensione del contesto che hai tu.
 
-L'AI è un moltiplicatore. Moltiplica ciò che c'è già: se il processo è solido, lo accelera; se il processo è caotico, lo rende caotico più in fretta.
+L'AI è un moltiplicatore. Moltiplica ciò che c'è già: se il processo è solido, lo accelera; [se il processo è caotico](/blog/perche-le-aziende-non-crescono), lo rende caotico più in fretta.
 
 ## Il metodo che consigliamo
 
-**1. Mappa tre processi ad alta frequenza e basso valore.** Quante ore alla settimana ci passano le persone? Quanto costerebbe automatizzarli parzialmente?
+**1. [Mappa tre processi](/servizi#in-formazione) ad alta frequenza e basso valore.** Quante ore alla settimana ci passano le persone? Quanto costerebbe automatizzarli parzialmente?
 
 **2. Scegli un solo caso d'uso per iniziare.** Non lanciare cinque progetti AI contemporaneamente. Scegli quello con il ROI più chiaro e costruisci un caso di successo interno. Servirà per convincere il team a cambiare abitudini.
 

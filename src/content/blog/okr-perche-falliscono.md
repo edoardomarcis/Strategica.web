@@ -23,7 +23,7 @@ La differenza non è formale. È strategica.
 
 ## Il secondo errore: troppi obiettivi
 
-L'idea che "più obiettivi = più crescita" è un'illusione manageriale molto diffusa. Nella pratica, avere 8 OKR trimestrali significa avere zero priorità reali.
+L'idea che "più obiettivi = più crescita" è un'illusione manageriale molto diffusa. Nella pratica, avere 8 OKR trimestrali significa avere [zero priorità reali](/blog/perche-le-aziende-non-crescono): è una delle radici per cui le aziende smettono di crescere.
 
 Google, che ha reso famoso questo framework, consiglia 3-5 obiettivi per livello. Non per rigidità metodologica, ma perché il focus è una risorsa limitata.
 
@@ -43,7 +43,7 @@ Gli OKR funzionano sulla fiducia. Se li usi come sistema di valutazione individu
 
 **Separare OKR da compensation.** Se il raggiungimento degli OKR determina bonus o promozioni, il sistema si distorce immediatamente. Le persone ottimizzano per il reward, non per l'obiettivo.
 
-**Weekly check-in leggeri, non review mensili pesanti.** Gli OKR devono vivere nella quotidianità, non essere il documento che si apre una volta al mese.
+**[Weekly check-in leggeri](/servizi#edu-coaching), non review mensili pesanti.** Gli OKR devono vivere nella quotidianità, non essere il documento che si apre una volta al mese.
 
 **Retrospettiva onesta a fine ciclo.** Non "abbiamo raggiunto l'80%?" ma "cosa abbiamo imparato? Cosa cambieremmo nell'obiettivo se potessimo riscriverlo oggi?"
 
@@ -53,4 +53,4 @@ Prima di implementare gli OKR, chiediti: la tua organizzazione è pronta per ave
 
 Se la risposta è no, gli OKR diventeranno un layer burocratico in più. Il problema non è lo strumento: è la cultura in cui lo installi.
 
-Gli OKR non creano chiarezza strategica. La amplificano. Se la chiarezza non c'è, non ci sarà neanche dopo.
+Gli OKR non creano [chiarezza strategica](/servizi#strategy-sprint). La amplificano. Se la chiarezza non c'è, non ci sarà neanche dopo.
