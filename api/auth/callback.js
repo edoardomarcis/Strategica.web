@@ -1,8 +1,22 @@
 export default async function handler(req, res) {
-  const { code } = req.query;
+  const { code, state } = req.query;
+
+  const cookies = parseCookies(req.headers.cookie || '');
+  const expectedState = cookies['gh_oauth_state'];
+
+  // cookie monouso: si invalida comunque, che il round-trip vada a buon fine o no
+  res.setHeader(
+    'Set-Cookie',
+    'gh_oauth_state=; HttpOnly; Secure; SameSite=Lax; Path=/api/auth; Max-Age=0'
+  );
 
   if (!code) {
     res.status(400).send('Missing code parameter');
+    return;
+  }
+
+  if (!state || !expectedState || state !== expectedState) {
+    res.status(400).send('Invalid or missing state parameter');
     return;
   }
 
@@ -39,6 +53,18 @@ export default async function handler(req, res) {
 
   res.setHeader('Content-Type', 'text/html');
   res.send(buildScript('success', payload));
+}
+
+function parseCookies(cookieHeader) {
+  return Object.fromEntries(
+    cookieHeader
+      .split(';')
+      .filter(Boolean)
+      .map((c) => {
+        const [k, ...v] = c.trim().split('=');
+        return [k, decodeURIComponent(v.join('='))];
+      })
+  );
 }
 
 function buildScript(status, payload) {
