@@ -9,11 +9,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const manifestPath = path.join(root, 'scripts', 'publish-manifest.json');
 const blogDir = path.join(root, 'src', 'content', 'blog');
+const lintPath = path.join(root, 'scripts', 'seo-lint.mjs');
 
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
@@ -30,6 +32,13 @@ for (const entry of manifest.entries) {
   const filePath = path.join(blogDir, `${entry.slug}.md`);
   if (!fs.existsSync(filePath)) {
     console.error(`ATTENZIONE: manca il file per lo slug "${entry.slug}" (${filePath})`);
+    continue;
+  }
+
+  try {
+    execFileSync('node', [lintPath, entry.slug], { stdio: 'pipe' });
+  } catch (err) {
+    console.error(`SALTATO: ${entry.slug} non passa il seo-lint, resta draft.\n${err.stdout?.toString() || ''}`);
     continue;
   }
 

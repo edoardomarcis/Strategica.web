@@ -1,6 +1,7 @@
 ---
 title: "Il capitale nascosto in azienda: perché le PMI cercano fuori quello che hanno già dentro"
 description: "Le aziende cercano consulenti, tecnologie, talenti dall'esterno. Spesso hanno già le competenze che cercano. Il problema non è la mancanza di risorse: è la governance che le rende invisibili."
+keyword: "governance aziendale PMI"
 pubDate: 2026-08-21
 author: Edoardo Marcis
 tags: ["Strategia", "PMI"]

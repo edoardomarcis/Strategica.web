@@ -1,6 +1,7 @@
 ---
 title: "Consulenza aziendale: quando lascia valore e quando lascia solo fatture"
 description: "Dopo anni nelle agenzie e nella consulenza, abbiamo visto lo stesso schema ripetersi. Il consulente entra, produce, riparte. L'azienda resta dov'era. Esiste un modo diverso."
+keyword: "consulenza aziendale PMI risultati"
 pubDate: 2026-08-28
 author: Team Strategica
 tags: ["Consulenza", "Strategia"]

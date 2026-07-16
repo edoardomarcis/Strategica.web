@@ -1,6 +1,7 @@
 ---
 title: "Abbiamo gestito oltre sei milioni di euro in campagne pubblicitarie. Il problema quasi mai era nelle campagne"
 description: "Dopo oltre 6 milioni di euro di budget adv gestiti in settori diversi, il pattern è sempre lo stesso. Non è un problema di campagne. È un problema di strategia."
+keyword: "pubblicità online PMI risultati"
 pubDate: 2026-08-31
 author: Andrea Cavaliere
 tags: ["Marketing", "Strategia", "PMI"]

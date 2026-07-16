@@ -1,6 +1,7 @@
 ---
 title: "Il growth hacking senza il gergo startup"
 description: "Il growth hacking non è roba da startup californiane. È un metodo di crescita basato su esperimenti rapidi e misurazione precisa. Funziona anche nelle PMI, se si capisce cosa è davvero."
+keyword: "growth hacking PMI"
 pubDate: 2026-08-17
 author: Andrea Cavaliere
 tags: ["Crescita", "PMI", "Marketing"]

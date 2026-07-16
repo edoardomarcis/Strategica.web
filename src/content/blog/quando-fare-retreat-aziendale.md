@@ -1,6 +1,7 @@
 ---
 title: "Il problema non è che non avete idee. È che non avete mai il tempo di pensarle"
 description: "Il problema non è la mancanza di idee. È che non c'è mai spazio per fermarsi e pensarle bene. Retreat e workshop esistono per questo, se li fai nel modo giusto."
+keyword: "offsite aziendale strategico"
 pubDate: 2026-08-24
 author: Team Strategica
 tags: ["Strategia", "Workshop"]

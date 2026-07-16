@@ -1,6 +1,7 @@
 ---
 title: "OKR vs KPI: perché misurare il progresso è diverso da misurare la performance"
 description: "I KPI misurano se stai facendo bene quello che già fai. Gli OKR misurano se stai andando dove vuoi andare. La differenza cambia come lavora l'intera organizzazione."
+keyword: "OKR vs KPI azienda"
 pubDate: 2026-07-24
 author: Team Strategica
 tags: ["OKR", "Strategia", "Management"]

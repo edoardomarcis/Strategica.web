@@ -1,6 +1,7 @@
 ---
 title: "I tre asset invisibili delle PMI italiane (e perché non li state sfruttando)"
 description: "Le PMI italiane hanno risorse rare che non riconoscono come tali. Cultura operativa, rete di relazioni, lentezza decisionale: ecco perché valgono più di quanto pensi."
+keyword: "valore aziendale nascosto PMI"
 pubDate: 2026-08-03
 author: Edoardo Marcis
 tags: ["Strategia", "PMI"]

@@ -1,6 +1,7 @@
 ---
 title: "L'azienda che smette di sperimentare inizia a perdere. Anche se non se ne accorge subito"
 description: "Le startup non crescono perché hanno più soldi. Crescono perché testano continuamente. Ecco come applicare quella mentalità in una PMI senza stravolgere tutto."
+keyword: "innovazione continua PMI"
 pubDate: 2026-08-10
 author: Edoardo Marcis
 tags: ["Innovazione", "PMI", "Strategia"]

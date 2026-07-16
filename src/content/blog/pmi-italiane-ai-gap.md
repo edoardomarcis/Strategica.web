@@ -1,6 +1,7 @@
 ---
 title: "Perché il 76% delle PMI italiane non usa l'AI (e non è colpa loro)"
 description: "Il problema non è la tecnologia. Il 76% delle PMI non adotta l'AI perché manca la struttura organizzativa per farlo bene. I dati e cosa significa davvero."
+keyword: "AI nelle PMI italiane"
 pubDate: 2026-08-07
 author: Edoardo Marcis
 tags: ["AI", "PMI"]

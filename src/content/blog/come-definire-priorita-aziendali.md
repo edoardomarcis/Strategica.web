@@ -1,6 +1,7 @@
 ---
 title: "Come definire le priorità aziendali quando tutto sembra urgente"
 description: "Il problema non è che hai troppe cose da fare. È che non hai un criterio condiviso per scegliere. Ecco come costruirlo senza riunioni infinite."
+keyword: "come definire priorità aziendali"
 pubDate: 2026-07-31
 author: Edoardo Marcis
 tags: ["Strategia", "Management", "PMI"]

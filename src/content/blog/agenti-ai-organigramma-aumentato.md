@@ -1,6 +1,7 @@
 ---
 title: "L'organigramma che hai in testa non esiste più. E quello nuovo non lo ha ancora disegnato nessuno"
 description: "Gli agenti AI stanno cambiando chi fa cosa nelle aziende. Ma nessuno ha ancora un metodo chiaro per disegnare la nuova struttura. Ecco un approccio pratico."
+keyword: "agenti AI azienda organigramma"
 pubDate: 2026-08-14
 author: Edoardo Marcis
 tags: ["AI", "Innovazione", "Management"]

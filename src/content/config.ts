@@ -8,6 +8,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     author: z.string().default('Edoardo Marcis'),
     tags: z.array(z.string()).optional(),
+    keyword: z.string().optional(), // keyword SEO primaria, usata da scripts/seo-lint.mjs
     coverImage: z.string().optional(),
     draft: z.boolean().default(false),
   }),

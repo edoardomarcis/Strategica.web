@@ -1,6 +1,7 @@
 ---
 title: "Sistema operativo aziendale: cos'è e come si costruisce"
 description: "Il sistema operativo aziendale è la struttura con cui un'organizzazione prende decisioni, misura i risultati e scala nel tempo. Non è un piano strategico. È qualcosa di più concreto."
+keyword: "sistema operativo aziendale"
 pubDate: 2026-07-20
 author: Edoardo Marcis
 tags: ["Strategia", "Governance", "PMI"]
