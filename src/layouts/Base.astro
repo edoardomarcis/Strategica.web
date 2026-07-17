@@ -8,7 +8,7 @@ export interface Props {
   ogImage?: string;
   ogType?: 'website' | 'article';
   noindex?: boolean;
-  activePage?: 'servizi' | 'chi-siamo' | 'blog';
+  activePage?: 'servizi' | 'chi-siamo' | 'blog' | 'check-up';
   article?: {
     publishedTime?: string;
     author?: string;
@@ -93,23 +93,25 @@ const ogImageURL = ogImage ? new URL(ogImage, SITE).href : DEFAULT_OG_IMAGE;
 <nav>
   <a href="/" class="nav-logo">Strat<em>egica</em></a>
   <ul class="nav-links">
+    <li><a href="/check-up" class={activePage === 'check-up' ? 'nav-active' : ''}>Check-up</a></li>
     <li><a href="/servizi" class={activePage === 'servizi' ? 'nav-active' : ''}>Servizi</a></li>
     <li><a href="/chi-siamo" class={activePage === 'chi-siamo' ? 'nav-active' : ''}>Chi siamo</a></li>
     <li><a href="/blog" class={activePage === 'blog' ? 'nav-active' : ''}>Blog</a></li>
     <li><a href="/#contatti">Contatti</a></li>
   </ul>
-  <a href="/#contatti" class="nav-cta">Inizia qui</a>
+  <a href="/check-up" class="nav-cta">Inizia qui</a>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-mobile">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+  <a href="/check-up" class={activePage === 'check-up' ? 'nav-active' : ''}>Check-up</a>
   <a href="/servizi" class={activePage === 'servizi' ? 'nav-active' : ''}>Servizi</a>
   <a href="/chi-siamo" class={activePage === 'chi-siamo' ? 'nav-active' : ''}>Chi siamo</a>
   <a href="/blog" class={activePage === 'blog' ? 'nav-active' : ''}>Blog</a>
   <a href="/#contatti">Contatti</a>
-  <a href="/#contatti" class="nav-cta-mobile">Inizia qui</a>
+  <a href="/check-up" class="nav-cta-mobile">Inizia qui</a>
 </div>
 
 <slot />
