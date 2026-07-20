@@ -5,7 +5,7 @@ keyword: "sistema operativo aziendale"
 pubDate: 2026-07-20
 author: Edoardo Marcis
 tags: ["Strategia", "Governance", "PMI"]
-draft: true
+draft: false
 ---
 
 Il termine viene da un'analogia con i sistemi informatici, ma descrive qualcosa di molto concreto: la struttura con cui un'organizzazione prende decisioni, coordina il lavoro, misura i risultati e si adatta nel tempo.
