@@ -1,18 +1,22 @@
 ---
 title: "Sistema operativo aziendale: cos'è e come si costruisce"
-description: "Il sistema operativo aziendale è la struttura con cui un'organizzazione prende decisioni, misura i risultati e scala nel tempo. Non è un piano strategico. È qualcosa di più concreto."
-keyword: "sistema operativo aziendale"
+description: Il sistema operativo aziendale è la struttura con cui
+  un'organizzazione prende decisioni, misura i risultati e scala nel tempo. Non
+  è un piano strategico. È qualcosa di più concreto.
+keyword: sistema operativo aziendale
 pubDate: 2026-07-20
 author: Edoardo Marcis
-tags: ["Strategia", "Governance", "PMI"]
+tags:
+  - Strategia
+  - Governance
+  - PMI
 draft: false
 ---
-
 Il termine viene da un'analogia con i sistemi informatici, ma descrive qualcosa di molto concreto: la struttura con cui un'organizzazione prende decisioni, coordina il lavoro, misura i risultati e si adatta nel tempo.
 
 Ogni azienda ne ha uno. Il problema è che quasi nessuna lo ha progettato consapevolmente. È emerso per accumulazione, una decisione dopo l'altra, una abitudine dopo l'altra, fino a diventare "il modo in cui funzioniamo". E quando smette di funzionare bene, nessuno sa esattamente perché.
 
----
+- - -
 
 ## Cos'è, precisamente
 
@@ -28,7 +32,7 @@ Un sistema operativo aziendale non è un piano strategico. Non è un organigramm
 
 **Come si coordina il lavoro tra persone e team diversi?** Le dipendenze, i passaggi di consegna, le informazioni che devono spostarsi da una funzione all'altra: in molte organizzazioni questo avviene in modo informale, per conoscenza personale, per abitudine. Funziona finché l'azienda è piccola. Smette di funzionare quando cresce.
 
----
+- - -
 
 ## Perché quasi nessuna PMI lo ha progettato
 
@@ -38,7 +42,7 @@ Il problema emerge nel passaggio di scala, di solito tra i 15 e i 80 dipendenti.
 
 In quel momento molti imprenditori cercano soluzioni nelle persone: assumono manager, aggiungono figure di coordinamento, ristrutturano l'organigramma. Alcune di queste mosse aiutano. Ma il problema di fondo rimane: non esiste ancora un sistema operativo che funzioni indipendentemente dalle persone specifiche che lo usano.
 
----
+- - -
 
 ## I quattro componenti
 
@@ -52,7 +56,7 @@ Costruire un sistema operativo aziendale significa progettare esplicitamente qua
 
 **Processi di coordinamento.** Le modalità con cui il lavoro passa da una persona all'altra, da un team all'altro, senza perdere pezzi. Questo include i template per i passaggi di consegna, i criteri per l'escalation, le regole su chi deve essere informato di cosa e quando.
 
----
+- - -
 
 ## Come si costruisce
 
@@ -66,7 +70,7 @@ I ritmi di revisione e i processi di coordinamento vengono dopo, quando la direz
 
 Il processo richiede dai tre ai sei mesi per produrre un sistema che funziona in autonomia. Non è un progetto breve. Ma è l'investimento con il ritorno più duraturo: una volta costruito, il sistema funziona indipendentemente dalle persone specifiche, si adatta quando l'azienda cresce, e rende ogni altro investimento, in persone, in tecnologia, in marketing, molto più efficace.
 
----
+- - -
 
 ## La differenza da un piano strategico
 
@@ -74,14 +78,15 @@ Un piano strategico dice dove si vuole andare. Il sistema operativo aziendale è
 
 Molte aziende fanno piani strategici senza avere il sistema operativo che permette di eseguirli. Il piano rimane un documento. Il sistema operativo è quello che rende il piano eseguibile.
 
----
+- - -
 
 Il servizio [In-formazione](/servizi) è il punto di partenza per capire dove si trova oggi il sistema operativo della tua azienda e quale elemento ha più senso costruire per primo. Una giornata di diagnosi che restituisce una mappa chiara, non un piano generico.
 
----
+- - -
 
-*Strategica aiuta PMI italiane a costruire il sistema operativo aziendale: la struttura che rende ogni decisione più chiara, ogni investimento più efficace, ogni fase di crescita più governabile. [Scopri come lavoriamo](/servizi).*
+*Strategica aiuta PMI e aziende in fase di crescita a costruire il sistema operativo aziendale: la struttura che rende ogni decisione più chiara, ogni investimento più efficace, ogni fase di crescita più governabile. [Scopri come lavoriamo](/servizi).*
 
 ### Approfondisci
-- [Perché le aziende non crescono (e non è colpa del mercato)](/blog/perche-le-aziende-non-crescono)
-- [Perché gli OKR falliscono (e come farli funzionare davvero)](/blog/okr-perche-falliscono)
+
+* [Perché le aziende non crescono (e non è colpa del mercato)](/blog/perche-le-aziende-non-crescono)
+* [Perché gli OKR falliscono (e come farli funzionare davvero)](/blog/okr-perche-falliscono)
