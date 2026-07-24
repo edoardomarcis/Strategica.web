@@ -5,7 +5,7 @@ keyword: "OKR vs KPI azienda"
 pubDate: 2026-07-24
 author: Team Strategica
 tags: ["OKR", "Strategia", "Management"]
-draft: true
+draft: false
 ---
 
 La distinzione conta, e vale la pena capirla prima di decidere quale dei due adottare, o come usarli insieme.
