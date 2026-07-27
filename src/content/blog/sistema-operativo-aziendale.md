@@ -16,8 +16,6 @@ Il termine viene da un'analogia con i sistemi informatici, ma descrive qualcosa 
 
 Ogni azienda ne ha uno. Il problema è che quasi nessuna lo ha progettato consapevolmente. È emerso per accumulazione, una decisione dopo l'altra, una abitudine dopo l'altra, fino a diventare "il modo in cui funzioniamo". E quando smette di funzionare bene, nessuno sa esattamente perché.
 
-- - -
-
 ## Cos'è, precisamente
 
 Un sistema operativo aziendale non è un piano strategico. Non è un organigramma. Non è un insieme di procedure scritte.
@@ -32,8 +30,6 @@ Un sistema operativo aziendale non è un piano strategico. Non è un organigramm
 
 **Come si coordina il lavoro tra persone e team diversi?** Le dipendenze, i passaggi di consegna, le informazioni che devono spostarsi da una funzione all'altra: in molte organizzazioni questo avviene in modo informale, per conoscenza personale, per abitudine. Funziona finché l'azienda è piccola. Smette di funzionare quando cresce.
 
-- - -
-
 ## Perché quasi nessuna PMI lo ha progettato
 
 La risposta è semplice: quando un'azienda è piccola, il sistema operativo è la testa del fondatore. Lui sa tutto, decide tutto, coordina tutto. Non serve esplicitarlo perché esiste già in una forma che funziona.
@@ -41,8 +37,6 @@ La risposta è semplice: quando un'azienda è piccola, il sistema operativo è l
 Il problema emerge nel passaggio di scala, di solito tra i 15 e i 80 dipendenti. A quel punto la testa di una persona non basta più a contenere tutto. Le decisioni iniziano a rallentare, le priorità a diventare opache, il coordinamento a perdere pezzi. L'azienda cresce in fatturato ma non in capacità organizzativa.
 
 In quel momento molti imprenditori cercano soluzioni nelle persone: assumono manager, aggiungono figure di coordinamento, ristrutturano l'organigramma. Alcune di queste mosse aiutano. Ma il problema di fondo rimane: non esiste ancora un sistema operativo che funzioni indipendentemente dalle persone specifiche che lo usano.
-
-- - -
 
 ## I quattro componenti
 
@@ -56,8 +50,6 @@ Costruire un sistema operativo aziendale significa progettare esplicitamente qua
 
 **Processi di coordinamento.** Le modalità con cui il lavoro passa da una persona all'altra, da un team all'altro, senza perdere pezzi. Questo include i template per i passaggi di consegna, i criteri per l'escalation, le regole su chi deve essere informato di cosa e quando.
 
-- - -
-
 ## Come si costruisce
 
 Il punto di partenza non è progettare il sistema ideale. È capire come funziona quello che già esiste, dove produce i problemi più costosi, e da quale punto conviene cominciare.
@@ -70,15 +62,11 @@ I ritmi di revisione e i processi di coordinamento vengono dopo, quando la direz
 
 Il processo richiede dai tre ai sei mesi per produrre un sistema che funziona in autonomia. Non è un progetto breve. Ma è l'investimento con il ritorno più duraturo: una volta costruito, il sistema funziona indipendentemente dalle persone specifiche, si adatta quando l'azienda cresce, e rende ogni altro investimento, in persone, in tecnologia, in marketing, molto più efficace.
 
-- - -
-
 ## La differenza da un piano strategico
 
 Un piano strategico dice dove si vuole andare. Il sistema operativo aziendale è la struttura che permette di andarci, di sapere se ci si sta andando, e di correggere la rotta quando qualcosa non funziona.
 
 Molte aziende fanno piani strategici senza avere il sistema operativo che permette di eseguirli. Il piano rimane un documento. Il sistema operativo è quello che rende il piano eseguibile.
-
-- - -
 
 Il servizio [In-formazione](/servizi) è il punto di partenza per capire dove si trova oggi il sistema operativo della tua azienda e quale elemento ha più senso costruire per primo. Una giornata di diagnosi che restituisce una mappa chiara, non un piano generico.
 
@@ -87,7 +75,7 @@ Il servizio [In-formazione](/servizi) è il punto di partenza per capire dove si
 *Strategica aiuta PMI e aziende in fase di crescita a costruire il sistema operativo aziendale: la struttura che rende ogni decisione più chiara, ogni investimento più efficace, ogni fase di crescita più governabile. [Scopri come lavoriamo](/servizi).*
 
 ### Approfondisci
-- [OKR vs KPI: perché misurare il progresso è diverso da misurare la performance](/blog/okr-vs-kpi-misurare-progresso)
 
+* [OKR vs KPI: perché misurare il progresso è diverso da misurare la performance](/blog/okr-vs-kpi-misurare-progresso)
 * [Perché le aziende non crescono (e non è colpa del mercato)](/blog/perche-le-aziende-non-crescono)
 * [Perché gli OKR falliscono (e come farli funzionare davvero)](/blog/okr-perche-falliscono)
