@@ -5,7 +5,7 @@ keyword: "AI PMI processi aziendali"
 pubDate: 2026-07-27
 author: Edoardo Marcis
 tags: ["AI", "PMI", "Innovazione"]
-draft: true
+draft: false
 ---
 
 C'è un paradosso nell'adozione dell'intelligenza artificiale nelle PMI italiane. I casi di successo esistono: aziende che hanno integrato strumenti AI in processi specifici e hanno visto produttività, velocità, qualità migliorare in modo misurabile. Ma per ogni caso di successo ci sono molte più situazioni in cui l'AI ha prodotto più problemi di quanti ne abbia risolti.
