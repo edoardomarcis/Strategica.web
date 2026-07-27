@@ -1,10 +1,15 @@
 ---
-title: "L'AI non risolve i processi rotti. Li accelera"
-description: "L'AI non trasforma le aziende da sola. Amplifica i processi esistenti, buoni o cattivi. Se non hai processi mappati e governance chiara, l'AI aumenta il rumore. Ecco cosa fare prima."
-keyword: "AI PMI processi aziendali"
+title: Perchè l'intelligenza artificiale non basta ad ottimizzare i processi aziendali
+description: L'AI non trasforma le aziende da sola. Amplifica i processi
+  esistenti, buoni o cattivi. Se non hai processi mappati e governance chiara,
+  l'AI aumenta il rumore. Ecco cosa fare prima.
+keyword: AI PMI processi aziendali
 pubDate: 2026-07-27
 author: Edoardo Marcis
-tags: ["AI", "PMI", "Innovazione"]
+tags:
+  - AI
+  - PMI
+  - Innovazione
 draft: false
 ---
 
