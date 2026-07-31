@@ -5,7 +5,7 @@ keyword: "come definire priorità aziendali"
 pubDate: 2026-07-31
 author: Edoardo Marcis
 tags: ["Strategia", "Management", "PMI"]
-draft: true
+draft: false
 ---
 
 In quasi ogni organizzazione con cui lavoriamo esiste una versione della stessa conversazione. Qualcuno porta una nuova richiesta, un nuovo progetto, una nuova opportunità. Qualcun altro dice che non c'è spazio, che siamo già al limite. Si discute. Alla fine vince chi ha più voce in capitolo, o chi ha portato la richiesta al momento giusto, o chi ha saputo costruire più urgenza intorno alla sua causa.

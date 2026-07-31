@@ -67,6 +67,7 @@ Il percorso di [OKR coaching](/servizi#edu-coaching) che proponiamo parte sempre
 *Strategica aiuta PMI italiane a implementare OKR in modo che funzionino, non come esercizio formale, ma come strumento operativo reale. [Scopri il servizio OKR coaching](/servizi#edu-coaching).*
 
 ### Approfondisci
+- [Come definire le priorità aziendali quando tutto sembra urgente](/blog/come-definire-priorita-aziendali)
 
 * [Perché gli OKR falliscono (e come evitarlo)](/blog/okr-perche-falliscono)
 * [Il sistema operativo aziendale: come costruirlo](/blog/sistema-operativo-aziendale)

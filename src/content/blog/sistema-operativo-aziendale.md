@@ -75,6 +75,7 @@ Il servizio [In-formazione](/servizi) è il punto di partenza per capire dove si
 *Strategica aiuta PMI e aziende in fase di crescita a costruire il sistema operativo aziendale: la struttura che rende ogni decisione più chiara, ogni investimento più efficace, ogni fase di crescita più governabile. [Scopri come lavoriamo](/servizi).*
 
 ### Approfondisci
+- [Come definire le priorità aziendali quando tutto sembra urgente](/blog/come-definire-priorita-aziendali)
 
 * [OKR vs KPI: perché misurare il progresso è diverso da misurare la performance](/blog/okr-vs-kpi-misurare-progresso)
 * [Perché le aziende non crescono (e non è colpa del mercato)](/blog/perche-le-aziende-non-crescono)
