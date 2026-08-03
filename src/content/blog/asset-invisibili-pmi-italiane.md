@@ -5,7 +5,7 @@ keyword: "valore aziendale nascosto PMI"
 pubDate: 2026-08-03
 author: Edoardo Marcis
 tags: ["Strategia", "PMI"]
-draft: true
+draft: false
 ---
 
 Le PMI italiane cercano continuamente risorse all'esterno. Capitali, consulenti, tecnologie, talenti. Il paradosso è che spesso quello che cercano fuori esiste già dentro, solo in una forma che non hanno imparato a riconoscere.
