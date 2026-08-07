@@ -5,7 +5,7 @@ keyword: "AI nelle PMI italiane"
 pubDate: 2026-08-07
 author: Edoardo Marcis
 tags: ["AI", "PMI"]
-draft: true
+draft: false
 ---
 
 Il dato è dell'Osservatorio Innovazione Digitale PMI del Politecnico di Milano, maggio 2026: il 76% delle piccole e medie imprese italiane non ha investito in intelligenza artificiale e non prevede di farlo a breve.
