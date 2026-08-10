@@ -5,7 +5,7 @@ keyword: "innovazione continua PMI"
 pubDate: 2026-08-10
 author: Edoardo Marcis
 tags: ["Innovazione", "PMI", "Strategia"]
-draft: true
+draft: false
 ---
 
 Le grandi crisi aziendali raramente arrivano di colpo. Arrivano dopo anni in cui l'azienda ha fatto bene le stesse cose, in un mercato che nel frattempo è diventato un posto diverso.
