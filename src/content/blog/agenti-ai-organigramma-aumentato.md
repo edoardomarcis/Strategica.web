@@ -5,7 +5,7 @@ keyword: "agenti AI azienda organigramma"
 pubDate: 2026-08-14
 author: Edoardo Marcis
 tags: ["AI", "Innovazione", "Management"]
-draft: true
+draft: false
 ---
 
 Nel 2026, migliaia di aziende nel mondo stanno usando agenti AI per svolgere attività operative: gestire ticket di supporto, generare report, qualificare lead, pianificare acquisti, redigere contratti. Non come strumenti di supporto agli umani: come attori autonomi in processi reali.

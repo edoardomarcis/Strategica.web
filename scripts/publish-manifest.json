@@ -68,7 +68,7 @@
     {
       "date": "2026-08-14",
       "slug": "agenti-ai-organigramma-aumentato",
-      "published": false,
+      "published": true,
       "retro_edits": [
         {
           "file": "ai-amplifica-rumore-senza-struttura",

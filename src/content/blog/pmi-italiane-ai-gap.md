@@ -67,5 +67,6 @@ Se vuoi capire dove si trova la tua azienda rispetto a questi prerequisiti e cos
 *Strategica aiuta PMI italiane a costruire la struttura organizzativa per usare l'AI in modo che produca valore reale. [Scopri come lavoriamo](/servizi#strategy-sprint).*
 
 ### Approfondisci
+- [Agenti AI e organigramma aumentato: come disegnarlo](/blog/agenti-ai-organigramma-aumentato)
 - [L'AI amplifica quello che c'è già: inefficienze comprese](/blog/ai-amplifica-rumore-senza-struttura)
 - [Il sistema operativo aziendale](/blog/sistema-operativo-aziendale)

@@ -57,6 +57,7 @@ Questo è esattamente il lavoro che facciamo nel servizio [AI nei processi](/ser
 *Strategica aiuta PMI italiane a integrare l'AI nei processi con metodo, non con entusiasmo. [Scopri come lavoriamo](/servizi#strategy-sprint).*
 
 ### Approfondisci
+- [Agenti AI e organigramma aumentato: come disegnarlo](/blog/agenti-ai-organigramma-aumentato)
 - [Perché il 76% delle PMI non usa l'AI (e non è colpa loro)](/blog/pmi-italiane-ai-gap)
 
 * [Il sistema operativo aziendale](/blog/sistema-operativo-aziendale)
