@@ -5,7 +5,7 @@ keyword: "growth hacking PMI"
 pubDate: 2026-08-17
 author: Andrea Cavaliere
 tags: ["Crescita", "PMI", "Marketing"]
-draft: true
+draft: false
 ---
 
 "Growth hacking" è una di quelle espressioni che spaventano gli imprenditori italiani. Suona da Silicon Valley, da venture capital, da aziende che bruciano milioni per crescere il 300% all'anno. Non da aziende che devono fare i conti con il commercialista, gestire fornitori storici e portare avanti un team che lavora insieme da dieci anni.
