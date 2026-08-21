@@ -5,7 +5,7 @@ keyword: "governance aziendale PMI"
 pubDate: 2026-08-21
 author: Edoardo Marcis
 tags: ["Strategia", "PMI"]
-draft: true
+draft: false
 ---
 
 Quasi ogni volta che iniziamo un lavoro con una nuova azienda, emerge la stessa cosa. L'imprenditore o il management descrive quello di cui hanno bisogno: una competenza che manca, una capacità che non hanno, un problema che nessuno interno sa risolvere. E quasi sempre, qualche settimana dopo, quella competenza emerge in qualcuno del team che non aveva mai avuto lo spazio o l'occasione per esprimerla.
