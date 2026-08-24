@@ -67,6 +67,7 @@ Un [retreat strategico](/servizi#in-formazione) o un [hackathon interna](/serviz
 *Strategica lavora con PMI italiane che vogliono costruire la capacità di crescere in modo continuativo, non per salti. [Scopri come](/servizi).*
 
 ### Approfondisci
+- [Il problema non è che non avete idee. È che non avete mai il tempo di pensarle](/blog/quando-fare-retreat-aziendale)
 - [Perché le aziende non crescono (e non è colpa del mercato)](/blog/perche-le-aziende-non-crescono)
 - [Il sistema operativo aziendale](/blog/sistema-operativo-aziendale)
 - [Il sistema operativo aziendale: cos'è e come costruirlo](/blog/sistema-operativo-aziendale)

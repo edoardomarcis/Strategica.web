@@ -5,7 +5,7 @@ keyword: "offsite aziendale strategico"
 pubDate: 2026-08-24
 author: Team Strategica
 tags: ["Strategia", "Workshop"]
-draft: true
+draft: false
 ---
 
 Quasi ogni imprenditore e manager con cui lavoriamo ci dice la stessa cosa: "Le cose importanti non le facciamo mai perché siamo sempre nell'urgenza."
