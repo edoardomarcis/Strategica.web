@@ -109,7 +109,7 @@
     {
       "date": "2026-08-28",
       "slug": "consulenza-lascia-valore-o-fatture",
-      "published": false,
+      "published": true,
       "retro_edits": [
         {
           "file": "capitale-nascosto-azienda",

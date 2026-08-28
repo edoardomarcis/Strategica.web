@@ -65,5 +65,6 @@ La diagnosi [In-formazione](/servizi) include sempre una lettura delle risorse i
 *Strategica aiuta PMI italiane a costruire la struttura che rende visibile e utilizzabile quello che hanno già. [Scopri come lavoriamo](/servizi).*
 
 ### Approfondisci
+- [Consulenza aziendale: quando lascia valore e quando lascia solo fatture](/blog/consulenza-lascia-valore-o-fatture)
 - [I tre asset invisibili delle PMI italiane](/blog/asset-invisibili-pmi-italiane)
 - [Il sistema operativo aziendale: cos'è e come costruirlo](/blog/sistema-operativo-aziendale)

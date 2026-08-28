@@ -5,7 +5,7 @@ keyword: "consulenza aziendale PMI risultati"
 pubDate: 2026-08-28
 author: Team Strategica
 tags: ["Consulenza", "Strategia"]
-draft: true
+draft: false
 ---
 
 C'è un pattern che si ripete con una frequenza che non lascia dubbi. Il consulente arriva. Fa interviste, raccoglie dati, analizza. Produce un documento, una presentazione, un piano. Lo consegna. Riparte.
