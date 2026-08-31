@@ -257,7 +257,7 @@ Animato con `stroke-dashoffset` allo scroll (IntersectionObserver threshold 0.4)
 - **Body** — mai più di 3 righe per paragrafo. Frasi brevi alternate a frasi più lunghe
 - **Corsivo tipografico** — usato per l'enfasi concettuale, non decorativa. Mai più di una parola o frase per titolo
 - **Caveat** — riservato a note, attributi, commenti sottolineati: è la voce umana e informale
-- **Em dash ( — )** — preferito alla virgola per le pause forti
+- **Trattino lungo ( — ):** da evitare nel copy. Usa punto, virgola o due punti. È un marcatore tipico dei testi generati da LLM (vedi Vademecum Anti-AI-Slop nei template)
 - **Numeri romani (I. II. III.)** — usati come elementi visivi al posto di icone o immagini
 
 ### Il logo

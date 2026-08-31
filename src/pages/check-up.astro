@@ -18,8 +18,8 @@ const statements = [
 ---
 
 <Base
-  title="Check-up · Strategica"
-  description="Dieci frasi per misurare il sistema operativo della tua azienda. Cinque minuti, carta e penna, nessun dato richiesto."
+  title="Check-up gratuito per PMI: 10 frasi | Strategica"
+  description="Check-up gratuito e senza registrazione: dieci frasi per capire cosa blocca la crescita. Cinque minuti, carta e penna, nessun dato richiesto."
   activePage="check-up"
 >
 
@@ -64,7 +64,7 @@ const statements = [
 
   <div class="checkup-cta">
     <p>Vuoi capire da dove cominciare? Scrivici quali frasi hai segnato. La prima conversazione serve a capire, non a vendere.</p>
-    <a href="mailto:hello@wearestrategica.com" class="btn-dark" id="cu-cta">Scrivici →</a>
+    <a href="mailto:hello@wearestrategica.com?subject=Check-up" class="btn-dark" id="cu-cta">Scrivici →</a>
     <PrivacyNote />
   </div>
 </article>
@@ -82,7 +82,7 @@ const statements = [
     <li><a href="/#contatti">Contatti</a></li>
     <li><a href="/privacy">Privacy</a></li>
   </ul>
-  <span class="footer-copy">© 2025 Strategica</span>
+  <span class="footer-copy">© {new Date().getFullYear()} Strategica</span>
 </footer>
 
 <style>
@@ -259,9 +259,9 @@ const statements = [
 
     if (n > 0) {
       const body = `Ho fatto il check-up: ${n} frasi vere su 10 (le numero ${checked.join(', ')}).`;
-      cta.href = `mailto:${email}?subject=${encodeURIComponent('Check-up')}&body=${encodeURIComponent(body)}`;
+      cta.href = `mailto:${email}?subject=${encodeURIComponent(`Check-up: ho segnato ${n} frasi`)}&body=${encodeURIComponent(body)}`;
     } else {
-      cta.href = `mailto:${email}`;
+      cta.href = `mailto:${email}?subject=${encodeURIComponent('Check-up')}`;
     }
   }
 
