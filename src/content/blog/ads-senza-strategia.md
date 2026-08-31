@@ -5,7 +5,7 @@ keyword: "pubblicità online PMI risultati"
 pubDate: 2026-08-31
 author: Andrea Cavaliere
 tags: ["Marketing", "Strategia", "PMI"]
-draft: true
+draft: false
 ---
 
 Settori diversi, budget diversi, obiettivi diversi. Ma un pattern che si ripete con una frequenza che non lascia dubbi: le aziende investono in advertising senza chiedersi come quella spesa si colleghi alla crescita del business.
