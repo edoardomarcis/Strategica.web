@@ -102,6 +102,7 @@ if (typeof gsap !== 'undefined') {
     gsap.timeline({ delay: 0.15 })
       .to('.sh-wordmark', { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' })
       .to('.sh-tagline',  { opacity: 1,        duration: 0.6, ease: 'power2.out' }, '-=0.55')
+      .to('.sh-claim',    { opacity: 1,        duration: 0.7, ease: 'power2.out' }, '-=0.4')
       .to('.sh-payoff',   { opacity: 1,        duration: 0.7, ease: 'power2.out' }, '-=0.35')
       .to('.sh-actions',  { opacity: 1,        duration: 0.6, ease: 'power2.out' }, '-=0.3')
       .to('.sh-scroll',   { opacity: 1,        duration: 0.5, ease: 'power2.out' }, '-=0.1');

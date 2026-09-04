@@ -280,7 +280,7 @@ nav {
 
 .site-hero-inner {
   display: flex; flex-direction: column; align-items: flex-start;
-  width: 100%; max-width: 1240px; margin: 0 auto;
+  width: 100%; max-width: 1140px; margin: 0 auto;
   position: relative; z-index: 1;
 }
 
@@ -307,19 +307,29 @@ nav {
 }
 
 .sh-row {
-  display: flex; align-items: flex-end; justify-content: space-between;
-  gap: 64px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 56px; width: 100%;
 }
 
+.sh-right {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 18px; max-width: 430px; flex-shrink: 0;
+}
+.sh-claim {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 300; line-height: 1.0; letter-spacing: -0.01em;
+  color: var(--cream); margin: 0;
+  opacity: 0;
+}
+.sh-claim em { font-style: italic; color: var(--terra); }
 .sh-payoff {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 2.3vw, 32px);
+  font-size: clamp(20px, 2.1vw, 28px);
   font-weight: 300; font-style: italic;
-  color: rgba(242,237,228,0.78);
-  line-height: 1.42; letter-spacing: 0.005em;
+  color: rgba(242,237,228,0.72);
+  line-height: 1.4; letter-spacing: 0.005em;
   margin: 0; max-width: 460px;
-  padding-bottom: 30px; /* aggancio ottico alla baseline del wordmark */
-  flex-shrink: 0;
   opacity: 0;
 }
 .sh-payoff .mark svg { bottom: -6px; }
@@ -361,11 +371,13 @@ nav {
 
 @media (max-width: 900px) {
   .sh-row { flex-direction: column; align-items: flex-start; gap: 36px; }
+  .sh-right { max-width: none; padding-bottom: 0; gap: 14px; }
   .sh-payoff { padding-bottom: 0; }
 }
 @media (max-width: 768px) {
   .site-hero { padding: 80px 24px 96px; }
   .sh-tagline { margin-bottom: 24px; }
+  .sh-claim { font-size: clamp(32px, 9vw, 46px); }
   .sh-payoff { font-size: clamp(19px, 5vw, 24px); }
   .sh-actions { flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 36px; }
   .sh-scroll { left: 24px; }
@@ -428,15 +440,14 @@ nav {
   transform: translateY(136px);
 }
 
-.hero-decor {
-  position: absolute;
-  right: 0; top: 42%;
-  transform: translateY(-50%);
+/* S watermark ancorata sul post-it, non più fluttuante */
+.quote-card > * { position: relative; z-index: 1; }
+.quote-card::after {
+  content: 'S';
+  position: absolute; right: -4px; bottom: -52px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 480px; font-weight: 300; font-style: italic;
-  line-height: 1; letter-spacing: -0.04em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(196,98,42,0.13);
+  font-size: 260px; font-weight: 300; font-style: italic;
+  line-height: 1; color: rgba(196,98,42,0.09);
   pointer-events: none; user-select: none; z-index: 0;
 }
 
@@ -446,7 +457,7 @@ nav {
   padding: 44px 42px 36px;
   background: rgba(248,245,240,0.86);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-radius: 6px;
+  border-radius: 6px; overflow: hidden;
   box-shadow: var(--d3);
   transform: rotate(-1.8deg) perspective(1200px);
   transition: transform .5s cubic-bezier(0.23,1,0.32,1), box-shadow .5s;
