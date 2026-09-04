@@ -437,17 +437,17 @@ nav {
 /* il foglio appoggiato a cavallo delle due sezioni */
 .qcard-lift {
   position: relative; z-index: 3;
-  transform: translateY(136px);
+  transform: translateY(48px);
 }
 
 /* S watermark ancorata sul post-it, non più fluttuante */
 .quote-card > * { position: relative; z-index: 1; }
 .quote-card::after {
   content: 'S';
-  position: absolute; right: -4px; bottom: -52px;
+  position: absolute; right: 10px; bottom: -18px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 260px; font-weight: 300; font-style: italic;
-  line-height: 1; color: rgba(196,98,42,0.09);
+  font-size: 180px; font-weight: 300; font-style: italic;
+  line-height: 1; color: rgba(196,98,42,0.06);
   pointer-events: none; user-select: none; z-index: 0;
 }
 
