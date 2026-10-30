@@ -10,16 +10,16 @@ Nessuna estetica generica. Nessun AI slop. Niente che sembri un template.
 
 ## Brand reference
 
-Le brand guidelines sono in `/brand-guidelines/brand-guidelines.md`.
+Le brand guidelines sono in `/brand-guidelines/brand-guidelines-core.md`.
 I loghi ufficiali in PNG sono in `/brand-guidelines/`.
 
 **Prima di costruire qualsiasi componente, verifica che sia coerente con:**
 - Palette colori (Ink, Terracotta, Warm White, Cream + accenti Lime/Coral/Gold)
-- Tipografia (Cormorant Garamond Light per titoli, DM Sans per UI, Caveat per annotazioni)
-- Sistema annotazioni SVG a mano (sottolineature e cerchi, una per sezione)
-- Spaziatura (multipli di 8px, sezioni da 80px padding)
+- Tipografia (Cormorant Garamond Light da 26px in su, DM Sans per testo e UI, Caveat per note)
+- Sistema annotazioni SVG a mano (sottolineature e cerchi, 3-4 per pagina al massimo)
+- Griglia a 12 colonne e spaziatura a token (`--gutter`, `--col-gap`, `--sec-y`)
 - Ombre calde (base `rgba(60,40,20,x)`, mai grigie)
-- Border-radius (4–6px, mai pill) — eccezione: card team con foto usano 20px
+- Border-radius 4px, mai pill
 - Logo: "Strat" tondo nero + "*egica*" italic terracotta — non alterare mai
 
 ---
@@ -30,8 +30,9 @@ I loghi ufficiali in PNG sono in `/brand-guidelines/`.
 - **Moderno senza essere pacchiano** — raffinatezza sobria, non effetti gratuiti
 - **Percepito alto** — qualità editorial, non SaaS template
 - **Tensione dualità** — solidità tradizionale + chiarezza moderna (è il concept del brand)
-- Le annotazioni SVG sono l'elemento disruptive — usarle con moderazione (1 per sezione)
-- Cormorant Garamond Light per i titoli — mai bold, mai pesante
+- Le annotazioni SVG sono l'elemento disruptive — rare: 3-4 per pagina, mai due nella stessa schermata
+- Cormorant Garamond Light per i titoli — mai bold, mai sotto i 26px
+- **Tavole tecniche numerate** (Tav. 01 iceberg, Tav. 02 cascata): sono la firma visiva, nuove figure seguono lo stesso formato
 - Caveat solo per tono informale: note, attributi, annotazioni
 
 ---
@@ -47,7 +48,7 @@ src/
       index.astro        # Lista articoli blog
       [slug].astro       # Singolo articolo
   layouts/
-    Base.astro           # Layout base (font, SEO, global.css, main.js) — NO GSAP qui
+    Base.astro           # Layout base (font, SEO, global.css, main.js, nav, footer)
   content/
     blog/                # Articoli Markdown
     config.ts            # Schema collezione blog (Zod)
@@ -55,7 +56,7 @@ public/
   styles/
     global.css           # Unico foglio di stile globale
   scripts/
-    main.js              # GSAP ScrollTrigger, cursor glow, IntersectionObserver marks
+    main.js              # Hamburger, IntersectionObserver per annotazioni e tavole
   admin/
     index.html           # Pannello Decap CMS (config inline, no config.yml)
   images/
@@ -77,59 +78,35 @@ api/
 
 ---
 
-## Pattern di layout consolidati
+## Pattern di layout consolidati (v2)
 
-### Alternanza sezioni
-Le sezioni alternano sfondo scuro (`--dark`) e chiaro (`--warm` / `--cream`) con **wave divider SVG** tra ogni transizione. È il pattern principale di ritmo visivo — non usare bordi o margini come separatori.
-
+### Sezione tipo
 ```html
-<!-- Esempio: da dark a cream -->
-<div class="wave-divider" aria-hidden="true" style="background:var(--dark); margin-bottom:-2px;">
-  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" style="height:52px;" fill="none">
-    <path d="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22 L1440 52 L0 52 Z" fill="#F2EDE4"/>
-  </svg>
-</div>
+<section class="sec t-ink">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Il vero problema</span></div>
+  <div class="grid">...</div>
+</section>
 ```
-
-Il colore del fill SVG deve corrispondere allo sfondo della sezione successiva.
-
-### Sezioni dark
-- Background: `radial-gradient(ellipse ..., rgba(196,98,42,x), ...), var(--dark)`
-- Testo principale: `var(--cream)`
-- `.section-label`: `color: rgba(242,237,228,0.35)`, `::before` terracotta
-- Decorativo bg-text: `font-size: 340-520px`, `-webkit-text-stroke: 1px rgba(255,255,255,0.03)`
-
-### Sezioni chiare
-- Background: `radial-gradient(...rgba(196,98,42,0.06)...), var(--cream)` oppure `var(--warm)`
-- Header di pagina (hero) sulle pagine interne: sempre dark, come la sezione `.problem` della home
+- **Temi**: `.t-warm`, `.t-cream`, `.t-ink`, `.t-terra` impostano `--bg --fg --fg2 --line --accent`. I componenti leggono solo queste variabili: niente override per sezione scura.
+- **Separazione**: taglio netto di colore e hairline. Niente wave divider, card con ombra o gradienti di sfondo: i fondi sono piatti con la grana carta.
+- **`.section-label`** è il folio: il numero è un contatore CSS automatico, non va scritto a mano.
+- **`.grid`** è la griglia a 12 colonne. Asimmetria spostando i blocchi sulle colonne, mai ruotandoli.
+- **Footer** e nav vivono in `Base.astro`: le pagine non li ripetono.
 
 ### Header pagine interne
-Pattern consolidato per chi-siamo e blog:
-- Background dark con gradiente terra
-- `min-height: 52-100vh`, `display: flex; align-items: flex-end`
-- `section-label` + h1 grande + sottotitolo DM Sans muted
-- Lettera decorativa in background (`--dark`, `-webkit-text-stroke` impercettibile)
-- Wave divider sotto
+`<section class="page-hero t-ink">` con folio, `h1` e `.page-hero-sub`.
 
-### Animazioni `.mark`
-```html
-<span class="mark mark-coral">parola.<svg viewBox="0 0 N 14" fill="none"><path d="M2 10 C..."/></svg></span>
-```
-- `IntersectionObserver` aggiunge `.drawn` → `stroke-dashoffset: 0`
-- Il trigger è già in `main.js` — usare la classe `.mark` è sufficiente
+### Tipografia
+Usare i token `--t-display`, `--t-h1`, `--t-h2`, `--t-h3`, `--t-lead`, `--t-body`, `--t-small`, `--t-meta`. Non aggiungere dimensioni nuove senza motivo.
 
-### Classi animazione GSAP
-- `.g-fade` — fade in dal basso (opacity + translateY)
-- `.g-l` — slide da sinistra
-- `.g-r` — slide da destra
-- Gestite automaticamente da `main.js` con ScrollTrigger
-- **GSAP caricato solo su pagine che lo usano** (`index.astro`, `chi-siamo.astro`) — NON in `Base.astro`
-- Le pagine che usano GSAP devono includere prima del `</Base>`:
-  ```html
-  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  ```
-- `main.js` wrappa tutto il codice GSAP in `if (typeof gsap !== 'undefined') { ... }` per sicurezza
+### Annotazioni `.mark`
+Componente `Mark.astro`. `IntersectionObserver` in `main.js` aggiunge `.drawn`.
+
+### Animazioni
+- **Niente GSAP né altre librerie**: tutto CSS nativo.
+- `.g-fade`: comparsa legata allo scroll (`animation-timeline: view()`); senza supporto del browser il contenuto è già visibile. Non metterla su elementi sticky.
+- Transizioni tra pagine con `@view-transition`.
+- Ogni animazione rispetta `prefers-reduced-motion`.
 
 ---
 
@@ -156,7 +133,7 @@ Pattern consolidato per chi-siamo e blog:
 
 Le bozze vivono in `drafts/` (markdown, anche senza frontmatter completo). Quando viene chiesto di **pubblicare** un articolo, seguire sempre questo workflow:
 
-1. **Frontmatter completo**: title, description 140–160 caratteri con la query target, pubDate odierna, tags coerenti coi cluster (OKR/Governance, Strategia/Crescita, AI/Innovazione), slug breve con la keyword. Niente coverImage se non fornita: la BlogCover branded è automatica.
+1. **Frontmatter completo**: title, description 140–160 caratteri con la query target, pubDate odierna, tags coerenti coi cluster (OKR/Governance, Strategia/Crescita, AI/Innovazione), slug breve con la keyword. Niente coverImage se non fornita: l'header dell'articolo è tipografico.
 2. **Link interni bidirezionali** — è la parte obbligatoria:
    - nel nuovo articolo: 2–4 link contestuali agli articoli esistenti correlati + almeno 1 link alla pagina servizio del cluster (`/servizi#in-formazione`, `#strategy-sprint`, `#edu-coaching`);
    - negli articoli esistenti correlati: aggiungere 1 link contestuale verso il nuovo pezzo (aggiornarli davvero, non solo il nuovo).
@@ -195,16 +172,17 @@ Nota: il repo GitHub è **pubblico** — `drafts/` e la skill LinkedIn sono in `
 
 ## Anti-pattern da evitare
 
-- Gradienti generici, glow effects, glassmorphism non contestualizzato
+- Gradienti di sfondo, glow effects, glassmorphism, lettere in filigrana
+- Wave divider, elementi ruotati, tilt 3D, effetti che seguono il cursore
 - Font sans-serif neutri per i titoli (è Cormorant, sempre)
-- Ombre grigie o fredde
-- Border-radius > 8px su card e bottoni (eccezione: foto team a 20px)
-- Più di un'annotazione SVG per sezione
+- Cormorant sotto i 26px, testo in maiuscoletto spaziato
+- Ombre grigie o fredde; ombre come separatori
+- Border-radius > 4px
+- Blockquote o box con bordo sinistro colorato
+- Annotazioni SVG su ogni sezione
 - Palette fuori dalle brand guidelines senza approvazione esplicita
-- Layout simmetrici e statici privi di tensione visiva
-- Card con bordi e box-shadow come separatori — usare wave divider o regole tipografiche
+- Librerie di animazione: prima CSS nativo
 - File CSS separati in `src/styles/` — tutto va in `public/styles/global.css`
+- Stili del Markdown nei `<style>` di pagina: Astro non li applica a `<Content />`, vanno in `global.css`
 - Configurare il CMS con `config.yml` esterno — usare config inline in `index.html`
-- `will-change: transform` sulle card in stato statico — usarlo solo in `:hover` per evitare sprechi GPU
-- `backdrop-filter` su card con sfondo solido (es. `.service-card`) — serve solo su elementi veramente trasparenti (nav, quote-card)
 - `/* ↑ */` o altri commenti di revisione nel CSS — vanno rimossi al termine di ogni sessione

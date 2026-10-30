@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import WaveDivider from '../components/WaveDivider.astro';
 import Mark from '../components/Mark.astro';
 import PrivacyNote from '../components/PrivacyNote.astro';
 
@@ -9,14 +8,14 @@ import PrivacyNote from '../components/PrivacyNote.astro';
 const teamMembers = [
   {
     name: 'Edoardo Marcis',
-    role: 'STRATEGIA & GROWTH',
+    role: 'Strategia & growth',
     bio: 'Fractional COO e consulente strategico: aiuta PMI e scale-up a crescere senza perdere il controllo. Dall\'idea alla messa a terra, passando per sistemi, governance e OKR. Lettore compulsivo, meditatore. Lo trovi in un surf spot o sul tatami a fare jiu-jitsu.',
     image: '/images/team/edoardo.jpg',
     linkedin: 'https://linkedin.com/in/edoardomarcis',
   },
   {
     name: 'Andrea Cavaliere',
-    role: 'PERFORMANCE & FACILITAZIONE',
+    role: 'Performance & facilitazione',
     bio: 'Oltre 3M€ di budget adv gestiti multi-piattaforma. OKR coach, facilitatore certificato LEGO® Serious Play. Fotografo, videomaker, papà di un border collie.',
     image: '/images/team/andrea.jpg',
     linkedin: 'https://www.linkedin.com/in/andreacavaliere-/',
@@ -30,50 +29,46 @@ const teamMembers = [
   activePage="chi-siamo"
 >
 
-<div class="c-glow" id="glow"></div>
-
 <!-- ── HERO ─────────────────────────────────────────────────────────── -->
-<section class="cs-hero">
-  <div class="cs-hero-inner">
-    <h1 class="cs-hero-h">
-      Non un'agenzia. Non una società di consulenza.<br>
+<section class="page-hero t-ink">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Chi siamo</span></div>
+  <div>
+    <h1>
+      Non un'agenzia. Non una società di consulenza.
       <em>Siamo quello che mancava.</em>
     </h1>
-    <p class="cs-hero-sub">
+    <p class="page-hero-sub">
       Due professionisti senior con background complementari, strategia e performance marketing. Stessa insofferenza per il pressapochismo, stessa idea di cosa significhi fare consulenza davvero.
     </p>
   </div>
-  <div class="cs-hero-deco" aria-hidden="true">S</div>
 </section>
 
-<WaveDivider from="dark" to="cream" h={52} path="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22" stroke />
-
 <!-- ── MANIFESTO ─────────────────────────────────────────────────────── -->
-<section class="cs-manifesto">
-  <div class="cs-manifesto-inner">
-    <div class="section-label g-fade">Il Manifesto</div>
+<section class="sec t-cream">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Il manifesto</span></div>
+  <div class="cs-manifesto-list">
 
-    <div class="cs-block g-fade">
+    <div class="cs-block grid g-fade">
       <p class="cs-block-phrase">Siamo stanchi del pressapochismo.</p>
       <p class="cs-block-body">Abbiamo lavorato in startup, in multinazionali, in agenzie. Ovunque la stessa scena: tanta esecuzione, poca strategia. Tante slide, pochi risultati. Strategica nasce da lì: dalla decisione di fare le cose in modo diverso.</p>
     </div>
 
-    <div class="cs-block g-fade">
+    <div class="cs-block grid g-fade">
       <p class="cs-block-phrase">La consulenza non è un deliverable. È un risultato.</p>
       <p class="cs-block-body">Non misuriamo il nostro valore in ore fatturate o slide consegnate. Lo misuriamo in governance funzionante, processi decisionali chiari, organizzazione che scala in autonomia. Se il cliente non ottiene risultati concreti, abbiamo fallito noi.</p>
     </div>
 
-    <div class="cs-block g-fade">
+    <div class="cs-block grid g-fade">
       <p class="cs-block-phrase">Senza compromessi.</p>
       <p class="cs-block-body">Non facciamo body rental. Non vendiamo quello che non ti serve. Non gonfiamo progetti per fatturare. Analizziamo il tuo problema finché non capiamo cosa serve davvero. Disegniamo la strada migliore, anche se non è quella che prescrive il framework. La consulenza ben fatta serve il cliente, non il nostro fatturato.</p>
     </div>
 
-    <div class="cs-block g-fade">
+    <div class="cs-block grid g-fade">
       <p class="cs-block-phrase">Non solo processo.</p>
       <p class="cs-block-body">Disegniamo governance, processi decisionali e allineamento dell'organizzazione. Perché scalare non è solo eseguire: è decidere insieme, misurare cosa conta, comunicare in modo allineato.</p>
     </div>
 
-    <div class="cs-block g-fade">
+    <div class="cs-block grid g-fade">
       <p class="cs-block-phrase">
         Il nostro obiettivo è
         <em><Mark color="coral" viewBox="0 0 220 14" path="M2 10 C40 5, 90 13, 140 8 C175 5, 205 11, 218 8">diventare inutili.</Mark></em>
@@ -81,143 +76,60 @@ const teamMembers = [
       <p class="cs-block-body">Non creiamo dipendenza. Trasformiamo governance, processi e organizzazione in modo che funzionino in autonomia. La vera misura è se il modello operativo continua a evolversi anche dopo il nostro intervento.</p>
     </div>
 
-    <div class="cs-block g-fade">
+    <div class="cs-block grid g-fade">
       <p class="cs-block-phrase">Background diversi. Stessa insofferenza.</p>
       <p class="cs-block-body">Veniamo da startup, big four, performance marketing, innovazione digitale. Ci siamo riconosciuti nello stesso gap: la consulenza promette molto e produce poco. Strategica è la nostra risposta.</p>
     </div>
 
-    <div class="cs-block g-fade">
+    <div class="cs-block grid g-fade">
       <p class="cs-block-phrase">Due mestieri che quasi nessuno tiene insieme.</p>
       <p class="cs-block-body">Strategia da una parte, performance marketing dall'altra. I consulenti strategici si fermano al documento e non sanno misurare l'acquisizione; le agenzie partono dal canale e non rimettono in discussione la strategia. Noi chiudiamo il cerchio: la direzione, e i numeri che dicono se sta funzionando.</p>
     </div>
   </div>
 </section>
 
-<WaveDivider from="cream" to="dark" h={48} path="M0 26 C240 8, 480 42, 720 24 C960 6, 1200 40, 1440 18" stroke />
-
 <!-- ── TEAM ──────────────────────────────────────────────────────────── -->
-<section class="cs-team">
-  <div class="cs-team-header g-fade">
-    <div class="section-label cs-team-label">Le Persone</div>
-    <h2 class="cs-team-h">Facce, non loghi.</h2>
-  </div>
+<section class="sec t-ink">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Le persone</span></div>
+  <h2 class="cs-team-h g-fade">Facce, non loghi.</h2>
 
-  <div class="cs-team-track" id="tc-track">
+  <div>
     {teamMembers.map((member) => (
-      <article class="tc-card">
-        <div class="tc-visual">
-          <img
-            class="tc-img"
-            src={member.image}
-            alt={`Foto di ${member.name}`}
-            loading="lazy"
-            draggable="false"
-          />
-          <div class="tc-duotone"></div>
+      <article class="tc-card grid">
+        <div class="tc-photo">
+          <img class="tc-img" src={member.image} alt={`Foto di ${member.name}`} loading="lazy" draggable="false" />
         </div>
-        <div class="tc-gradient"></div>
         <div class="tc-info">
-          <div class="tc-hover-content">
-            <p class="tc-bio">{member.bio}</p>
-          </div>
-          <div class="tc-base-content">
-            <span class="tc-role">{member.role}</span>
-            <div class="tc-name-row">
-              <strong class="tc-name">{member.name}</strong>
-              <a
-                href={member.linkedin}
-                class="tc-linkedin"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`LinkedIn di ${member.name}`}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+          <span class="tc-role">{member.role}</span>
+          <strong class="tc-name">{member.name}</strong>
+          <p class="tc-bio">{member.bio}</p>
+          <a href={member.linkedin} class="btn-ghost" target="_blank" rel="noopener noreferrer" aria-label={`LinkedIn di ${member.name}`}>LinkedIn</a>
         </div>
       </article>
     ))}
   </div>
-
-  <div class="tc-dots" aria-hidden="true">
-    {teamMembers.map((_, i) => (
-      <button class={`tc-dot${i === 0 ? ' active' : ''}`} data-idx={i} aria-label={`Vai alla card ${i + 1}`}></button>
-    ))}
-  </div>
-
-  <div class="cs-team-bg-text" aria-hidden="true">noi</div>
 </section>
 
-<WaveDivider from="dark" to="cream" h={44} path="M0 20 C300 6, 600 36, 900 18 C1100 6, 1280 30, 1440 14" />
-
 <!-- ── CTA ───────────────────────────────────────────────────────────── -->
-<section class="cs-cta">
-  <div class="cs-cta-left g-l">
-    <div class="section-label">Parliamoci</div>
+<section class="sec t-warm">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Parliamoci</span></div>
+  <div class="grid">
+  <div class="cs-cta-left">
     <h2 class="cs-cta-h">
       Se ti riconosci in questo modo di pensare,
-      <em><Mark color="gold" viewBox="0 0 120 14" path="M2 9 C22 5, 50 13, 78 7 C98 4, 112 11, 118 8">parliamoci.</Mark></em>
+      <em>parliamoci.</em>
     </h2>
   </div>
-  <div class="cs-cta-right g-r">
+  <div class="cs-cta-right">
     <p>Non servono deck pronti o brief formali. Basta una mail, e capiamo insieme se ha senso parlare.</p>
-    <div class="cs-cta-actions">
+    <div class="actions">
       <a href="mailto:hello@wearestrategica.com?subject=Vorrei%20parlarne" class="btn-dark">Scrivici →</a>
       <a href="/#approccio" class="btn-ghost">Scopri come lavoriamo</a>
     </div>
     <PrivacyNote />
   </div>
+  </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
-<footer>
-  <div>
-    <a href="/" class="footer-logo">Strat<em>egica</em></a>
-    <span class="footer-tagline">Consulenza che punta a rendersi inutile.</span>
-  </div>
-  <ul class="footer-nav">
-    <li><a href="/#approccio">Approccio</a></li>
-    <li><a href="/servizi">Servizi</a></li>
-    <li><a href="/chi-siamo">Chi siamo</a></li>
-    <li><a href="/#contatti">Contatti</a></li>
-  <li><a href="/privacy">Privacy</a></li>
-  </ul>
-  <div class="footer-copy">© {new Date().getFullYear()} Strategica. Consulenza Strategica. &nbsp;&nbsp; Milano, Italia</div>
-</footer>
-
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<script is:inline>
-(function () {
-  if (!window.matchMedia('(max-width: 900px)').matches) return;
-  var track = document.getElementById('tc-track');
-  var cards = track ? Array.from(track.querySelectorAll('.tc-card')) : [];
-  var dots  = Array.from(document.querySelectorAll('.tc-dot'));
-  if (!track || !cards.length || !dots.length) return;
-
-  function setActive(idx) {
-    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
-  }
-
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) setActive(cards.indexOf(e.target));
-    });
-  }, { root: track, threshold: 0.55 });
-  cards.forEach(function(c) { obs.observe(c); });
-
-  dots.forEach(function(dot, i) {
-    dot.addEventListener('click', function() {
-      var card = cards[i];
-      var offset = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
-      track.scrollTo({ left: offset, behavior: 'smooth' });
-    });
-  });
-})();
-</script>
 
 </Base>

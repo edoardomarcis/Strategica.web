@@ -7,6 +7,7 @@ if (hamburger && mobileNav) {
     mobileNav.classList.toggle('open', open);
     hamburger.setAttribute('aria-expanded', open);
     mobileNav.setAttribute('aria-hidden', !open);
+    document.documentElement.style.overflow = open ? 'hidden' : '';
   };
 
   hamburger.addEventListener('click', () => toggle(!hamburger.classList.contains('open')));
@@ -15,195 +16,24 @@ if (hamburger && mobileNav) {
     a.addEventListener('click', () => toggle(false))
   );
 
-  document.addEventListener('click', e => {
-    if (mobileNav.classList.contains('open') &&
-        !mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
-      toggle(false);
-    }
-  });
-
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') toggle(false);
   });
 }
 
-/* ── Cursor glow — context-aware, throttled with rAF ─────────────────── */
-const glow = document.getElementById('glow');
-if (glow) {
-  const DARK_SECTIONS  = ['.problem', '.why', '.cs-hero', '.cs-team', '.blog-hero'];
-  const TERRA_SECTIONS = ['.target-band'];
-  let rafPending = false;
-  let pendingX = 0, pendingY = 0;
-  let lastState = '';
-
-  function applyGlow() {
-    glow.style.left = pendingX + 'px';
-    glow.style.top  = pendingY + 'px';
-    glow.style.visibility = 'hidden';
-    const el = document.elementFromPoint(pendingX, pendingY);
-    glow.style.visibility = '';
-    rafPending = false;
-    if (!el) return;
-    const inDark  = DARK_SECTIONS.some(sel  => el.closest(sel));
-    const inTerra = TERRA_SECTIONS.some(sel => el.closest(sel));
-    const state = inTerra ? 'terra' : inDark ? 'dark' : 'light';
-    if (state === lastState) return;
-    glow.classList.remove('glow--dark', 'glow--terra', 'glow--light');
-    glow.classList.add('glow--' + state);
-    lastState = state;
-  }
-
-  window.addEventListener('mousemove', e => {
-    pendingX = e.clientX;
-    pendingY = e.clientY;
-    if (!rafPending) {
-      rafPending = true;
-      requestAnimationFrame(applyGlow);
-    }
-  }, { passive: true });
-}
-
-/* ── Annotation marks — single batched observer ───────────────────────── */
-const markEls = document.querySelectorAll('.mark');
-if (markEls.length) {
-  const markObs = new IntersectionObserver(entries => {
+/* ── Annotazioni e tavole: si disegnano quando entrano nel viewport ─────── */
+const drawOnView = (els, threshold, delay) => {
+  if (!els.length) return;
+  const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('drawn'), 300);
-        markObs.unobserve(e.target);
+        setTimeout(() => e.target.classList.add('drawn'), delay);
+        obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.6 });
-  markEls.forEach(m => markObs.observe(m));
-}
+  }, { threshold });
+  els.forEach(el => obs.observe(el));
+};
 
-/* ── GSAP animations — only when GSAP is loaded (home + chi-siamo) ───── */
-if (typeof gsap !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-
-  /* Quote card — mouse parallax */
-  const qcard = document.getElementById('qcard');
-  if (qcard) {
-    qcard.addEventListener('mousemove', e => {
-      const r = qcard.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width  - 0.5;
-      const y = (e.clientY - r.top)  / r.height - 0.5;
-      qcard.style.transform = `rotate(-0.3deg) perspective(1200px) rotateY(${x * 10}deg) rotateX(${-y * 8}deg) translateZ(12px)`;
-      qcard.style.transition = 'transform .1s ease-out';
-    });
-    qcard.addEventListener('mouseleave', () => {
-      qcard.style.transform = 'rotate(-1.8deg) perspective(1200px)';
-      qcard.style.transition = 'transform .7s cubic-bezier(0.23,1,0.32,1)';
-    });
-  }
-
-  /* Site hero entrance — immediate */
-  if (document.querySelector('.sh-wordmark')) {
-    gsap.timeline({ delay: 0.15 })
-      .to('.sh-wordmark', { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' })
-      .to('.sh-tagline',  { opacity: 1,        duration: 0.6, ease: 'power2.out' }, '-=0.55')
-      .to('.sh-claim',    { opacity: 1,        duration: 0.7, ease: 'power2.out' }, '-=0.4')
-      .to('.sh-payoff',   { opacity: 1,        duration: 0.7, ease: 'power2.out' }, '-=0.35')
-      .to('.sh-actions',  { opacity: 1,        duration: 0.6, ease: 'power2.out' }, '-=0.3')
-      .to('.sh-scroll',   { opacity: 1,        duration: 0.5, ease: 'power2.out' }, '-=0.1');
-  }
-
-  /* Hero narrative entrance — ScrollTrigger (è sotto il fold) */
-  if (document.querySelector('.hero-headline')) {
-    ScrollTrigger.create({
-      trigger: '.hero', start: 'top 78%', once: true,
-      onEnter: () => {
-        gsap.timeline()
-          .to('.hero-headline', { opacity: 1, y: 0, duration: .9,  ease: 'power3.out' })
-          .to('.hero-body',     { opacity: 1, y: 0, duration: .7,  ease: 'power2.out' }, '-=0.45')
-          .to('.hero-actions',  { opacity: 1, y: 0, duration: .6,  ease: 'power2.out' }, '-=0.4')
-          .to(qcard,            { opacity: 1, y: 0, duration: .9,  ease: 'power3.out' }, '-=0.55');
-      }
-    });
-  }
-
-  /* Scroll reveals — g-fade / g-l / g-r */
-  gsap.utils.toArray('.g-fade, .g-l, .g-r').forEach(el => {
-    gsap.to(el, {
-      opacity: 1, x: 0, y: 0,
-      duration: .88, ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 83%', toggleActions: 'play none none none' }
-    });
-  });
-
-  /* Metrics stagger */
-  gsap.utils.toArray('.metric-item').forEach((el, i) => {
-    gsap.to(el, {
-      opacity: 1, y: 0, duration: .75, ease: 'power3.out', delay: i * .12,
-      scrollTrigger: { trigger: '.metrics-band', start: 'top 82%', toggleActions: 'play none none none' }
-    });
-  });
-
-  /* Steps stagger */
-  gsap.utils.toArray('.step-card').forEach((c, i) => {
-    gsap.to(c, {
-      opacity: 1, y: 0, duration: .75, ease: 'power3.out', delay: i * .1,
-      scrollTrigger: { trigger: '.steps-bento', start: 'top 80%', toggleActions: 'play none none none' }
-    });
-  });
-
-  /* Service cards stagger */
-  gsap.utils.toArray('.service-card').forEach((c, i) => {
-    gsap.to(c, {
-      opacity: 1, y: 0, duration: .8, ease: 'power3.out', delay: i * .13,
-      scrollTrigger: { trigger: '.services-grid', start: 'top 82%', toggleActions: 'play none none none' }
-    });
-  });
-
-  /* Parallasse leggera — le lettere di sfondo scorrono più lente del contenuto */
-  [
-    ['.sh-deco',          '.site-hero',   0, -90],
-    ['.problem-bg-text',  '.problem',   -60,  60],
-    ['.srv-hero-deco',    '.srv-hero',    0, -70],
-    ['.cs-hero-deco',     '.cs-hero',     0, -70],
-    ['.cs-team-bg-text',  '.cs-team',   -50,  50],
-  ].forEach(([sel, trig, from, to]) => {
-    const el = document.querySelector(sel);
-    if (el) gsap.fromTo(el, { y: from }, {
-      y: to, ease: 'none',
-      scrollTrigger: { trigger: trig, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
-    });
-  });
-  /* i numeroni di sezione su /servizi: uno per sezione, trigger il proprio genitore */
-  document.querySelectorAll('.srv-bg-num').forEach(el => {
-    const sec = el.closest('section');
-    if (sec) gsap.fromTo(el, { y: -40 }, {
-      y: 40, ease: 'none',
-      scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
-    });
-  });
-  const heroDecor = document.querySelector('.hero-decor');
-  if (heroDecor) gsap.fromTo(heroDecor, { y: -24 }, {
-    y: 56, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top bottom', end: 'bottom top', scrub: 0.6 }
-  });
-
-  /* Iceberg + venn draw */
-  document.querySelectorAll('#iceberg, #venn').forEach(el => {
-    new IntersectionObserver((entries, obs) => {
-      if (entries[0].isIntersecting) {
-        setTimeout(() => el.classList.add('drawn'), 200);
-        obs.unobserve(el);
-      }
-    }, { threshold: 0.3 }).observe(el);
-  });
-
-  /* Service icon ovals — draw on scroll */
-  const serviceCards = document.querySelectorAll('.service-card');
-  if (serviceCards.length) {
-    const serviceObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const idx = Array.from(serviceCards).indexOf(e.target);
-          setTimeout(() => e.target.classList.add('in-view'), 400 + idx * 180);
-        }
-      });
-    }, { threshold: 0.4 });
-    serviceCards.forEach(c => serviceObs.observe(c));
-  }
-}
+drawOnView(document.querySelectorAll('.mark'), 0.6, 300);
+drawOnView(document.querySelectorAll('.iceberg-svg'), 0.3, 200);

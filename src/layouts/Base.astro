@@ -86,7 +86,7 @@ const ogImageURL = ogImage ? new URL(ogImage, SITE).href : DEFAULT_OG_IMAGE;
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/global.css">
 <Analytics />
 </head>
@@ -117,6 +117,26 @@ const ogImageURL = ogImage ? new URL(ogImage, SITE).href : DEFAULT_OG_IMAGE;
 </div>
 
 <slot />
+
+<footer class="site-footer t-ink">
+  <div class="footer-top">
+    <p class="footer-tagline">Consulenza che punta a rendersi inutile.</p>
+    <ul class="footer-nav">
+      <li><a href="/#approccio">Approccio</a></li>
+      <li><a href="/check-up">Check-up</a></li>
+      <li><a href="/servizi">Servizi</a></li>
+      <li><a href="/chi-siamo">Chi siamo</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/#contatti">Contatti</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+    </ul>
+  </div>
+  <a href="/" class="footer-logo" aria-label="Strategica, torna alla home">Strat<em>egica</em></a>
+  <div class="footer-copy">
+    <span>© {new Date().getFullYear()} Strategica. Consulenza Strategica.</span>
+    <span>Milano, Italia</span>
+  </div>
+</footer>
 
 <script is:inline src="/scripts/main.js"></script>
 

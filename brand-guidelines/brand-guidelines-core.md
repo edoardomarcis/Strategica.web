@@ -1,5 +1,5 @@
 # Strat*egica* — Brand Guidelines
-**v1.1 — 2025**
+**v2.0 — 2026**
 
 ---
 
@@ -9,37 +9,31 @@
 
 | Font | Peso | Uso |
 |---|---|---|
-| Cormorant Garamond | Light 300 | Titoli, headlines, body principale |
+| Cormorant Garamond | Light 300 | Titoli e frasi grandi, sempre da 26px in su |
 | Cormorant Garamond Italic | Light 300 Italic | Enfasi concettuale, `<em>`, citazioni |
-| Cormorant Garamond | Regular 400 | Logo, sottotitoli, titoli card |
-| DM Sans | Regular 400 | Label, UI, nav, tag, bottoni |
-| Caveat | Regular 400 | Note a mano, attributi, tagline, tono informale |
+| Cormorant Garamond | Regular 400 | Logo |
+| DM Sans | Regular 400 | Testo corrente, label, UI, nav, bottoni |
+| Caveat | Regular 400 | Note a mano, tono informale, sempre da 20px in su |
 
-### Scala tipografica
+### Scala tipografica (token in `global.css`)
 
-| Elemento | Dimensione | Note |
+| Token | Dimensione | Uso |
 |---|---|---|
-| Hero headline | `clamp(62px, 7vw, 108px)` | Light 300, `letter-spacing: -0.022em`, `line-height: 0.98` |
-| H2 — titoli sezione | `clamp(44px, 5vw, 74px)` | Light 300, `line-height: 1.04`, `letter-spacing: -0.015em` |
-| H2 — CTA | `clamp(48px, 5.8vw, 88px)` | Light 300, `line-height: 0.98`, `letter-spacing: -0.022em` |
-| H3 — titoli card | 24px | Regular 400 |
-| Body principale | 19–20px | Light 300, `line-height: 1.72–1.75` |
-| Body sezioni dark | 18px | Light 300, `line-height: 1.8` |
-| Body card / secondario | 15–17px | Light 300, `line-height: 1.72–1.78` |
-| Target band | `clamp(26px, 3.2vw, 46px)` | Light 300, `line-height: 1.42` |
-| Label / UI | 10–11px | DM Sans, `letter-spacing: 0.16–0.22em`, uppercase |
-| Tag | 9px | DM Sans, `letter-spacing: 0.12em`, uppercase |
-| Annotazioni Caveat | 17–20px | Caveat, spesso ruotato `-1°` / `-2°` |
-| Quote card body | 21px | Cormorant Italic 300, `line-height: 1.65` |
-| Quote card attr | 17px | Caveat, terracotta |
+| `--t-display` | `clamp(44px, min(18vw, 23svh), 240px)` | Hero, CTA finale |
+| `--t-h1` | `clamp(44px, 8vw, 128px)` | Titoli di pagina e di capitolo |
+| `--t-h2` | `clamp(40px, 5.8vw, 96px)` | Titoli di sezione, frasi manifesto |
+| `--t-h3` | `clamp(26px, 2.8vw, 44px)` | Sottotitoli |
+| `--t-lead` | `clamp(19px, 1.5vw, 22px)` | Testo introduttivo, DM Sans |
+| `--t-body` | 17px | Testo corrente, DM Sans |
+| `--t-small` / `--t-meta` | 14px / 13px | UI, folio, didascalie, senza maiuscolo |
 
 ### Regole
 
-- Il corsivo non è decorativo — segna sempre un'enfasi concettuale
-- I titoli usano `font-weight: 300` (light), mai bold
+- Il corsivo non è decorativo: segna sempre un'enfasi concettuale
+- I titoli usano `font-weight: 300`, `letter-spacing` negativo, mai bold
 - La parte `egica` del logo è sempre italic + terracotta
-- Caveat è riservato a contesti informali: attributi, note, tagline
-- DM Sans non appare mai nei titoli o nel corpo del testo
+- DM Sans non appare mai nei titoli
+- Niente maiuscoletto spaziato: le label sono in minuscolo a 13px
 
 ---
 
@@ -75,7 +69,7 @@
 
 | Nome | Hex | Uso |
 |---|---|---|
-| Dark BG | `#1C1814` | Sezioni dark — problema, perché noi, footer |
+| Dark BG | `#1C1814` | Sezioni dark: hero, problema, perché noi, footer |
 | Orange Section | `#C4622A` | Band target — unico uso del terracotta come background |
 
 ### Regole
@@ -87,55 +81,35 @@
 
 ---
 
-## 03. Ombre
+## 03. Superfici
 
-Le ombre usano sempre base calda `rgba(60,40,20,x)` — mai grigie o fredde. Sistema a 4 livelli:
-
-| Token | Uso |
-|---|---|
-| `--d1` | Elementi UI leggeri — nav CTA, tag, bottoni ghost |
-| `--d2` | Card standard, bottoni primari |
-| `--d3` | Card in evidenza, quote card, step-card hover |
-| `--d4` | Card on hover con elevazione massima |
+Fondi piatti con grana carta impercettibile. Nessuna ombra, nessun gradiente: la profondità viene da contrasto di colore e scala tipografica.
 
 ---
 
 ## 04. Layout e spaziatura
 
-- **Multipli di 8px** — padding, gap, margini
-- **Sezioni**: padding verticale `80–104px`
-- **Container**: padding orizzontale `80px` desktop, `24px` mobile
-- **Border-radius**: `4–6px` — mai pill, mai > 8px su card e bottoni
-- **Grid**: layout a 2 colonne per sezioni bicolonna, bento asimmetrico (1.6fr 1fr 1fr) per step
+- **Griglia a 12 colonne**: `--gutter`, `--col-gap`, contenuto massimo 1680px
+- **Sezioni**: padding verticale `--sec-y`, `clamp(64px, 8vw, 128px)`
+- **Folio**: ogni sezione si apre con hairline e numero progressivo automatico
+- **Asimmetria**: si ottiene spostando i blocchi sulle colonne, mai ruotandoli
+- **Border-radius**: 4px, mai pill
 
 ---
 
-## 05. Componenti card
+## 05. Tavole e componenti
 
-### Step card (bento approach)
-- Background: `rgba(255,253,250,0.97)` — quasi bianco su sfondo cream
-- Border: `1px solid rgba(196,98,42,0.12)` — terracotta sottile
-- Hover: `background: #fff` + 3D perspective tilt (`rotateX(-1.5deg) rotateY(1deg) translateZ(10px)`)
-- Accent hover: `::after` barra terracotta bottom, scaleX da 0 a 1
+**Tavola tecnica**: la firma visiva del brand. Figura numerata (Tav. 01, Tav. 02...) con cornice hairline e didascalia sotto. Spiega un concetto, non decora.
 
-### Service card
-- Background: `rgba(255,253,250,0.96)` su sezione warm white
-- Border: `1px solid rgba(196,98,42,0.13)`
-- Hover: perspective tilt + `--d4` shadow
-- Icon: numero romano in Cormorant Italic (I. II. III.) con oval SVG a mano che si disegna allo scroll
-- Subtitle: Caveat, terracotta
+**Righe, non card**: servizi, valori, FAQ e articoli sono righe separate da hairline.
 
-### Quote card (hero)
-- Background: `rgba(248,245,240,0.86)` + `backdrop-filter: blur(20px)`
-- Rotazione permanente: `-1.8deg` + parallax 3D al mousemove
-- Bordo SVG irregolare (path hand-drawn) sovrapposto
-- Filtro `feTurbulence` per spigoli leggermente ruvidi
+**Biglietto**: l'offerta In-formazione, unico oggetto "fisico" del sito.
 
 ---
 
 ## 06. Annotazioni a mano
 
-Le annotazioni SVG sono l'elemento disruptive del brand. Sottolineature irregolari e cerchi/ovali disegnati a mano appaiono su parole chiave selezionate — **una per sezione** — con un'animazione di disegno progressivo al scroll.
+Le annotazioni SVG sono l'elemento disruptive del brand. Sottolineature irregolari e cerchi/ovali disegnati a mano appaiono su parole chiave selezionate, **3-4 per pagina al massimo**, con un'animazione di disegno progressivo al scroll.
 
 ### Tipi
 
@@ -167,7 +141,7 @@ Le annotazioni SVG sono l'elemento disruptive del brand. Sottolineature irregola
 
 ### Regole
 
-- **Una sola annotazione per sezione** — mai due sulla stessa schermata
+- **Mai due annotazioni sulla stessa schermata**, e non su ogni sezione
 - Non si usano mai su testo body, solo su titoli o frasi chiave nei `<h1>` / `<h2>`
 - Il cerchio/ovale si usa su frasi brevi (2–4 parole), la sottolineatura su frasi più lunghe
 - Le annotazioni non si sovrappongono a elementi interattivi (bottoni, link)
@@ -175,69 +149,15 @@ Le annotazioni SVG sono l'elemento disruptive del brand. Sottolineature irregola
 
 ---
 
-## 07. Divisori di sezione — Wavy dividers
+## 07. Passaggi tra sezioni
 
-Le transizioni tra sezioni usano un divisore SVG a onda irregolare. L'onda non è geometricamente perfetta — le curve Bézier hanno tensioni asimmetriche intenzionali.
-
-### Specifiche
-
-| Parametro | Valore |
-|---|---|
-| ViewBox height | `44–52px` a seconda della sezion |
-| `preserveAspectRatio` | `none` — si allunga a tutta larghezza |
-| Fill | Colore della sezione di destinazione |
-| Stroke decorativo | `rgba(196,98,42,0.12)` opzionale lungo il crinale |
-| Stacking | `margin-bottom: -2px` per eliminare gap tra sezione e divider |
-
-### Transizioni colore
-
-| Da | A | Fill divider |
-|---|---|---|
-| Warm White | Dark | `#1C1814` |
-| Dark | Cream | `#F2EDE4` |
-| Cream | Warm White | `#F8F5F0` |
-| Warm White | Terracotta | `#C4622A` |
-| Terracotta | Dark | `#1C1814` |
-| Dark | Warm White | `#F8F5F0` |
-
-### Regole
-- Ogni transizione di sfondo tra sezioni usa un wavy divider
-- Il divider appartiene alla sezione superiore (background = colore sezione sopra, fill = colore sezione sotto)
-- Non si usano due onde identiche consecutive — variare i punti di controllo
+Taglio netto di colore, senza onde né divisori decorativi. Sequenza tipo: Ink → Warm → Ink → Warm → Cream → Warm → Terracotta → Ink.
 
 ---
 
-## 08. Elementi geometrici organici
+## 08. Elementi organici
 
-Il brand usa forme organiche per rompere la rigidità del layout a grid.
-
-### Tipologie
-
-**Oval hand-drawn** — dietro gli icon dei service card:
-```svg
-<path d="M50 8 C72 6, 90 18, 92 38 C94 58, 76 72, 50 74 C24 76, 6 62, 6 42 C6 22, 26 10, 50 8Z"
-  stroke="rgba(196,98,42,0.3)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-```
-Animato con `stroke-dashoffset` allo scroll (IntersectionObserver threshold 0.4).
-
-**Spiral / swirl decorativo** — nelle celle decorative del bento:
-```svg
-<path d="M105 30 C130 28, 148 42, 148 62 C148 82, 130 95, 108 92 C90 90, 78 78, 82 62 ..."
-  stroke="rgba(196,98,42,0.18)" stroke-width="2" stroke-linecap="round" fill="none"/>
-```
-
-**SVG border irregolare** — sulla quote card hero:
-```svg
-<path d="M8 4 C80 1, 200 3, 320 2 ... Z"
-  stroke="rgba(212,200,180,0.65)" stroke-width="1.5" fill="none"/>
-```
-
-**Testo filigrana** — numeri o lettere `feTurbulence`-proof in Cormorant Italic, `color: transparent`, `-webkit-text-stroke: 1px rgba(...)`.
-
-### Regole
-- Le forme organiche non devono mai essere perfettamente simmetriche
-- Un solo elemento organico prominente per sezione — non sovraffollare
-- Il roughen filter (`feTurbulence` + `feDisplacementMap`) si usa solo sulla quote card — non su card ripetute
+La mano resta nelle annotazioni SVG e nelle note in Caveat. Niente filigrane, forme decorative o filtri di disturbo sul testo.
 
 ---
 
@@ -258,7 +178,7 @@ Animato con `stroke-dashoffset` allo scroll (IntersectionObserver threshold 0.4)
 - **Corsivo tipografico** — usato per l'enfasi concettuale, non decorativa. Mai più di una parola o frase per titolo
 - **Caveat** — riservato a note, attributi, commenti sottolineati: è la voce umana e informale
 - **Trattino lungo ( — ):** da evitare nel copy. Usa punto, virgola o due punti. È un marcatore tipico dei testi generati da LLM (vedi Vademecum Anti-AI-Slop nei template)
-- **Numeri romani (I. II. III.)** — usati come elementi visivi al posto di icone o immagini
+- **Numeri romani (I. II. III.)**: usati come elementi visivi al posto di icone o immagini
 
 ### Il logo
 
@@ -271,4 +191,4 @@ La spezzatura non è un errore tipografico — è il concept del brand: due natu
 
 ---
 
-*Strategica — Brand Guidelines v1.0*
+*Strategica — Brand Guidelines v2.0*

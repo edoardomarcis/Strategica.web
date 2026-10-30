@@ -1,20 +1,18 @@
 ---
 import Base from '../../layouts/Base.astro';
-import BlogCover from '../../components/BlogCover.astro';
 import { article } from '../../utils/jsonld';
 import { authors } from '../../utils/authors';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('blog', ({ data }) => !data.draft))
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-  return posts.map((post, i) => ({
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
     params: { slug: post.slug },
-    props: { post, index: i + 1 },
+    props: { post },
   }));
 }
 
-const { post, index } = Astro.props;
+const { post } = Astro.props;
 const { Content } = await post.render();
 
 const author = authors[post.data.author];
@@ -34,220 +32,88 @@ const jsonLd = article(post);
   jsonLd={jsonLd}
 >
 
-<div class="c-glow" id="glow"></div>
-
 <article class="post-main">
-  <header class="post-header">
-    <a href="/blog" class="post-back">← Blog</a>
-    <div class="post-meta">
-      <span class="post-date">
-        {post.data.pubDate.toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
-      </span>
-      {post.data.tags && post.data.tags.map(tag => (
-        <span class="blog-tag">{tag}</span>
-      ))}
+  <header class="sec t-ink post-header">
+    <div class="post-top">
+      <a href="/blog">← Blog</a>
+      <span>{post.data.pubDate.toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
     </div>
     <h1 class="post-title">{post.data.title}</h1>
     <p class="post-desc">{post.data.description}</p>
-    <div class="post-author">
-      <span class="post-author-name">{post.data.author}</span>
-    </div>
   </header>
 
-  <div class="post-cover">
-    {post.data.coverImage
-      ? <img src={post.data.coverImage} alt={post.data.title} />
-      : <BlogCover title={post.data.title} pubDate={post.data.pubDate} index={index} />}
-  </div>
+  <div class="sec t-warm">
+    <div class="grid post-layout">
+      <aside class="post-rail">
+        <span class="post-author-name">{post.data.author}</span>
+        {post.data.tags && post.data.tags.map(tag => (
+          <span class="blog-tag">{tag}</span>
+        ))}
+      </aside>
 
-  <div class="post-body">
-    <Content />
-  </div>
+      <div class="post-col">
+        {post.data.coverImage && (
+          <img class="post-cover" src={post.data.coverImage} alt={post.data.title} />
+        )}
 
-  {author && (
-    <aside class="post-author-box">
-      <img class="pab-photo" src={author.photo} alt={author.name} width="72" height="72" />
-      <div class="pab-content">
-        <span class="pab-role">{author.role}</span>
-        <strong class="pab-name">{author.name}</strong>
-        <p class="pab-bio">{author.bio}</p>
-        <a href={author.linkedin} target="_blank" rel="noopener noreferrer" class="pab-link">LinkedIn →</a>
+        <div class="post-body">
+          <Content />
+        </div>
+
+        {author && (
+          <aside class="post-author-box">
+            <img class="pab-photo" src={author.photo} alt={author.name} width="96" height="96" />
+            <div>
+              <span class="pab-role">{author.role}</span>
+              <strong class="pab-name">{author.name}</strong>
+              <p class="pab-bio">{author.bio}</p>
+              <a href={author.linkedin} target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
+            </div>
+          </aside>
+        )}
+
+        <div class="post-footer actions">
+          <a href="/#contatti" class="btn-dark">Parliamone</a>
+          <a href="/blog" class="btn-ghost">Tutti gli articoli</a>
+        </div>
       </div>
-    </aside>
-  )}
-
-  <footer class="post-footer">
-    <a href="/blog" class="btn-ghost">Tutti gli articoli</a>
-    <a href="/#contatti" class="btn-dark">Parliamone</a>
-  </footer>
+    </div>
+  </div>
 </article>
 
-<!-- FOOTER -->
-<footer>
-  <div>
-    <a href="/" class="footer-logo">Strat<em>egica</em></a>
-    <span class="footer-tagline">Consulenza che punta a rendersi inutile.</span>
-  </div>
-  <ul class="footer-nav">
-    <li><a href="/#approccio">Approccio</a></li>
-    <li><a href="/servizi">Servizi</a></li>
-    <li><a href="/chi-siamo">Chi siamo</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/#contatti">Contatti</a></li>
-  <li><a href="/privacy">Privacy</a></li>
-  </ul>
-  <span class="footer-copy">© {new Date().getFullYear()} Strategica</span>
-</footer>
-
 <style>
-.post-main {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 120px 40px 96px;
-}
-.post-back {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--ink-soft); text-decoration: none;
-  display: inline-block; margin-bottom: 48px;
-  transition: color .2s;
-}
-.post-back:hover { color: var(--terra); }
-.post-meta {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 24px;
-}
-.post-date {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--ink-soft);
-}
-.post-title {
-  font-size: clamp(36px, 5vw, 68px);
-  font-weight: 300; line-height: 1.06;
-  letter-spacing: -0.02em; color: var(--ink);
-  margin-bottom: 20px;
-}
-.post-desc {
-  font-size: 20px; font-weight: 300;
-  color: var(--ink-soft); line-height: 1.68;
-  margin-bottom: 28px;
-}
-.post-author {
-  display: flex; align-items: center; gap: 12px;
-  padding-top: 28px; border-top: 1px solid var(--rule-l);
-  margin-bottom: 64px;
-}
-.post-author-name {
-  font-family: 'Caveat', cursive;
-  font-size: 18px; color: var(--terra);
-}
+.post-header { padding-top: 16px; }
+.post-top { display: flex; justify-content: space-between; gap: 16px; font-size: var(--t-meta); color: var(--fg2); margin-bottom: clamp(48px, 7vw, 112px); }
+.post-top a { text-decoration: none; }
+.post-top a:hover { color: var(--fg); }
+.post-title { font-size: clamp(44px, 7vw, 112px); line-height: 0.98; max-width: 14em; }
+.post-desc { font-size: var(--t-lead); line-height: 1.5; color: var(--fg2); max-width: 34em; margin-top: 32px; }
 
-/* Cover image */
-.post-cover {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 56px;
-  box-shadow: var(--d3);
+.post-rail {
+  grid-column: 1 / span 3; align-self: start; position: sticky; top: calc(var(--nav-h) + 24px);
+  display: flex; flex-direction: column;
+  font-size: var(--t-meta); color: var(--fg2);
+  border-top: 1px solid var(--line); padding-top: 12px;
 }
-.post-cover img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
+.post-author-name { color: var(--fg); margin-bottom: 8px; }
+.post-col { grid-column: 4 / span 7; }
+.post-cover { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; margin-bottom: 48px; }
 
-/* Post body — stile editoriale */
-.post-body {
-  font-size: 19px; line-height: 1.8;
-  color: var(--ink);
-  border-top: 1px solid var(--rule-l);
-  padding-top: 48px;
-}
-.post-cover + .post-body {
-  border-top: none;
-  padding-top: 0;
-}
-.post-body h2 {
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 300; letter-spacing: -0.012em;
-  margin: 56px 0 20px; line-height: 1.12;
-}
-.post-body h3 {
-  font-size: clamp(22px, 2.2vw, 28px);
-  font-weight: 400; margin: 40px 0 16px;
-}
-.post-body p { margin-bottom: 24px; color: var(--ink-soft); font-weight: 300; }
-/* Drop cap sul primo paragrafo */
-.post-body > :global(p:first-of-type)::first-letter {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 74px; line-height: 0.8;
-  float: left; padding: 9px 12px 0 0;
-  color: var(--terra); font-weight: 300;
-}
-.post-body strong { color: var(--ink); font-weight: 400; }
-.post-body em { font-style: italic; color: var(--terra); }
-.post-body blockquote {
-  border-left: 3px solid var(--terra);
-  padding: 16px 20px; margin: 32px 0;
-  background: rgba(196,98,42,0.04);
-  border-radius: 0 6px 6px 0;
-  font-style: italic;
-}
-.post-body blockquote p { color: var(--ink); margin: 0; }
-.post-body ul, .post-body ol {
-  padding-left: 24px; margin-bottom: 24px;
-}
-.post-body li { margin-bottom: 10px; color: var(--ink-soft); font-weight: 300; }
-.post-body hr {
-  border: none; border-top: 1px solid var(--rule-l);
-  margin: 48px 0;
-}
-.post-body a { color: var(--terra); text-decoration: underline; text-underline-offset: 3px; }
-
-/* Box autore — E-E-A-T */
 .post-author-box {
   display: flex; gap: 24px; align-items: flex-start;
-  margin-top: 64px; padding-top: 40px;
-  border-top: 1px solid var(--rule-l);
+  margin-top: 64px; padding-top: 16px;
+  border-top: 1px solid var(--fg);
 }
-.pab-photo {
-  flex-shrink: 0;
-  width: 72px; height: 72px; border-radius: 20px;
-  object-fit: cover;
-}
-.pab-role {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--terra); display: block; margin-bottom: 4px;
-}
-.pab-name {
-  font-size: 22px; font-weight: 400; color: var(--ink);
-  display: block; margin-bottom: 8px;
-}
-.pab-bio {
-  font-size: 17px; font-weight: 300; line-height: 1.7;
-  color: var(--ink-soft); margin-bottom: 12px;
-}
-.pab-link {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink-soft); text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 2px; transition: color .2s, border-color .2s;
-}
-.pab-link:hover { color: var(--terra); border-color: var(--terra); }
+.pab-photo { flex-shrink: 0; width: 96px; height: 96px; border-radius: 4px; object-fit: cover; filter: grayscale(100%); }
+.pab-role { display: block; font-size: var(--t-meta); color: var(--fg2); }
+.pab-name { display: block; font-family: var(--serif); font-weight: 300; font-size: var(--t-h3); line-height: 1.1; letter-spacing: -0.02em; margin: 4px 0 8px; }
+.pab-bio { color: var(--fg2); }
+.post-footer { margin-top: 48px; }
 
-.post-footer {
-  display: flex; gap: 20px; align-items: center;
-  margin-top: 72px; padding-top: 40px;
-  border-top: 1px solid var(--rule-l);
-}
-
-@media (max-width: 768px) {
-  .post-main { padding: 96px 24px 64px; }
-  .post-footer { flex-direction: column; align-items: flex-start; }
+@media (max-width: 900px) {
+  .post-rail, .post-col { grid-column: 1 / -1; }
+  .post-rail { position: static; margin-bottom: 32px; flex-direction: row; flex-wrap: wrap; gap: 4px 12px; }
+  .post-author-name { margin-bottom: 0; }
 }
 </style>
 

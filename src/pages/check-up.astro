@@ -23,16 +23,24 @@ const statements = [
   activePage="check-up"
 >
 
-<article class="checkup-main">
-  <a href="/" class="checkup-back">← Home</a>
+<header class="page-hero t-ink checkup-hero">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Il check-up</span></div>
+  <div>
+    <h1>
+      Dieci frasi.<br>
+      Conta quante sono <em><Mark color="coral" viewBox="0 0 110 14" path="M2 10 C25 5, 55 12, 80 8 C95 5, 104 10, 108 7">vere.</Mark></em>
+    </h1>
+    <p class="page-hero-sub">Un check-up onesto di quanto la tua azienda si governa, invece di andare a intuito. Cinque minuti, carta e penna, risposte d'istinto: se esiti su una frase, probabilmente è vera. Nessun form, nessun dato richiesto. Il risultato lo leggi da solo, in fondo.</p>
+  </div>
+</header>
 
-  <div class="section-label">Il check-up</div>
-  <h1 class="checkup-h">
-    Dieci frasi.<br>
-    Conta quante sono <em><Mark color="coral" viewBox="0 0 110 14" path="M2 10 C25 5, 55 12, 80 8 C95 5, 104 10, 108 7">vere.</Mark></em>
-  </h1>
-  <p class="checkup-sub">Un check-up onesto di quanto la tua azienda si governa, invece di andare a intuito. Cinque minuti, carta e penna, risposte d'istinto: se esiti su una frase, probabilmente è vera. Nessun form, nessun dato richiesto. Il risultato lo leggi da solo, in fondo.</p>
-
+<article class="sec t-warm checkup-main">
+  <div class="grid">
+  <aside class="cu-score" aria-live="polite">
+    <span class="cu-count"><span id="cu-count">0</span><small>/10</small></span>
+    <span class="cu-count-label">frasi vere</span>
+  </aside>
+  <div class="cu-col">
   <ol class="checkup-list" id="cu-list">
     {statements.map((s, i) => (
       <li>
@@ -67,175 +75,84 @@ const statements = [
     <a href="mailto:hello@wearestrategica.com?subject=Check-up" class="btn-dark" id="cu-cta">Scrivici →</a>
     <PrivacyNote />
   </div>
+  </div>
+  </div>
 </article>
 
-<!-- FOOTER -->
-<footer>
-  <div>
-    <a href="/" class="footer-logo">Strat<em>egica</em></a>
-    <span class="footer-tagline">Consulenza che punta a rendersi inutile.</span>
-  </div>
-  <ul class="footer-nav">
-    <li><a href="/#approccio">Approccio</a></li>
-    <li><a href="/servizi">Servizi</a></li>
-    <li><a href="/chi-siamo">Chi siamo</a></li>
-    <li><a href="/#contatti">Contatti</a></li>
-    <li><a href="/privacy">Privacy</a></li>
-  </ul>
-  <span class="footer-copy">© {new Date().getFullYear()} Strategica</span>
-</footer>
-
 <style>
-.checkup-main {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 120px 40px 96px;
+.cu-score { grid-column: 1 / span 4; align-self: start; position: sticky; top: calc(var(--nav-h) + 24px); }
+.cu-count {
+  display: block;
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(96px, 15vw, 240px); line-height: 0.85; letter-spacing: -0.04em;
+  font-variant-numeric: lining-nums;
 }
-.checkup-back {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--ink-soft); text-decoration: none;
-  display: inline-block; margin-bottom: 48px;
-  transition: color .2s;
-}
-.checkup-back:hover { color: var(--terra); }
+.cu-count small { font-size: 0.3em; letter-spacing: -0.02em; color: var(--fg2); margin-left: 0.1em; }
+.cu-count-label { display: block; margin-top: 8px; font-size: var(--t-meta); color: var(--fg2); }
+.cu-col { grid-column: 6 / -1; }
 
-.checkup-h {
-  font-size: clamp(40px, 5vw, 64px);
-  font-weight: 300; line-height: 1.08;
-  letter-spacing: -0.02em;
-  margin: 20px 0 24px;
-}
-.checkup-h em { font-style: italic; color: var(--terra); }
-
-.checkup-sub {
-  font-size: 17px; font-weight: 300; line-height: 1.75;
-  color: var(--ink-soft);
-  max-width: 56ch;
-  padding-bottom: 40px; margin-bottom: 16px;
-  border-bottom: 1px solid var(--rule-l);
-}
-
-/* lista affermazioni */
-.checkup-list {
-  list-style: none;
-  margin-bottom: 64px;
-}
-.checkup-list li {
-  border-bottom: 1px solid var(--rule-l);
-  position: relative;
-}
-.checkup-list input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
+.checkup-list { list-style: none; border-bottom: 1px solid var(--line); margin-bottom: clamp(64px, 8vw, 112px); }
+.checkup-list li { border-top: 1px solid var(--line); position: relative; }
+.checkup-list input { position: absolute; opacity: 0; pointer-events: none; }
 .checkup-list label {
-  display: grid;
-  grid-template-columns: 36px 26px 1fr;
-  gap: 16px;
-  align-items: baseline;
-  padding: 20px 4px;
-  cursor: pointer;
-  transition: background 0.15s;
+  display: grid; grid-template-columns: 32px 24px 1fr; gap: 12px;
+  align-items: baseline; padding: 18px 0; cursor: pointer;
 }
-.checkup-list label:hover { background: rgba(228,218,200,0.18); }
-.checkup-list input:focus-visible + label .cu-box {
-  outline: 2px solid var(--terra);
-  outline-offset: 2px;
-}
-.cu-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px; font-style: italic;
-  color: rgba(92,80,72,0.4);
-}
+.cu-num { font-size: var(--t-meta); color: var(--fg2); font-variant-numeric: tabular-nums; }
 .cu-box {
-  width: 17px; height: 17px;
-  border: 1.5px solid var(--ink-soft);
-  border-radius: 3px;
-  transform: rotate(-1deg) translateY(2px);
-  display: inline-block;
-  position: relative;
+  width: 18px; height: 18px; display: inline-block; position: relative;
+  border: 1.5px solid var(--ink-soft); border-radius: 3px;
+  transform: rotate(-1deg) translateY(3px);
 }
+.checkup-list label:hover .cu-box { border-color: var(--terra); }
+.checkup-list input:focus-visible + label .cu-box { outline: 2px solid var(--terra); outline-offset: 2px; }
 /* la X a mano quando la frase è segnata */
 .cu-box::after {
-  content: '';
-  position: absolute;
-  inset: 1px;
+  content: ''; position: absolute; inset: 1px;
   background:
     linear-gradient(48deg, transparent 42%, var(--terra) 42% 58%, transparent 58%),
     linear-gradient(-46deg, transparent 43%, var(--terra) 43% 57%, transparent 57%);
   transform: scale(0);
-  transition: transform 0.18s cubic-bezier(0.5, 1.6, 0.4, 1);
+  transition: transform .18s cubic-bezier(0.5, 1.6, 0.4, 1);
 }
 .checkup-list input:checked + label .cu-box::after { transform: scale(1); }
-.checkup-list input:checked + label .cu-text { color: var(--ink); }
 .cu-text {
-  font-size: 18px; font-weight: 300;
-  line-height: 1.6; color: var(--ink);
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(26px, 2.2vw, 34px); line-height: 1.1; letter-spacing: -0.018em;
 }
 
-/* risultati */
-.checkup-results h2 {
-  font-size: clamp(26px, 3vw, 34px);
-  font-weight: 300; letter-spacing: -0.01em;
-  margin-bottom: 24px;
-}
+.checkup-results h2 { font-size: var(--t-h3); margin-bottom: 24px; }
 .cu-band {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 20px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--rule-l);
-  align-items: baseline;
+  display: grid; grid-template-columns: 96px 1fr; gap: 16px;
+  align-items: baseline; padding: 14px 0;
+  border-top: 1px solid var(--line);
 }
-.cu-range {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px; font-style: italic;
-  color: var(--ink-soft);
-  white-space: nowrap;
-}
-.cu-band--hot .cu-range { color: var(--terra); }
-.cu-band p {
-  font-size: 15px; font-weight: 300; line-height: 1.7;
-  color: var(--ink-soft); margin: 0;
-}
-
+.cu-range { font-size: var(--t-small); color: var(--fg2); white-space: nowrap; }
+.cu-band p { color: var(--fg2); }
+.cu-band--hot .cu-range { color: var(--ink); }
 /* fascia attiva: si accende quando il conto delle frasi vere ci cade dentro */
-.checkup-results.touched .cu-band { opacity: 0.45; transition: opacity 0.25s; }
+.checkup-results.touched .cu-band { opacity: 0.4; transition: opacity .2s; }
 .checkup-results.touched .cu-band.active { opacity: 1; }
-.cu-band.active .cu-range { color: var(--terra); font-weight: 500; }
-.cu-band.active p { color: var(--ink); }
+.cu-band.active .cu-range, .cu-band.active p { color: var(--ink); }
 
-/* CTA */
-.checkup-cta {
-  margin-top: 64px;
-  padding-top: 40px;
-  border-top: 1px solid var(--rule-l);
-}
-.checkup-cta p {
-  font-size: 17px; font-weight: 300; line-height: 1.7;
-  color: var(--ink); max-width: 52ch;
-  margin-bottom: 24px;
-}
+.checkup-cta { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--fg); }
+.checkup-cta p:not(.privacy-note) { font-size: var(--t-lead); line-height: 1.5; margin-bottom: 24px; max-width: 32em; }
 
 /* stampa: l'artefatto in una pagina */
 @media print {
-  :global(nav) { display: none !important; }
-  :global(.c-glow) { display: none !important; }
-  footer { display: none; }
-  .checkup-back { display: none; }
-  .checkup-main { padding: 24px 0; }
-  .checkup-cta .btn-dark { display: none; }
-  .checkup-list label { padding: 12px 0; }
+  .checkup-hero { min-height: 0; padding: 0 0 12px; background: none; color: var(--ink); }
+  .checkup-main { padding: 12px 0; }
+  .cu-score, .checkup-cta .btn-dark { display: none; }
+  .cu-col { grid-column: 1 / -1; }
+  .checkup-list label { padding: 8px 0; }
   @page { margin: 14mm 16mm; }
 }
 
-@media (max-width: 768px) {
-  .checkup-main { padding: 96px 24px 64px; }
-  .checkup-list label { grid-template-columns: 28px 24px 1fr; gap: 10px; }
-  .cu-text { font-size: 16px; }
-  .cu-band { grid-template-columns: 84px 1fr; gap: 14px; }
+@media (max-width: 800px) {
+  .cu-score { grid-column: 1 / -1; position: static; margin-bottom: 40px; }
+  .cu-col { grid-column: 1 / -1; }
+  .checkup-list label { grid-template-columns: 24px 22px 1fr; gap: 10px; }
+  .cu-band { grid-template-columns: 76px 1fr; }
 }
 </style>
 
@@ -245,10 +162,12 @@ const statements = [
   const results = document.querySelector('.checkup-results');
   const cta = document.getElementById('cu-cta');
   const email = 'hello@wearestrategica.com';
+  const count = document.getElementById('cu-count');
 
   function update() {
     const checked = boxes.filter(b => b.checked).map(b => b.value);
     const n = checked.length;
+    count.textContent = String(n);
 
     results.classList.add('touched');
     bands.forEach(band => {

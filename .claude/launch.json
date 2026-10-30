@@ -5,7 +5,7 @@
       "name": "strategica-dev",
       "runtimeExecutable": "/opt/homebrew/opt/node/bin/node",
       "runtimeArgs": [
-        "/Users/edoardomarcis/Desktop/Sito/node_modules/.bin/astro",
+        "/Users/edoardomarcis/Desktop/strategica/node_modules/.bin/astro",
         "dev",
         "--port",
         "4321"

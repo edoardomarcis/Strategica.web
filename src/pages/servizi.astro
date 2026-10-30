@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import WaveDivider from '../components/WaveDivider.astro';
 import Mark from '../components/Mark.astro';
 import PrivacyNote from '../components/PrivacyNote.astro';
 import { service } from '../utils/jsonld';
@@ -15,24 +14,19 @@ const jsonLd = service('Servizi Strategica');
   jsonLd={jsonLd}
 >
 
-<div class="c-glow" id="glow"></div>
-
 <!-- ── HERO ──────────────────────────────────────────────────────────── -->
-<section class="srv-hero">
-  <div class="srv-hero-inner g-l">
-    <div class="section-label">01 — Come aiutiamo</div>
+<section class="page-hero t-ink">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Come aiutiamo</span></div>
+  <div>
     <h1>Progettiamo come la tua organizzazione <em><Mark color="lime" viewBox="0 0 280 14" path="M2 9 C50 5, 120 13, 180 8 C230 5, 270 11, 278 8">decide, migliora, cresce.</Mark></em></h1>
-    <p class="srv-hero-sub">Governare la crescita è una cascata: sapere dove andate, misurarlo, organizzare persone e lavoro, ottimizzare ciò che funziona. Da caos a modello replicabile, con tre modi di lavorarci in base a dove siete adesso.</p>
-    <span class="srv-hero-micro">Scopri quale ha senso per il tuo momento.</span>
+    <p class="page-hero-sub">Governare la crescita è una cascata: sapere dove andate, misurarlo, organizzare persone e lavoro, ottimizzare ciò che funziona. Da caos a modello replicabile, con tre modi di lavorarci in base a dove siete adesso.</p>
+    <span class="page-hero-note">Scopri quale ha senso per il tuo momento.</span>
   </div>
-  <div class="srv-hero-deco" aria-hidden="true">S</div>
 </section>
 
-<WaveDivider from="dark" to="cream" h={52} path="M0 28 C180 12, 360 44, 540 26 C720 8, 900 42, 1080 24 C1260 8, 1380 36, 1440 22" />
-
 <!-- ── COME SCEGLIERE ───────────────────────────────────────────────── -->
-<section class="srv-choose">
-  <div class="section-label g-fade">02 — Il vostro momento</div>
+<section class="sec srv-choose t-cream">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Il vostro momento</span></div>
   <h2 class="g-fade">Da dove iniziate dipende da dove siete adesso.</h2>
   <div class="srv-choose-lead g-fade">
     <p>Non tutti hanno bisogno di fare la stessa cosa nello stesso momento. Capiamo dove siete nel passaggio da caos a un'azienda che si governa. Poi vi proponiamo da dove partire.</p>
@@ -52,25 +46,21 @@ const jsonLd = service('Servizi Strategica');
       <span class="srv-recog-act"><em>Rendete autonomo il team: Edu-coaching.</em></span>
     </div>
   </div>
-
-  <div class="srv-bg-num" aria-hidden="true">02</div>
 </section>
 
-<WaveDivider from="cream" to="warm" h={44} path="M0 22 C200 6, 400 38, 600 20 C800 4, 1000 36, 1200 18 C1320 8, 1400 28, 1440 16" />
-
 <!-- ── SERVIZIO I: IN-FORMAZIONE ─────────────────────────────────────── -->
-<section class="srv-section srv-section--warm" id="in-formazione">
-  <div class="srv-section-inner">
+<section class="sec srv-section t-warm" id="in-formazione">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Fase I</span></div>
+  <div class="srv-section-inner grid">
 
-    <div class="srv-section-left g-l">
-      <div class="section-label">03 — Fase I</div>
+    <div class="srv-section-left">
       <span class="srv-roman" aria-hidden="true">I.</span>
       <h2><em>In-formazione</em></h2>
       <span class="srv-tagline">vedi il sistema per quello che è.</span>
       <p class="service-tags">Diagnosi · Governance · Roadmap</p>
     </div>
 
-    <div class="srv-body g-r">
+    <div class="srv-body">
       <p>Una giornata di lavoro intenso con il vostro team. Guardiamo insieme come decidete, come coordinate il lavoro, dove le priorità si scontrano, dove l'informazione si perde.</p>
 
       <p>Esce una lettura che non avete: cosa blocca davvero la vostra crescita, dove state perdendo energia, come potete organizzarvi diversamente. Non è una slide di cortesia. È diagnosi operativa, concreta, utile dal primo giorno.</p>
@@ -122,24 +112,21 @@ const jsonLd = service('Servizi Strategica');
     </aside>
 
   </div>
-  <div class="srv-bg-num" aria-hidden="true">03</div>
 </section>
 
-<WaveDivider from="warm" to="dark" h={48} path="M0 26 C240 8, 480 42, 720 24 C960 6, 1200 40, 1440 18" />
-
 <!-- ── SERVIZIO II: STRATEGY SPRINT ──────────────────────────────────── -->
-<section class="srv-section srv-section--dark" id="strategy-sprint">
-  <div class="srv-section-inner">
+<section class="sec srv-section t-ink" id="strategy-sprint">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Fase II</span></div>
+  <div class="srv-section-inner grid">
 
-    <div class="srv-section-left g-l">
-      <div class="section-label" style="color:rgba(242,237,228,0.38);">04 — Fase II</div>
+    <div class="srv-section-left">
       <span class="srv-roman" aria-hidden="true">II.</span>
       <h2><em>Strategy Sprint</em></h2>
       <span class="srv-tagline">progetta come deciderete e scalerete.</span>
       <p class="service-tags">Governance · OKR · Esecuzione</p>
     </div>
 
-    <div class="srv-body g-r">
+    <div class="srv-body">
       <p>Entriamo nel vostro modo di decidere per un periodo definito (tipicamente 3-6 mesi). Non come osservatori. Come un team che lavora accanto al vostro con un obiettivo preciso: come la vostra organizzazione prenderà decisioni, misurerà i risultati, governerà la crescita nel tempo.</p>
 
       <p>Non è aggiungere persone o attività. È ridisegnare la struttura stessa con cui decidete. Governance chiara, processi replicabili, metriche visibili. Quello che rimane quando noi non ci siamo più.</p>
@@ -171,24 +158,21 @@ const jsonLd = service('Servizi Strategica');
     </div>
 
   </div>
-  <div class="srv-bg-num" aria-hidden="true">04</div>
 </section>
 
-<WaveDivider from="dark" to="cream" h={44} path="M0 20 C300 6, 600 36, 900 18 C1100 6, 1280 30, 1440 14" />
-
 <!-- ── SERVIZIO III: EDU-COACHING ───────────────────────────────────── -->
-<section class="srv-section srv-section--cream" id="edu-coaching">
-  <div class="srv-section-inner">
+<section class="sec srv-section t-cream" id="edu-coaching">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Fase III</span></div>
+  <div class="srv-section-inner grid">
 
-    <div class="srv-section-left g-l">
-      <div class="section-label">05 — Fase III</div>
+    <div class="srv-section-left">
       <span class="srv-roman" aria-hidden="true">III.</span>
       <h2><em>Edu-coaching</em></h2>
       <span class="srv-tagline">trasforma il modello in pratica autonoma.</span>
       <p class="service-tags">OKR coaching · Facilitazione · Trasferimento metodo</p>
     </div>
 
-    <div class="srv-body g-r">
+    <div class="srv-body">
       <p>Il momento più critico di qualunque trasformazione è quando gli esterni se ne vanno. Molte organizzazioni, senza supporto continuativo, tornano al caos. Non perché il modello disegnato fosse sbagliato. Perché non era diventato pratica vera nel team.</p>
 
       <p>L'Edu-coaching trasforma il modello da idea in abitudine. Il vostro team diventa autonomo nel metodo. Noi non siamo più necessari.</p>
@@ -219,30 +203,22 @@ const jsonLd = service('Servizi Strategica');
     </div>
 
   </div>
-  <div class="srv-bg-num" aria-hidden="true">05</div>
 </section>
 
-<WaveDivider from="cream" to="dark" h={48} path="M0 24 C180 8, 360 40, 540 22 C720 6, 900 38, 1080 20 C1260 4, 1380 32, 1440 18" />
-
 <!-- ── COSA NON FACCIAMO ────────────────────────────────────────────── -->
-<section class="srv-no" id="cosa-non-facciamo">
-  <div class="section-label g-fade">06 — Perimetro</div>
+<section class="sec srv-no t-ink" id="cosa-non-facciamo">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Perimetro</span></div>
   <h2 class="g-fade">Quello che non facciamo, e perché.</h2>
   <p class="g-fade">Non vendiamo esecuzione scollegata dalla strategia. Non vendiamo corsi di formazione standard. Non entriamo in progetti dove l'obiettivo è confermare decisioni già prese.</p>
   <p class="g-fade">Non facciamo body rental, non gonfiamo scope, non crediamo ai template universali. Quando un lavoro non ha senso per noi, lo diciamo. Spesso è la cosa più utile che possiamo fare.</p>
-  <div class="srv-bg-num" aria-hidden="true">06</div>
 </section>
 
-<WaveDivider from="dark" to="warm" h={44} path="M0 20 C300 6, 600 36, 900 18 C1100 6, 1280 30, 1440 14" />
-
 <!-- ── FAQ ────────────────────────────────────────────────────────────── -->
-<section class="faq" id="faq-servizi">
-  <div class="faq-header g-fade">
-    <div class="section-label">07 — Domande frequenti</div>
-    <h2 class="faq-title">Quello che ci chiedono prima di iniziare.</h2>
-  </div>
-
-  <div class="faq-list g-fade">
+<section class="sec t-warm" id="faq-servizi">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Domande frequenti</span></div>
+  <div class="grid">
+  <h2 class="faq-title">Quello che ci chiedono prima di iniziare.</h2>
+  <div class="faq-list">
 
     <details class="faq-item">
       <summary class="faq-q">Posso saltare In-formazione e andare direttamente a Strategy Sprint?</summary>
@@ -287,14 +263,13 @@ const jsonLd = service('Servizi Strategica');
     </details>
 
   </div>
+  </div>
 </section>
 
-<WaveDivider from="warm" to="terra" h={44} path="M0 22 C200 6, 400 38, 600 20 C800 4, 1000 36, 1200 18 C1320 8, 1400 28, 1440 16" />
-</div>
 
 <!-- ── CLOSING ───────────────────────────────────────────────────────── -->
-<section class="srv-closing" id="contatti-servizi">
-  <div class="section-label g-fade">08 — Inizia da qui</div>
+<section class="sec srv-closing t-terra" id="contatti-servizi">
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Inizia da qui</span></div>
   <h2 class="g-fade">Non sai da dove partire?</h2>
   <p class="srv-closing-body g-fade">Va bene. La maggior parte delle organizzazioni non lo sa quando ci contatta.</p>
   <p class="srv-closing-body g-fade">Scrivici due righe sul momento che state attraversando. Ti rispondiamo dicendoti quale dei tre ha senso, o se adesso nessuno ha senso.</p>
@@ -302,401 +277,99 @@ const jsonLd = service('Servizi Strategica');
   <div class="target-cta g-fade">
     <a href="mailto:hello@wearestrategica.com?subject=Vorrei%20parlarne" class="btn-white">Scrivici →</a>
   </div>
-  <PrivacyNote dark />
+  <PrivacyNote />
 </section>
 
-<!-- ── FOOTER ────────────────────────────────────────────────────────── -->
-<footer>
-  <div>
-    <a href="/" class="footer-logo">Strat<em>egica</em></a>
-    <span class="footer-tagline">Consulenza che punta a rendersi inutile.</span>
-  </div>
-  <ul class="footer-nav">
-    <li><a href="/#approccio">Approccio</a></li>
-    <li><a href="/servizi">Servizi</a></li>
-    <li><a href="/chi-siamo">Chi siamo</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/#contatti">Contatti</a></li>
-  <li><a href="/privacy">Privacy</a></li>
-  </ul>
-  <div class="footer-copy">© {new Date().getFullYear()} Strategica. Consulenza Strategica. &nbsp;&nbsp; Milano, Italia</div>
-</footer>
-
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <style>
-  /* ─── SERVIZI — page-specific styles ───────────────────────────────── */
-
-  .srv-hero {
-    min-height: 100svh;
-    padding: 140px 80px 112px;
-    display: flex; align-items: flex-end;
-    background:
-      radial-gradient(ellipse 50% 35% at 88% 0%, rgba(242,237,228,0.045) 0%, transparent 55%),
-      radial-gradient(ellipse 65% 55% at 100% 8%,  rgba(196,98,42,0.14) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 50% at 0%  90%,  rgba(168,132,58,0.06) 0%, transparent 55%),
-      var(--dark);
-    color: var(--cream);
-    position: relative; overflow: hidden;
-  }
-  .srv-hero-inner { position: relative; z-index: 1; max-width: 100%; }
-  .srv-hero h1 {
-    font-size: clamp(38px, 5.2vw, 80px);
-    font-weight: 300; line-height: 1.08; letter-spacing: -0.018em;
-    margin-bottom: 32px;
-    max-width: 900px;
-  }
-  .srv-hero-sub {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px; font-weight: 300; line-height: 1.82;
-    color: rgba(242,237,228,0.52); max-width: 700px;
-    margin-bottom: 18px;
-  }
-  .srv-hero-micro {
-    font-family: 'Caveat', cursive;
-    font-size: 19px; color: rgba(242,237,228,0.28);
-  }
-  .srv-hero-deco {
-    position: absolute; right: -60px; bottom: -80px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 520px; font-weight: 300; font-style: italic; line-height: 1;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(196,98,42,0.06);
-    pointer-events: none; user-select: none; z-index: 0;
-  }
-
-  .srv-choose {
-    background: var(--cream);
-    padding: 96px 80px 88px;
-    border-top: 1px solid rgba(212,200,180,0.4);
-    position: relative; overflow: hidden;
-  }
-  .srv-choose h2 {
-    font-size: clamp(40px, 4.8vw, 70px);
-    font-weight: 300; line-height: 1.04; letter-spacing: -0.015em;
-    margin-bottom: 8px;
-  }
-  .srv-choose-lead {
-    font-size: 19px; font-weight: 300; line-height: 1.78;
-    color: var(--ink-soft); max-width: 660px;
-    margin-bottom: 56px;
-  }
-  .srv-choose-lead p + p { margin-top: 14px; }
-
-  .srv-recog { border-top: 1px solid var(--rule-l); max-width: 900px; }
+  .srv-choose h2, .srv-no h2 { font-size: var(--t-h2); margin-bottom: 32px; max-width: 16em; }
+  .srv-choose-lead { font-size: var(--t-lead); line-height: 1.5; color: var(--fg2); max-width: 34em; margin-bottom: clamp(40px, 5vw, 80px); }
+  .srv-recog { border-bottom: 1px solid var(--line); }
   .srv-recog-item {
-    padding: 30px 0; border-bottom: 1px solid var(--rule-l);
-    display: grid; grid-template-columns: 1fr; gap: 10px;
-    transition: padding-left .22s;
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--col-gap); row-gap: 8px;
+    align-items: baseline;
+    border-top: 1px solid var(--line); padding: 20px 0;
   }
-  .srv-recog-item:hover { padding-left: 10px; }
-  .srv-recog-cond {
-    font-size: 19px; font-weight: 400; color: var(--ink); line-height: 1.5;
-  }
+  .srv-recog-cond { grid-column: 1 / span 6; }
   .srv-recog-act {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-style: italic; font-weight: 300;
-    color: var(--terra);
-  }
-  .srv-choose .srv-bg-num { right: -40px; }
-
-  .srv-section {
-    padding: 96px 80px 88px;
-    position: relative; overflow: hidden;
-  }
-  .srv-section--warm {
-    background:
-      radial-gradient(ellipse 55% 60% at 95% 10%, rgba(196,98,42,0.06) 0%, transparent 55%),
-      radial-gradient(ellipse 45% 45% at 5%  90%, rgba(168,132,58,0.05) 0%, transparent 50%),
-      var(--warm);
-    border-top: 1px solid rgba(212,200,180,0.4);
-  }
-  .srv-section--dark {
-    background:
-      radial-gradient(ellipse 50% 35% at 88% 0%, rgba(242,237,228,0.045) 0%, transparent 55%),
-      radial-gradient(ellipse 60% 50% at 100% 0%,  rgba(196,98,42,0.12) 0%, transparent 55%),
-      radial-gradient(ellipse 45% 50% at 0%  100%, rgba(196,98,42,0.05) 0%, transparent 50%),
-      var(--dark);
-    color: var(--cream);
-  }
-  .srv-section--cream {
-    background:
-      radial-gradient(ellipse 55% 55% at 0%   100%, rgba(196,98,42,0.06) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 40% at 100% 0%,  rgba(168,132,58,0.05) 0%, transparent 50%),
-      var(--cream);
-    border-top: 1px solid rgba(212,200,180,0.4);
+    grid-column: 8 / -1;
+    font-family: var(--serif); font-size: clamp(26px, 2.4vw, 36px); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em;
+    color: var(--accent);
   }
 
-  .srv-section-inner {
-    display: grid; grid-template-columns: auto 1fr;
-    gap: 48px; align-items: start;
-  }
-  .srv-section-left { position: sticky; top: 88px; width: 220px; flex-shrink: 0; }
-
+  .srv-section-inner { row-gap: 48px; }
+  .srv-section-left { grid-column: 1 / span 5; align-self: start; position: sticky; top: calc(var(--nav-h) + 24px); }
   .srv-roman {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 72px; font-weight: 300; font-style: italic; line-height: 1;
-    color: rgba(196,98,42,0.25); display: block; margin-bottom: 2px;
+    display: block; margin-bottom: 8px;
+    font-family: var(--serif); font-size: var(--t-h3); font-style: italic; font-weight: 300; line-height: 1;
+    color: var(--accent);
   }
-  .srv-section--dark .srv-roman { color: rgba(196,98,42,0.4); }
+  .srv-section h2 { font-size: clamp(44px, 5.4vw, 88px); margin-bottom: 12px; }
+  .srv-tagline { display: block; margin-bottom: 16px; font-family: var(--hand); font-size: 24px; color: var(--fg2); }
 
-  .srv-section h2 {
-    font-size: clamp(34px, 4vw, 56px);
-    font-weight: 300; line-height: 1.06; letter-spacing: -0.015em;
-    margin-bottom: 4px;
-  }
-  .srv-section h2 em { font-style: italic; color: var(--terra); }
-  .srv-section--dark h2 em { color: var(--terra-l); }
-
-  .srv-tagline {
-    font-family: 'Caveat', cursive;
-    font-size: 19px; color: var(--terra);
-    display: block; margin-bottom: 28px;
-  }
-  .srv-section--dark .srv-tagline { color: var(--terra-l); }
-
-  .srv-body { max-width: 680px; }
-  .srv-body p {
-    font-size: 19px; font-weight: 300; line-height: 1.78;
-    color: var(--ink-soft); margin-bottom: 18px;
-  }
-  .srv-section--dark .srv-body p { color: rgba(242,237,228,0.62); }
-  .srv-body p strong { color: var(--ink); font-weight: 400; }
-  .srv-section--dark .srv-body p strong { color: var(--cream); }
-
-  .srv-subblock { margin-top: 40px; }
-  .srv-subblock-label {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10px; letter-spacing: 0.20em; text-transform: uppercase;
-    color: var(--terra); margin-bottom: 18px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .srv-subblock-label::before {
-    content: ''; display: block; width: 24px; height: 1px; background: var(--terra);
-  }
-  .srv-section--dark .srv-subblock-label { color: var(--terra-l); }
-  .srv-section--dark .srv-subblock-label::before { background: var(--terra-l); }
-
-  .srv-subblock > p {
-    font-size: 18px; font-weight: 300; line-height: 1.76;
-    color: var(--ink-soft); margin-bottom: 16px;
-  }
-  .srv-section--dark .srv-subblock > p { color: rgba(242,237,228,0.58); }
-
-  .srv-esce {
-    margin: 0; padding: 0; list-style: none;
-    border-top: 1px solid rgba(212,200,180,0.45);
-  }
-  .srv-section--dark .srv-esce { border-color: rgba(255,255,255,0.07); }
-  .srv-esce li {
-    padding: 14px 0; border-bottom: 1px solid rgba(212,200,180,0.35);
-    font-size: 17px; font-weight: 300; line-height: 1.62;
-    color: var(--ink-soft);
-    display: flex; align-items: baseline; gap: 14px;
-  }
-  .srv-section--dark .srv-esce li {
-    color: rgba(242,237,228,0.56); border-color: rgba(255,255,255,0.06);
-  }
-  .srv-esce li::before {
-    content: '—';
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px; color: rgba(196,98,42,0.45); flex-shrink: 0;
-  }
-
+  .srv-body { grid-column: 7 / -1; }
+  .srv-body > p { color: var(--fg2); margin-bottom: 16px; }
+  .srv-body > p:first-child { font-size: var(--t-lead); line-height: 1.5; color: var(--fg); }
+  .srv-body strong { color: var(--fg); font-weight: 400; }
+  .srv-subblock { margin-top: 48px; }
+  .srv-subblock-label { font-size: var(--t-meta); color: var(--fg2); margin-bottom: 12px; }
+  .srv-subblock > p { color: var(--fg2); margin-bottom: 16px; }
+  .srv-esce { list-style: none; border-bottom: 1px solid var(--line); }
+  .srv-esce li { border-top: 1px solid var(--line); padding: 12px 0; color: var(--fg2); }
   .srv-perchi {
-    margin-top: 36px;
-    border-left: 3px solid var(--terra);
-    padding: 16px 22px;
-    background: rgba(196,98,42,0.04);
-    border-radius: 0 6px 6px 0;
+    margin-top: 48px;
+    font-family: var(--serif); font-style: italic; font-weight: 300;
+    font-size: clamp(26px, 2.2vw, 34px); line-height: 1.12; letter-spacing: -0.015em;
   }
-  .srv-section--dark .srv-perchi { background: rgba(196,98,42,0.08); }
-  .srv-perchi p {
-    font-size: 17px; font-style: italic; font-weight: 300;
-    line-height: 1.72; color: var(--ink-soft);
-  }
-  .srv-section--dark .srv-perchi p { color: rgba(242,237,228,0.52); }
 
-  .srv-section--dark :global(.service-tags) { color: rgba(242,237,228,0.38); }
+  .srv-no p { font-size: var(--t-lead); line-height: 1.5; color: var(--fg2); max-width: 36em; }
+  .srv-no p + p { margin-top: 16px; }
 
-  .srv-no {
-    background:
-      radial-gradient(ellipse 50% 35% at 88% 0%, rgba(242,237,228,0.045) 0%, transparent 55%),
-      radial-gradient(ellipse 55% 50% at 100% 50%, rgba(196,98,42,0.08) 0%, transparent 55%),
-      var(--dark);
-    color: var(--cream);
-    padding: 96px 80px 88px;
-    position: relative; overflow: hidden;
-  }
-  .srv-no .section-label { color: rgba(242,237,228,0.38); }
-  .srv-no .section-label::before { background: var(--terra); }
-  .srv-no h2 {
-    font-size: clamp(38px, 4.6vw, 66px);
-    font-weight: 300; line-height: 1.06; letter-spacing: -0.015em;
-    margin-bottom: 36px; max-width: 960px;
-  }
-  .srv-no p {
-    font-size: 20px; font-weight: 300; line-height: 1.82;
-    color: rgba(242,237,228,0.60); max-width: 920px;
-  }
-  .srv-no p + p { margin-top: 20px; }
+  .srv-closing h2 { font-size: var(--t-h1); line-height: 0.96; margin-bottom: 32px; }
+  .srv-closing-body { font-size: var(--t-lead); line-height: 1.5; color: var(--ink); max-width: 32em; margin-bottom: 12px; }
+  .srv-closing-micro { display: block; font-family: var(--hand); font-size: 26px; color: var(--ink); }
 
-  .srv-bg-num {
-    position: absolute; bottom: -70px; right: -20px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 300px; font-weight: 300; font-style: italic; line-height: 1;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(196,98,42,0.07);
-    pointer-events: none; user-select: none; letter-spacing: -0.02em;
-    z-index: 0;
-  }
-  .srv-section--dark .srv-bg-num,
-  .srv-no .srv-bg-num { -webkit-text-stroke: 1px rgba(255,255,255,0.035); }
-
-  .srv-closing {
-    background: var(--terra);
-    padding: 104px 80px 112px;
-    text-align: center; position: relative; overflow: hidden;
-  }
-  .srv-closing::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 80% at 15% 50%, rgba(255,255,255,0.08) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 60% at 85% 50%, rgba(0,0,0,0.08) 0%, transparent 55%);
-  }
-  .srv-closing .section-label {
-    color: rgba(248,245,240,0.40); justify-content: center;
-    margin-bottom: 32px; position: relative; z-index: 1;
-  }
-  .srv-closing .section-label::before { background: rgba(248,245,240,0.35); }
-  .srv-closing h2 {
-    font-size: clamp(36px, 4.6vw, 68px);
-    font-weight: 300; line-height: 1.08; letter-spacing: -0.015em;
-    color: rgba(248,245,240,0.95); margin-bottom: 28px;
-    position: relative; z-index: 1;
-  }
-  .srv-closing-body {
-    font-size: 19px; font-weight: 300; line-height: 1.78;
-    color: rgba(248,245,240,0.62); max-width: 540px;
-    margin: 0 auto 14px; position: relative; z-index: 1;
-  }
-  .srv-closing-micro {
-    font-family: 'Caveat', cursive; font-size: 18px;
-    color: rgba(248,245,240,0.38); display: block;
-    margin-top: 6px; margin-bottom: 52px;
-    position: relative; z-index: 1;
-  }
-  .srv-closing .target-cta { position: relative; z-index: 1; }
-
-  /* ── il biglietto d'ingresso ─────────────────────────────────────── */
+  /* il biglietto d'ingresso: unico oggetto "fisico" della pagina */
   .ticket {
     grid-column: 1 / -1;
-    margin-top: 48px;
-    display: grid; grid-template-columns: 1fr 120px;
-    border: 1px solid rgba(28,24,20,0.4);
-    border-radius: 6px;
-    background: #FFFDF8;
-    box-shadow: var(--d3);
-    transform: rotate(-0.35deg);
-    position: relative;
+    display: grid; grid-template-columns: 1fr 96px;
+    background: var(--cream);
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    --line: var(--rule);
   }
-  .ticket-main { padding: 36px 40px 34px; }
+  .ticket-main { padding: clamp(24px, 3vw, 40px); }
   .ticket-over {
     display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--ink-soft);
+    font-size: var(--t-meta); color: var(--fg2);
   }
-  .ticket-over span:first-child { color: var(--terra); }
-  .ticket-main h3 {
-    font-size: clamp(26px, 3vw, 38px);
-    font-weight: 300; font-style: italic;
-    letter-spacing: -0.01em; line-height: 1.12;
-    margin: 14px 0 24px;
-  }
+  .ticket-main h3 { font-size: clamp(36px, 4.6vw, 72px); margin: 24px 0 32px; max-width: 14em; }
   .ticket-fields {
-    display: grid; grid-template-columns: repeat(3, auto);
-    gap: 16px 52px; width: fit-content;
-    margin: 0 0 30px;
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--col-gap);
+    margin-bottom: 32px; border-bottom: 1px solid var(--line);
   }
-  .ticket-fields div { display: flex; flex-direction: column; }
-  .ticket-fields dt {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(92,80,72,0.55);
-  }
-  .ticket-fields dd { font-size: 16px; margin: 3px 0 0; }
-  .ticket-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-  .ticket-fine { font-family: 'Caveat', cursive; font-size: 18px; color: var(--terra); }
+  .ticket-fields div { border-top: 1px solid var(--line); padding: 10px 0 16px; }
+  .ticket-fields dt { font-size: var(--t-meta); color: var(--fg2); }
+  .ticket-fields dd { margin-top: 4px; }
+  .ticket-cta { display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap; }
+  .ticket-fine { font-family: var(--hand); font-size: 22px; color: var(--fg2); }
   .ticket-stub {
-    border-left: 1px dashed rgba(28,24,20,0.45);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; padding: 20px 8px;
+    border-left: 1px dashed var(--ink);
+    display: flex; align-items: center; justify-content: center; padding: 16px 8px;
   }
-  /* i fori del taglio, colore della sezione dietro */
-  .ticket-stub::before,
-  .ticket-stub::after {
-    content: ''; position: absolute; left: -11px;
-    width: 20px; height: 20px; border-radius: 50%;
-    background: var(--warm);
-    border: 1px solid rgba(28,24,20,0.4);
-  }
-  .ticket-stub::before { top: -11px; }
-  .ticket-stub::after { bottom: -11px; }
   .ticket-stub-inner {
     writing-mode: vertical-rl;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--terra);
-    display: flex; align-items: center; gap: 14px;
+    font-size: var(--t-meta); color: var(--fg2);
+    display: flex; align-items: center; gap: 16px;
   }
-  .ticket-serial { font-size: 9px; letter-spacing: 0.16em; color: rgba(92,80,72,0.6); }
 
   @media (max-width: 900px) {
-    .srv-hero { padding: 100px 28px 80px; align-items: center; }
-    .srv-hero-deco { display: none; }
-    .srv-choose { padding: 72px 28px 64px; }
-    .srv-section { padding: 72px 28px 64px; }
-    .srv-section-inner { grid-template-columns: 1fr; gap: 32px; }
-    .srv-section-left { position: static; width: auto; }
-    .srv-no { padding: 72px 28px 64px; }
-    .srv-closing { padding: 80px 28px 88px; }
-    .target-cta { flex-direction: column; gap: 16px; }
-
+    .srv-recog-cond, .srv-recog-act, .srv-section-left, .srv-body { grid-column: 1 / -1; }
+    .srv-section-left { position: static; }
     .ticket { grid-template-columns: 1fr; }
-    .ticket-main { padding: 28px 24px; }
-    .ticket-fields { grid-template-columns: 1fr 1fr; gap: 14px 28px; width: auto; }
-    .ticket-stub {
-      border-left: none;
-      border-top: 1px dashed rgba(28,24,20,0.45);
-      min-height: 56px;
-    }
-    .ticket-stub::before { top: -11px; left: -11px; }
-    .ticket-stub::after { top: -11px; bottom: auto; left: auto; right: -11px; }
+    .ticket-fields { grid-template-columns: 1fr 1fr; }
+    .ticket-stub { border-left: none; border-top: 1px dashed var(--ink); padding: 12px 16px; }
     .ticket-stub-inner { writing-mode: horizontal-tb; }
-  }
-
-  @media (max-width: 540px) {
-    .srv-hero { padding: 80px 20px 64px; }
-    .srv-hero h1 { font-size: clamp(30px, 9vw, 48px); }
-    .srv-hero-sub { font-size: 14px; }
-
-    .srv-choose { padding: 56px 20px 52px; }
-    .srv-choose-lead { font-size: 17px; }
-    .srv-recog-cond { font-size: 17px; }
-    .srv-recog-act { font-size: 18px; }
-
-    .srv-section { padding: 56px 20px 52px; }
-    .srv-roman { font-size: 48px; }
-    .srv-tagline { font-size: 16px; }
-    .srv-body p { font-size: 17px; }
-
-    .srv-no { padding: 56px 20px 52px; }
-    .srv-no p { font-size: 17px; }
-
-    .srv-closing { padding: 64px 20px 72px; }
-    .srv-closing-body { font-size: 17px; }
   }
 </style>
 
