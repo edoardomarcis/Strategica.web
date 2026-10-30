@@ -2,16 +2,28 @@
 import Base from '../layouts/Base.astro';
 import Mark from '../components/Mark.astro';
 import Iceberg from '../components/Iceberg.astro';
+import LinePlate from '../components/LinePlate.astro';
 import ServicePlate from '../components/ServicePlate.astro';
 import PrivacyNote from '../components/PrivacyNote.astro';
+import { getCollection } from 'astro:content';
 import { organization, website } from '../utils/jsonld';
 
 const jsonLd = [organization(), website()];
+
+const latest = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const services = [
+  { n: 1, roman: 'I.', name: 'In-formazione', href: '/servizi#in-formazione', note: 'Si parte quasi sempre da qui', time: '1 giornata · da €1.200', desc: 'Una giornata con il tuo team. Ne esci con una lettura chiara: i problemi reali, cosa costa di più, le priorità, il primo passo concreto.' },
+  { n: 2, roman: 'II.', name: 'Strategy Sprint', href: '/servizi#strategy-sprint', note: 'Per ridisegnare come decidete', time: '3-6 mesi · su misura', desc: 'Lavoriamo accanto al tuo team. Ne escono governance scritta, OKR usati davvero e un piano di priorità concreto.' },
+  { n: 3, roman: 'III.', name: 'Edu-coaching', href: '/servizi#edu-coaching', note: 'Per renderlo un\'abitudine', time: 'di solito 2-3 trimestri · su misura', desc: 'Affianchiamo il team finché il metodo è suo, con persone interne che lo controllano e una nostra data di uscita chiara.' },
+] as const;
 ---
 
 <Base
   title="Consulenza strategica per PMI in crescita | Strategica"
-  description="Una giornata dentro la tua azienda per capire cosa blocca la crescita: diagnosi scritta e priorità. Da €1.200, nessun impegno dopo. Consulenza per PMI."
+  description="Aiutiamo le PMI italiane a crescere senza perdere il controllo: diagnosi, riorganizzazione e affiancamento al team, con perimetro e prezzi chiari da subito."
   jsonLd={jsonLd}
 >
 
@@ -23,93 +35,39 @@ const jsonLd = [organization(), website()];
   </div>
   <div class="hero-main">
     <div>
-      <h1>In una giornata capiamo <em><Mark color="lime" viewBox="0 0 160 14" path="M2 9 C24 5, 52 12, 82 8 C112 4, 138 11, 158 7">cosa blocca</Mark></em> la crescita della tua azienda.</h1>
-      <p class="hero-sub">Veniamo da voi, guardiamo come decidete e dove il lavoro si inceppa. Esci con una diagnosi scritta e una lista di priorità. Poi decidi tu se continuare.</p>
+      <h1>Aiutiamo le PMI a crescere senza perdere <em><Mark color="lime" viewBox="0 0 160 14" path="M2 9 C24 5, 52 12, 82 8 C112 4, 138 11, 158 7">il controllo.</Mark></em></h1>
+      <p class="hero-sub">Mettiamo ordine in come decidete, cosa misurate e dove spingete. Con una giornata di diagnosi, un percorso di qualche mese o l'affiancamento al team.</p>
       <div class="actions">
-        <a href="mailto:hello@wearestrategica.com?subject=In-formazione%20-%20richiesta%20informazioni" class="btn-white">Prenota la giornata →</a>
-        <a href="/check-up" class="btn-ghost-white">Fai prima il check-up</a>
+        <a href="#contatti" class="btn-white">Parliamone</a>
+        <a href="#servizi" class="btn-ghost-white">Come lavoriamo</a>
       </div>
     </div>
-    <aside class="sample" aria-label="Esempio di pre-analisi">
-      <div class="sample-head"><span>Pre-analisi</span><span>Esempio, non un cliente reale</span></div>
-      <h2>Cosa abbiamo visto</h2>
-      <ul>
-        <li>Prezzi, assunzioni e fornitori passano tutti dal titolare.</li>
-        <li>Commerciale e produzione lavorano su priorità diverse.</li>
-      </ul>
-      <h2>Da dove iniziare</h2>
-      <ol>
-        <li>Scrivere chi decide cosa, nelle prime tre aree.</li>
-        <li>Scegliere un numero da guardare ogni settimana.</li>
-        <li>Fermare i progetti che nessuno segue più.</li>
-      </ol>
-      <h2>Cosa non serve adesso</h2>
-      <ul><li>Un nuovo gestionale.</li></ul>
-    </aside>
+    <LinePlate seed="strategica" vertical draw class="hero-plate" />
   </div>
   <dl class="hero-facts">
-    <div><dt>1 giornata</dt><dd>con il tuo team</dd></div>
-    <div><dt>da €1.200</dt><dd>prezzo fisso</dd></div>
-    <div><dt>0 impegni</dt><dd>dopo la giornata</dd></div>
+    <div><dt>30+</dt><dd>anni di esperienza combinata</dd></div>
+    <div><dt>40+</dt><dd>aziende accompagnate, PMI e startup italiane</dd></div>
+    <div><dt>3</dt><dd>modi di lavorare insieme, con perimetro e prezzi chiari</dd></div>
   </dl>
 </section>
 
-<!-- ── COME FUNZIONA ─────────────────────────────────────────────────── -->
-<section class="sec t-warm" id="come-funziona">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Come funziona</span></div>
-  <h2 class="sec-title g-fade">Quattro passi, una sola giornata di lavoro.</h2>
-  <ol class="steps">
-    <li class="g-fade"><span class="steps-when">Prima</span><h3>Ci scrivi due righe</h3><p>Ci dici dove senti che qualcosa non torna. Fissiamo una prima conversazione: serve a capire, non a vendere.</p></li>
-    <li class="g-fade"><span class="steps-when">La giornata</span><h3>Veniamo da voi</h3><p>Guardiamo chi decide cosa, dove le priorità si scontrano, dove il lavoro si inceppa e quanto costano i blocchi.</p></li>
-    <li class="g-fade"><span class="steps-when">Cosa ti resta</span><h3>Una diagnosi scritta</h3><p>Pre-analisi e roadmap di priorità: quello che abbiamo visto, cosa non torna, da dove iniziare.</p></li>
-    <li class="g-fade"><span class="steps-when">Dopo</span><h3>Decidi tu</h3><p>Ti diciamo cosa serve dopo, se serve. A volte la risposta è niente. Non c'è nessun impegno.</p></li>
-  </ol>
-</section>
-
-<!-- ── PER CHI ───────────────────────────────────────────────────────── -->
-<section class="sec t-cream" id="per-chi">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Per chi</span></div>
-  <div class="grid">
-    <div class="fit">
-      <h2 class="sec-title g-fade">Ha più senso se…</h2>
-      <ul class="fit-list">
-        <li>siete tra 10 e 150 persone;</li>
-        <li>le decisioni importanti passano tutte da una persona;</li>
-        <li>ogni reparto ha le sue priorità, e nessuno sa quali vengono prima;</li>
-        <li>il fatturato cresce, ma margine e ore lavorate raccontano un'altra storia.</li>
-      </ul>
-      <p class="fit-no">Non ha senso se l'obiettivo è confermare una decisione già presa.</p>
-    </div>
-    <div class="diag g-fade">
-      <ul class="diag-sheet">
-        <li><span class="diag-box diag-box--x" aria-hidden="true"></span>Le decisioni importanti passano tutte da una persona sola.</li>
-        <li><span class="diag-box" aria-hidden="true"></span>I progetti partono con entusiasmo e muoiono senza che nessuno lo dichiari.</li>
-        <li><span class="diag-box diag-box--x" aria-hidden="true"></span>Il piano strategico esiste, ma nessuno lo apre da mesi.</li>
-        <li class="diag-more">e le altre sette ti aspettano.</li>
-      </ul>
-      <p class="diag-teaser-sub">Non sei sicuro? Dieci frasi, cinque minuti, nessun dato richiesto. Il risultato lo leggi da solo.</p>
-      <a href="/check-up" class="btn-dark">Fai il check-up →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── IL PROBLEMA ───────────────────────────────────────────────────── -->
-<section class="sec problem t-ink" id="approccio">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Cosa troviamo di solito</span><span class="folio-r">Tav. 01</span></div>
-  <h2 class="g-fade">
-    Dove non ci sono priorità chiare,
-    <em><Mark color="lime" viewBox="0 0 200 50" circle cx={100} cy={25} rx={96} ry={21}>decide qualcos'altro.</Mark></em>
-  </h2>
+<!-- ── COSA TROVIAMO ─────────────────────────────────────────────────── -->
+<section class="sec problem t-warm" id="approccio">
+  <div class="section-label"><span style="grid-column: 2 / span 7;">Cosa troviamo di solito</span><span class="folio-r">Tav. 01</span></div>
   <div class="grid">
     <div class="problem-right">
-      <p class="g-fade">Le aziende chiedono più lead, più persone, più tecnologia. Ma spesso nessuno ha scritto <strong>cosa conta davvero di più.</strong> E quando manca un criterio, il vuoto si riempie da solo.</p>
+      <h2 class="g-fade">
+        Dove non ci sono priorità chiare,
+        <em><Mark color="gold" viewBox="0 0 200 50" circle cx={100} cy={25} rx={96} ry={21}>decide qualcos'altro.</Mark></em>
+      </h2>
+      <p class="problem-lead g-fade">Le aziende chiedono più lead, più persone, più tecnologia. Ma spesso nessuno ha scritto cosa conta davvero di più. E quando manca un criterio, il vuoto si riempie da solo.</p>
       <ul class="decide">
         <li class="g-fade"><strong>Decide chi ha più peso.</strong> Nei gruppi grandi: comitati preparati, e alla fine vince chi ha più voce nella stanza.</li>
         <li class="g-fade"><strong>Decide l'occasione.</strong> Senza una direzione non c'è motivo per dire no: ogni cliente sembra buono, ogni progetto strategico.</li>
         <li class="g-fade"><strong>Decide l'imprenditore.</strong> Su tutto. E diventa il collo di bottiglia dell'azienda che ha costruito.</li>
       </ul>
     </div>
-    <figure class="tavola problem-fig">
+    <figure class="tavola problem-fig t-ink">
       <Iceberg />
       <figcaption class="tavola-cap">
         <span>Tav. 01 · Sezione del problema</span>
@@ -119,85 +77,91 @@ const jsonLd = [organization(), website()];
   </div>
 </section>
 
-<!-- ── DOPO LA GIORNATA ──────────────────────────────────────────────── -->
-<section class="sec services t-warm" id="servizi">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Come lavoriamo</span></div>
-  <h2 class="g-fade">Si parte dalla giornata. Il resto, <em>solo se serve.</em></h2>
-  <div class="services-list">
-    <article class="service-row grid g-fade">
-      <div class="service-icon" aria-hidden="true">I.</div>
-      <div class="service-head">
-        <h3><a href="/servizi#in-formazione">In-formazione</a></h3>
-        <span class="service-time">1 giornata · da €1.200</span>
-      </div>
-      <div class="service-body">
-        <p>Una giornata di lavoro con il tuo team. Consegniamo una lettura chiara: i problemi reali, cosa costa di più, le priorità, il primo passo concreto.</p>
-      </div>
-      <div class="service-fig"><ServicePlate n={1} /></div>
-    </article>
-    <article class="service-row grid g-fade">
-      <div class="service-icon" aria-hidden="true">II.</div>
-      <div class="service-head">
-        <h3><a href="/servizi#strategy-sprint">Strategy Sprint</a></h3>
-        <span class="service-time">3-6 mesi · su misura</span>
-      </div>
-      <div class="service-body">
-        <p>Lavoriamo accanto al tuo team. Ne escono governance scritta, OKR usati davvero e un piano di priorità concreto.</p>
-      </div>
-      <div class="service-fig"><ServicePlate n={2} /></div>
-    </article>
-    <article class="service-row grid g-fade">
-      <div class="service-icon" aria-hidden="true">III.</div>
-      <div class="service-head">
-        <h3><a href="/servizi#edu-coaching">Edu-coaching</a></h3>
-        <span class="service-time">di solito 2-3 trimestri · su misura</span>
-      </div>
-      <div class="service-body">
-        <p>Affianchiamo il team finché il metodo diventa abitudine, con una o due persone interne che lo controllano e una nostra data di uscita chiara.</p>
-      </div>
-      <div class="service-fig"><ServicePlate n={3} /></div>
-    </article>
+<!-- ── COME LAVORIAMO ────────────────────────────────────────────────── -->
+<section class="sec services t-ink" id="servizi">
+  <div class="section-label"><span style="grid-column: 2 / span 7;">Come lavoriamo</span></div>
+  <h2 class="g-fade">Tre modi di lavorare insieme. <em>Si arriva all'autonomia.</em></h2>
+  <div class="service-cols">
+    {services.map((s) => (
+      <article class="service-col g-fade">
+        <div class="service-col-top"><span class="service-roman" aria-hidden="true">{s.roman}</span><span>{s.note}</span></div>
+        <div class="service-fig"><ServicePlate n={s.n} /></div>
+        <h3><a href={s.href}>{s.name}</a></h3>
+        <p class="service-time">{s.time}</p>
+        <p class="service-desc">{s.desc}</p>
+        <span class="service-more" aria-hidden="true">Cosa comprende →</span>
+      </article>
+    ))}
   </div>
-  <div class="services-footer">
-    <p>Vuoi vedere come si articola ogni servizio e cosa esce concretamente?</p>
-    <a href="/servizi" class="btn-ghost">Scopri i dettagli</a>
+</section>
+
+<!-- ── CHECK-UP ──────────────────────────────────────────────────────── -->
+<section class="sec t-cream" id="check-up">
+  <div class="section-label"><span style="grid-column: 2 / span 7;">Autodiagnosi</span></div>
+  <div class="grid">
+    <div class="diag-left g-fade">
+      <h2 class="diag-title">Dieci frasi.<br>Conta quante sono <em>vere.</em></h2>
+      <p class="diag-sub">Cinque minuti, nessun dato richiesto. Il risultato lo leggi da solo.</p>
+      <a href="/check-up" class="btn-dark">Fai il check-up →</a>
+    </div>
+    <ul class="diag-sheet g-fade">
+      <li><span class="diag-box diag-box--x" aria-hidden="true"></span>Le decisioni importanti passano tutte da una persona sola.</li>
+      <li><span class="diag-box" aria-hidden="true"></span>I progetti partono con entusiasmo e muoiono senza che nessuno lo dichiari.</li>
+      <li><span class="diag-box diag-box--x" aria-hidden="true"></span>Il piano strategico esiste, ma nessuno lo apre da mesi.</li>
+      <li class="diag-more">e le altre sette ti aspettano.</li>
+    </ul>
   </div>
 </section>
 
 <!-- ── CHI SIAMO ─────────────────────────────────────────────────────── -->
 <section class="sec why t-ink" id="chi-siamo">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Chi siamo</span></div>
+  <div class="section-label"><span style="grid-column: 2 / span 7;">Chi siamo</span></div>
   <div class="grid">
+    <div class="why-faces">
+      <figure>
+        <img src="/images/team/edoardo.jpg" alt="Foto di Edoardo Marcis" loading="lazy" width="640" height="640" />
+        <figcaption>Edoardo Marcis<br>Strategia & growth</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/team/andrea.jpg" alt="Foto di Andrea Cavaliere" loading="lazy" width="640" height="640" />
+        <figcaption>Andrea Cavaliere<br>Performance & facilitazione</figcaption>
+      </figure>
+    </div>
     <div class="why-left">
       <h2 class="g-fade">
         Consulenza che punta
         <em><Mark color="lime" viewBox="0 0 200 50" circle cx={100} cy={25} rx={96} ry={21}>a rendersi inutile.</Mark></em>
       </h2>
-      <div class="why-body">
-        <p>Siamo professionisti senior: strategia da una parte, performance marketing dall'altra. Non vendiamo progetti più grandi del necessario. Se a fine percorso hai ancora bisogno di noi per ogni scelta, abbiamo fallito.</p>
-      </div>
-      <dl class="why-facts">
-        <div><dt>30+</dt><dd>anni di esperienza combinata</dd></div>
-        <div><dt>40+</dt><dd>aziende accompagnate, PMI e startup italiane</dd></div>
-      </dl>
-      <a href="/chi-siamo" class="btn-ghost-white why-team-cta">Conosci il team</a>
-    </div>
-    <div class="why-faces">
-      <figure>
-        <img src="/images/team/edoardo.jpg" alt="Foto di Edoardo Marcis" loading="lazy" width="640" height="640" />
-        <figcaption>Edoardo Marcis · Strategia & growth</figcaption>
-      </figure>
-      <figure>
-        <img src="/images/team/andrea.jpg" alt="Foto di Andrea Cavaliere" loading="lazy" width="640" height="640" />
-        <figcaption>Andrea Cavaliere · Performance & facilitazione</figcaption>
-      </figure>
+      <p class="why-body">Strategia da una parte, performance marketing dall'altra. I consulenti strategici si fermano al documento, le agenzie partono dal canale: noi teniamo insieme la direzione e i numeri che dicono se sta funzionando.</p>
+      <p class="why-body">Non vendiamo progetti più grandi del necessario. Se a fine percorso hai ancora bisogno di noi per ogni scelta, abbiamo fallito.</p>
+      <a href="/chi-siamo" class="btn-ghost-white">Conosci il team</a>
     </div>
   </div>
 </section>
 
+<!-- ── DAL BLOG ──────────────────────────────────────────────────────── -->
+<section class="sec t-warm" id="blog">
+  <div class="section-label"><span style="grid-column: 2 / span 7;">Dal blog</span></div>
+  <div class="latest-head">
+    <h2>Idee scritte per <em>capire prima di agire.</em></h2>
+    <a href="/blog" class="btn-ghost">Tutti gli articoli</a>
+  </div>
+  <div class="latest">
+    {latest.map((post) => (
+      <a href={`/blog/${post.slug}`} class="latest-card g-fade">
+        <div class="latest-cover t-ink">
+          {post.data.coverImage ? <img src={post.data.coverImage} alt="" loading="lazy" /> : <LinePlate seed={post.slug} />}
+        </div>
+        <span class="latest-tag">{(post.data.tags ?? []).slice(0, 2).join(' · ')}</span>
+        <h3>{post.data.title}</h3>
+      </a>
+    ))}
+  </div>
+</section>
+
 <!-- ── FAQ ────────────────────────────────────────────────────────────── -->
-<section class="sec t-warm" id="faq">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Domande frequenti</span></div>
+<section class="sec t-cream" id="faq">
+  <div class="section-label"><span style="grid-column: 2 / span 7;">Domande frequenti</span></div>
   <div class="grid">
     <h2 class="faq-title">Le domande <em>giuste.</em></h2>
     <div class="faq-list">
@@ -250,8 +214,9 @@ const jsonLd = [organization(), website()];
 
 <!-- ── CTA ────────────────────────────────────────────────────────────── -->
 <section class="sec cta t-terra" id="contatti">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Inizia da qui</span></div>
+  <div class="section-label"><span style="grid-column: 2 / span 7;">Inizia da qui</span></div>
   <h2>Scrivici due righe su dove qualcosa non torna.</h2>
+  <p class="cta-lead">La prima conversazione serve a capire, non a vendere.</p>
   <div class="actions">
     <a href="mailto:hello@wearestrategica.com?subject=Vorrei%20parlarne&body=Dove%20sento%20che%20qualcosa%20non%20torna%3A%0A%0A" class="btn-white">Scrivici →</a>
     <a href="/check-up" class="btn-ghost-white">Fai il check-up</a>
