@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Mark from '../components/Mark.astro';
+import LinePlate from '../components/LinePlate.astro';
 import PrivacyNote from '../components/PrivacyNote.astro';
 
 const statements = [
@@ -32,6 +33,7 @@ const statements = [
     </h1>
     <p class="page-hero-sub">Un check-up onesto di quanto la tua azienda si governa, invece di andare a intuito. Cinque minuti, carta e penna, risposte d'istinto: se esiti su una frase, probabilmente è vera. Nessun form, nessun dato richiesto. Il risultato lo leggi da solo, in fondo.</p>
   </div>
+  <LinePlate seed="check-up" vertical draw class="page-hero-plate" />
 </header>
 
 <article class="sec t-warm checkup-main">

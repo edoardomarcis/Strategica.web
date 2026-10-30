@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import LinePlate from '../../components/LinePlate.astro';
 import { article } from '../../utils/jsonld';
 import { authors } from '../../utils/authors';
 import { getCollection } from 'astro:content';
@@ -40,6 +41,7 @@ const jsonLd = article(post);
     </div>
     <h1 class="post-title">{post.data.title}</h1>
     <p class="post-desc">{post.data.description}</p>
+    {!post.data.coverImage && <div class="post-plate"><LinePlate seed={post.slug} /></div>}
   </header>
 
   <div class="sec t-warm">
@@ -86,7 +88,8 @@ const jsonLd = article(post);
 .post-top { display: flex; justify-content: space-between; gap: 16px; font-size: var(--t-meta); color: var(--fg2); margin-bottom: clamp(48px, 7vw, 112px); }
 .post-top a { text-decoration: none; }
 .post-top a:hover { color: var(--fg); }
-.post-title { font-size: clamp(44px, 7vw, 112px); line-height: 0.98; max-width: 14em; }
+.post-title { font-size: clamp(40px, 5.6vw, 92px); line-height: 0.98; max-width: 16em; }
+.post-plate { height: clamp(140px, 22vw, 320px); margin-top: clamp(32px, 4vw, 56px); }
 .post-desc { font-size: var(--t-lead); line-height: 1.5; color: var(--fg2); max-width: 34em; margin-top: 32px; }
 
 .post-rail {

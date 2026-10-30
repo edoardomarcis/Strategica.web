@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Mark from '../components/Mark.astro';
+import ServicePlate from '../components/ServicePlate.astro';
 import PrivacyNote from '../components/PrivacyNote.astro';
 import { service } from '../utils/jsonld';
 
@@ -16,12 +17,16 @@ const jsonLd = service('Servizi Strategica');
 
 <!-- ── HERO ──────────────────────────────────────────────────────────── -->
 <section class="page-hero t-ink">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Come aiutiamo</span></div>
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Servizi</span></div>
   <div>
-    <h1>Progettiamo come la tua organizzazione <em><Mark color="lime" viewBox="0 0 280 14" path="M2 9 C50 5, 120 13, 180 8 C230 5, 270 11, 278 8">decide, migliora, cresce.</Mark></em></h1>
-    <p class="page-hero-sub">Governare la crescita è una cascata: sapere dove andate, misurarlo, organizzare persone e lavoro, ottimizzare ciò che funziona. Da caos a modello replicabile, con tre modi di lavorarci in base a dove siete adesso.</p>
-    <span class="page-hero-note">Scopri quale ha senso per il tuo momento.</span>
+    <h1>Tre modi di lavorare insieme. <em><Mark color="lime" viewBox="0 0 280 14" path="M2 9 C50 5, 120 13, 180 8 C230 5, 270 11, 278 8">Si parte da una giornata.</Mark></em></h1>
+    <p class="page-hero-sub">Una giornata di diagnosi, un percorso di riorganizzazione, l'affiancamento al team. Perimetro e prezzi chiari da subito.</p>
   </div>
+  <dl class="srv-compare">
+    <div><dt>I. In-formazione</dt><dd>1 giornata · da €1.200</dd></div>
+    <div><dt>II. Strategy Sprint</dt><dd>3-6 mesi · su misura</dd></div>
+    <div><dt>III. Edu-coaching</dt><dd>di solito 2-3 trimestri · su misura</dd></div>
+  </dl>
 </section>
 
 <!-- ── COME SCEGLIERE ───────────────────────────────────────────────── -->
@@ -50,14 +55,15 @@ const jsonLd = service('Servizi Strategica');
 
 <!-- ── SERVIZIO I: IN-FORMAZIONE ─────────────────────────────────────── -->
 <section class="sec srv-section t-warm" id="in-formazione">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Fase I</span></div>
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Servizio I</span></div>
   <div class="srv-section-inner grid">
 
     <div class="srv-section-left">
       <span class="srv-roman" aria-hidden="true">I.</span>
       <h2><em>In-formazione</em></h2>
-      <span class="srv-tagline">vedi il sistema per quello che è.</span>
+      <span class="srv-tagline">una giornata, una diagnosi scritta.</span>
       <p class="service-tags">Diagnosi · Governance · Roadmap</p>
+      <div class="srv-fig"><ServicePlate n={1} /></div>
     </div>
 
     <div class="srv-body">
@@ -116,14 +122,15 @@ const jsonLd = service('Servizi Strategica');
 
 <!-- ── SERVIZIO II: STRATEGY SPRINT ──────────────────────────────────── -->
 <section class="sec srv-section t-ink" id="strategy-sprint">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Fase II</span></div>
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Servizio II</span></div>
   <div class="srv-section-inner grid">
 
     <div class="srv-section-left">
       <span class="srv-roman" aria-hidden="true">II.</span>
       <h2><em>Strategy Sprint</em></h2>
-      <span class="srv-tagline">progetta come deciderete e scalerete.</span>
+      <span class="srv-tagline">3-6 mesi accanto al tuo team.</span>
       <p class="service-tags">Governance · OKR · Esecuzione</p>
+      <div class="srv-fig"><ServicePlate n={2} /></div>
     </div>
 
     <div class="srv-body">
@@ -162,14 +169,15 @@ const jsonLd = service('Servizi Strategica');
 
 <!-- ── SERVIZIO III: EDU-COACHING ───────────────────────────────────── -->
 <section class="sec srv-section t-cream" id="edu-coaching">
-  <div class="section-label"><span style="grid-column: 2 / span 8;">Fase III</span></div>
+  <div class="section-label"><span style="grid-column: 2 / span 8;">Servizio III</span></div>
   <div class="srv-section-inner grid">
 
     <div class="srv-section-left">
       <span class="srv-roman" aria-hidden="true">III.</span>
       <h2><em>Edu-coaching</em></h2>
-      <span class="srv-tagline">trasforma il modello in pratica autonoma.</span>
+      <span class="srv-tagline">finché il metodo non è vostro. Poi usciamo.</span>
       <p class="service-tags">OKR coaching · Facilitazione · Trasferimento metodo</p>
+      <div class="srv-fig"><ServicePlate n={3} /></div>
     </div>
 
     <div class="srv-body">
@@ -307,6 +315,11 @@ const jsonLd = service('Servizi Strategica');
   .srv-section h2 { font-size: clamp(44px, 5.4vw, 88px); margin-bottom: 12px; }
   .srv-tagline { display: block; margin-bottom: 16px; font-family: var(--hand); font-size: 24px; color: var(--fg2); }
 
+  .srv-compare { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--col-gap); row-gap: 16px; }
+  .srv-compare div { border-top: 1px solid var(--line); padding-top: 10px; }
+  .srv-compare dt { font-family: var(--serif); font-weight: 300; font-size: var(--t-h3); line-height: 1.05; letter-spacing: -0.02em; }
+  .srv-compare dd { font-size: var(--t-small); color: var(--fg2); margin-top: 4px; }
+  .srv-fig { margin-top: 32px; max-width: 360px; }
   .srv-body { grid-column: 7 / -1; }
   .srv-body > p { color: var(--fg2); margin-bottom: 16px; }
   .srv-body > p:first-child { font-size: var(--t-lead); line-height: 1.5; color: var(--fg); }
@@ -366,6 +379,7 @@ const jsonLd = service('Servizi Strategica');
   @media (max-width: 900px) {
     .srv-recog-cond, .srv-recog-act, .srv-section-left, .srv-body { grid-column: 1 / -1; }
     .srv-section-left { position: static; }
+    .srv-compare { grid-template-columns: 1fr; }
     .ticket { grid-template-columns: 1fr; }
     .ticket-fields { grid-template-columns: 1fr 1fr; }
     .ticket-stub { border-left: none; border-top: 1px dashed var(--ink); padding: 12px 16px; }

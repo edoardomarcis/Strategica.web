@@ -1,10 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 import Mark from '../components/Mark.astro';
+import LinePlate from '../components/LinePlate.astro';
 import PrivacyNote from '../components/PrivacyNote.astro';
+import Venn from '../components/Venn.astro';
 
 // Dario Saramin temporaneamente escluso dal team pubblico — richiesta di Edoardo, 8 luglio 2026.
 // Per ripristinarlo: riaggiungere qui il suo oggetto (nome, ruolo, bio, foto, linkedin).
+const levels = [
+  { name: 'Strategia', desc: 'Dove state andando, e come farete a saperlo. La north star con i suoi OKR.' },
+  { name: 'Processi', desc: 'Chi decide cosa, senza chiederlo ogni volta. Ruoli, criteri e punti di decisione espliciti.' },
+  { name: 'Dati', desc: 'I numeri veri in un posto solo di cui ci si fida. I KPI che contano, non cinque Excel che non tornano.' },
+  { name: 'Growth', desc: 'Si spinge dove i dati dicono di spingere. CAC, funnel, budget decisi sui numeri.' },
+];
+
 const teamMembers = [
   {
     name: 'Edoardo Marcis',
@@ -41,6 +50,7 @@ const teamMembers = [
       Due professionisti senior con background complementari, strategia e performance marketing. Stessa insofferenza per il pressapochismo, stessa idea di cosa significhi fare consulenza davvero.
     </p>
   </div>
+  <LinePlate seed="chi-siamo" vertical draw class="page-hero-plate" />
 </section>
 
 <!-- ── MANIFESTO ─────────────────────────────────────────────────────── -->
@@ -85,6 +95,36 @@ const teamMembers = [
       <p class="cs-block-phrase">Due mestieri che quasi nessuno tiene insieme.</p>
       <p class="cs-block-body">Strategia da una parte, performance marketing dall'altra. I consulenti strategici si fermano al documento e non sanno misurare l'acquisizione; le agenzie partono dal canale e non rimettono in discussione la strategia. Noi chiudiamo il cerchio: la direzione, e i numeri che dicono se sta funzionando.</p>
     </div>
+  </div>
+</section>
+
+<!-- ── COME RAGIONIAMO ───────────────────────────────────────────────── -->
+<section class="sec approach t-warm" id="come-ragioniamo">
+  <div class="section-label"><span style="grid-column: 2 / span 7;">Come ragioniamo</span><span class="folio-r">Tav. 02</span></div>
+  <div class="grid">
+    <div class="approach-head g-fade">
+      <h2>Quattro livelli, in quest'ordine.</h2>
+    </div>
+    <p class="approach-lead g-fade">Una cascata, dove ogni livello regge solo se regge quello sotto.</p>
+  </div>
+  <figure class="tavola">
+    <ol class="cascade">
+      {levels.map((level, i) => (
+        <li class="g-fade" style={`--i:${i}`}>
+          <div class="step-num">0{i + 1}</div>
+          <h3>{level.name}</h3>
+          <p class="step-desc">{level.desc}</p>
+        </li>
+      ))}
+    </ol>
+    <figcaption class="tavola-cap"><span>Tav. 02 · La cascata</span></figcaption>
+  </figure>
+  <div class="grid approach-method">
+    <p class="approach-pull g-fade">La growth senza metriche è spendere a caso, le metriche senza processi non sono affidabili, i processi senza strategia ottimizzano la direzione sbagliata.</p>
+    <figure class="tavola approach-venn">
+      <Venn />
+      <figcaption class="tavola-cap"><span>Tav. 03 · Il metodo</span></figcaption>
+    </figure>
   </div>
 </section>
 

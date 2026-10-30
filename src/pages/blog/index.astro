@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Mark from '../../components/Mark.astro';
+import LinePlate from '../../components/LinePlate.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -32,6 +33,7 @@ function fmtDate(d: Date) {
     </h1>
     <p class="page-hero-sub">Strategia, crescita, management. Senza fretta, senza ovvietà.</p>
   </div>
+  <LinePlate seed="blog" vertical draw class="page-hero-plate" />
 </header>
 
 <main class="sec t-warm blog-main">
@@ -44,6 +46,9 @@ function fmtDate(d: Date) {
           <div class="blog-meta">
             <span>Ultimo articolo</span>
             <span>{fmtDate(featured.data.pubDate)}</span>
+          </div>
+          <div class="blog-cover blog-cover--wide t-ink">
+            {featured.data.coverImage ? <img src={featured.data.coverImage} alt="" /> : <LinePlate seed={featured.slug} />}
           </div>
           <h2>{featured.data.title}</h2>
           <div class="grid">
@@ -65,12 +70,13 @@ function fmtDate(d: Date) {
       {rest.length > 0 && (
         <div class="blog-grid" id="blog-grid">
           {rest.map((post) => (
-            <a href={`/blog/${post.slug}`} class="blog-card grid" data-tags={(post.data.tags ?? []).join(',')}>
+            <a href={`/blog/${post.slug}`} class="blog-card" data-tags={(post.data.tags ?? []).join(',')}>
+              <div class="blog-cover t-ink">
+                {post.data.coverImage ? <img src={post.data.coverImage} alt="" loading="lazy" /> : <LinePlate seed={post.slug} />}
+              </div>
               <div class="blog-card-meta">
                 <span>{fmtDate(post.data.pubDate)}</span>
-                {(post.data.tags ?? []).slice(0, 2).map(tag => (
-                  <span class="blog-tag">{tag}</span>
-                ))}
+                <span>{(post.data.tags ?? []).slice(0, 2).join(' · ')}</span>
               </div>
               <h3 class="blog-card-title">{post.data.title}</h3>
               <p class="blog-card-desc">{post.data.description}</p>
@@ -95,7 +101,7 @@ function fmtDate(d: Date) {
 
 .blog-featured { display: block; text-decoration: none; padding-bottom: clamp(64px, 8vw, 128px); }
 .blog-meta { display: flex; justify-content: space-between; gap: 16px; font-size: var(--t-meta); color: var(--fg2); margin-bottom: clamp(32px, 4vw, 64px); }
-.blog-featured h2 { font-size: clamp(44px, 7vw, 112px); line-height: 0.98; max-width: 14em; margin-bottom: 32px; transition: color .2s; }
+.blog-featured h2 { font-size: clamp(40px, 5.6vw, 88px); line-height: 0.98; max-width: 16em; margin-bottom: 24px; transition: color .2s; }
 .blog-featured:hover h2 { color: var(--accent); }
 .blog-featured-desc { grid-column: 1 / span 6; font-size: var(--t-lead); line-height: 1.5; color: var(--fg2); }
 .blog-featured-cta { grid-column: 8 / -1; justify-self: end; align-self: end; }
@@ -111,22 +117,25 @@ function fmtDate(d: Date) {
 .filter-btn:hover { color: var(--fg); }
 .filter-btn--active { color: var(--fg); text-decoration: underline; text-decoration-color: var(--terra); text-underline-offset: 6px; }
 
-.blog-grid { border-bottom: 1px solid var(--line); }
-.blog-card {
-  align-items: baseline; row-gap: 8px;
-  border-top: 1px solid var(--line); padding: 20px 0 24px;
-  text-decoration: none;
+.blog-cover { aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; padding: 0; }
+.blog-cover--wide { aspect-ratio: 21 / 8; margin-bottom: 32px; }
+.blog-cover img { width: 100%; height: 100%; object-fit: cover; }
+.blog-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(40px, 5vw, 72px) var(--col-gap); margin-top: 32px;
 }
-.blog-card-meta { grid-column: 1 / span 3; display: flex; flex-direction: column; font-size: var(--t-meta); color: var(--fg2); }
-.blog-card-title { grid-column: 4 / span 5; font-size: clamp(26px, 2.6vw, 40px); line-height: 1.04; transition: color .2s; }
+.blog-card { display: block; text-decoration: none; }
+.blog-card-meta { display: flex; justify-content: space-between; gap: 12px; margin: 12px 0 10px; font-size: var(--t-meta); color: var(--fg2); }
+.blog-card-title { font-size: clamp(26px, 2.2vw, 34px); line-height: 1.04; margin-bottom: 10px; transition: color .2s; }
 .blog-card:hover .blog-card-title { color: var(--accent); }
-.blog-card-desc { grid-column: 9 / -1; font-size: var(--t-small); line-height: 1.5; color: var(--fg2); }
+.blog-card-desc { font-size: var(--t-small); line-height: 1.5; color: var(--fg2); }
 
+@media (max-width: 1000px) { .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 800px) {
   .blog-featured-desc, .blog-featured-cta { grid-column: 1 / -1; justify-self: start; }
-  .blog-card-meta, .blog-card-title, .blog-card-desc { grid-column: 1 / -1; }
-  .blog-card-meta { flex-direction: row; gap: 12px; flex-wrap: wrap; }
+  .blog-cover--wide { aspect-ratio: 4 / 3; }
 }
+@media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
 </style>
 
 </Base>

@@ -1,0 +1,24 @@
+---
+---
+<svg class="venn-svg" viewBox="-130 -70 760 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Quattro cerchi che si sovrappongono: analisi, co-design, sperimentazione e iterazione. Al centro, l'area in cui lavorano insieme.">
+  <defs>
+    <filter id="wobble" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="turbulence" baseFrequency="0.018" numOctaves="2" seed="9" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <circle class="venn-circle" cx="250" cy="165" r="155" stroke="rgba(28,24,20,0.55)" stroke-width="1.5" filter="url(#wobble)"/>
+  <circle class="venn-circle" cx="335" cy="250" r="155" stroke="rgba(28,24,20,0.55)" stroke-width="1.5" filter="url(#wobble)"/>
+  <circle class="venn-circle" cx="250" cy="335" r="155" stroke="rgba(28,24,20,0.55)" stroke-width="1.5" filter="url(#wobble)"/>
+  <circle class="venn-circle" cx="165" cy="250" r="155" stroke="rgba(28,24,20,0.55)" stroke-width="1.5" filter="url(#wobble)"/>
+
+  <path class="venn-center" d="M 191.5 308.5 A 155 155 0 0 1 191.5 191.5 A 155 155 0 0 1 308.5 191.5 A 155 155 0 0 1 308.5 308.5 A 155 155 0 0 1 191.5 308.5 Z" fill="#C4622A" filter="url(#wobble)"/>
+
+  <g class="venn-label" font-family="Caveat,cursive" font-size="34" fill="#1C1814">
+    <text x="250" y="-34" text-anchor="middle">Analisi</text>
+    <text x="-122" y="258" text-anchor="start">Iterazione</text>
+    <text x="622" y="258" text-anchor="end">Co-Design</text>
+    <text x="250" y="546" text-anchor="middle">Sperimentazione</text>
+  </g>
+</svg>

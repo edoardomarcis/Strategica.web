@@ -96,6 +96,9 @@ api/
 ### Header pagine interne
 `<section class="page-hero t-ink">` con folio, `h1` e `.page-hero-sub`.
 
+### Immagini
+Niente foto stock. `LinePlate.astro` genera dallo `seed` una variante stabile dell'illustrazione caos → ordine (hero, copertine blog); `ServicePlate.astro` e `Venn.astro` sono le figure di servizi e metodo. Foto reali, quando disponibili, vanno in `public/images/`.
+
 ### Tipografia
 Usare i token `--t-display`, `--t-h1`, `--t-h2`, `--t-h3`, `--t-lead`, `--t-body`, `--t-small`, `--t-meta`. Non aggiungere dimensioni nuove senza motivo.
 
@@ -133,7 +136,7 @@ Componente `Mark.astro`. `IntersectionObserver` in `main.js` aggiunge `.drawn`.
 
 Le bozze vivono in `drafts/` (markdown, anche senza frontmatter completo). Quando viene chiesto di **pubblicare** un articolo, seguire sempre questo workflow:
 
-1. **Frontmatter completo**: title, description 140–160 caratteri con la query target, pubDate odierna, tags coerenti coi cluster (OKR/Governance, Strategia/Crescita, AI/Innovazione), slug breve con la keyword. Niente coverImage se non fornita: l'header dell'articolo è tipografico.
+1. **Frontmatter completo**: title, description 140–160 caratteri con la query target, pubDate odierna, tags coerenti coi cluster (OKR/Governance, Strategia/Crescita, AI/Innovazione), slug breve con la keyword. Niente coverImage se non fornita: la copertina a linee generata dallo slug è automatica.
 2. **Link interni bidirezionali** — è la parte obbligatoria:
    - nel nuovo articolo: 2–4 link contestuali agli articoli esistenti correlati + almeno 1 link alla pagina servizio del cluster (`/servizi#in-formazione`, `#strategy-sprint`, `#edu-coaching`);
    - negli articoli esistenti correlati: aggiungere 1 link contestuale verso il nuovo pezzo (aggiornarli davvero, non solo il nuovo).

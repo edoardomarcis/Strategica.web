@@ -36,4 +36,4 @@ const drawOnView = (els, threshold, delay) => {
 };
 
 drawOnView(document.querySelectorAll('.mark'), 0.6, 300);
-drawOnView(document.querySelectorAll('.iceberg-svg'), 0.3, 200);
+drawOnView(document.querySelectorAll('.iceberg-svg, .venn-svg'), 0.3, 200);

@@ -1,0 +1,40 @@
+---
+// Tre piccole figure per i tre servizi: diagnosi, sprint, autonomia.
+interface Props {
+  n: 1 | 2 | 3;
+}
+const { n } = Astro.props;
+---
+
+<svg class="service-plate" viewBox="0 0 240 160" fill="none" aria-hidden="true">
+  {n === 1 && (
+    <g>
+      <path d="M120 14 C176 10 222 40 224 82 C226 126 178 150 122 148 C64 146 16 124 16 80 C16 38 66 18 120 14Z" />
+      <path d="M122 36 C164 34 198 54 198 84 C198 114 162 130 120 128 C78 126 44 110 46 80 C48 52 82 38 122 36Z" />
+      <path d="M124 58 C150 58 172 68 170 86 C168 104 146 110 120 108 C94 106 74 98 76 80 C78 66 100 58 124 58Z" />
+      <path d="M120 0 V160 M0 80 H240" stroke-dasharray="2 5" />
+      <circle class="sp-accent" cx="136" cy="72" r="7" />
+      <path class="sp-accent-line" d="M143 66 L188 22 H232" />
+    </g>
+  )}
+  {n === 2 && (
+    <g>
+      <path d="M0 146 H240" />
+      <path d="M8 146 C20 124 34 124 46 146" />
+      <path d="M46 146 C62 106 82 106 98 146" />
+      <path d="M98 146 C118 84 142 84 162 146" />
+      <path d="M162 146 C184 50 216 50 238 146" />
+      <path d="M46 138 V154 M98 138 V154 M162 138 V154 M238 138 V154" />
+      <path class="sp-accent-line" d="M8 128 C70 110 150 70 232 14 M214 16 L232 14 L226 32" />
+    </g>
+  )}
+  {n === 3 && (
+    <g>
+      <path d="M0 146 H240" />
+      <path d="M8 126 C60 122 100 96 140 66 C170 44 200 28 232 18" />
+      <path class="sp-accent-line" d="M8 40 C60 44 100 76 140 104 C170 124 200 136 232 142" stroke-dasharray="7 5" />
+      <circle class="sp-accent" cx="232" cy="18" r="5" />
+      <path d="M124 8 V146" stroke-dasharray="2 5" />
+    </g>
+  )}
+</svg>

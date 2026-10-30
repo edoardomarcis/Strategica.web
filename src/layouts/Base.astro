@@ -119,22 +119,23 @@ const ogImageURL = ogImage ? new URL(ogImage, SITE).href : DEFAULT_OG_IMAGE;
 <slot />
 
 <footer class="site-footer t-ink">
-  <div class="footer-top">
+  <div class="footer-brand">
+    <a href="/" class="footer-logo">Strat<em>egica</em></a>
     <p class="footer-tagline">Consulenza che punta a rendersi inutile.</p>
-    <ul class="footer-nav">
-      <li><a href="/#approccio">Approccio</a></li>
-      <li><a href="/check-up">Check-up</a></li>
-      <li><a href="/servizi">Servizi</a></li>
-      <li><a href="/chi-siamo">Chi siamo</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/#contatti">Contatti</a></li>
-      <li><a href="/privacy">Privacy</a></li>
-    </ul>
   </div>
-  <a href="/" class="footer-logo" aria-label="Strategica, torna alla home">Strat<em>egica</em></a>
+  <ul class="footer-nav">
+    <li><a href="/check-up">Check-up</a></li>
+    <li><a href="/servizi">Servizi</a></li>
+    <li><a href="/chi-siamo">Chi siamo</a></li>
+    <li><a href="/blog">Blog</a></li>
+  </ul>
+  <div class="footer-contact">
+    <a href="mailto:hello@wearestrategica.com">hello@wearestrategica.com</a>
+    <span>Milano, Italia</span>
+  </div>
   <div class="footer-copy">
     <span>© {new Date().getFullYear()} Strategica. Consulenza Strategica.</span>
-    <span>Milano, Italia</span>
+    <a href="/privacy">Privacy</a>
   </div>
 </footer>
 

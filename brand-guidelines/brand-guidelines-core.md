@@ -157,7 +157,9 @@ Taglio netto di colore, senza onde né divisori decorativi. Sequenza tipo: Ink �
 
 ## 08. Elementi organici
 
-La mano resta nelle annotazioni SVG e nelle note in Caveat. Niente filigrane, forme decorative o filtri di disturbo sul testo.
+La mano resta nelle annotazioni SVG e nelle note in Caveat. Niente filigrane o filtri di disturbo sul testo.
+
+**Illustrazione caos → ordine**: un groviglio di linee sottili che si ordina in un fascio, con una sola linea terracotta. Ogni pagina e articolo ha la sua variante, generata dal proprio nome.
 
 ---
 
